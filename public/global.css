@@ -3,13 +3,38 @@ body {
     position: relative;
 }
 
+@font-face {
+    font-family: 'earthsmightiestbold';
+    src: url("./fonts/earthsmightiestbold.ttf");
+}
+
+@font-face {
+    font-family: 'BadHandwriting';
+    src: url("./fonts/Badhandwriting-1.ttf");
+}
+
+
+
 body {
     color: #333;
-    margin: 0;
+    margin: 20px;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
+    min-height: 100vh;
+
+    font-family: 
+    'BadHandwriting',
+    'earthsmightiestbold',
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Oxygen-Sans,
+        Ubuntu,
+        Cantarell,
+        "Helvetica Neue",
         sans-serif;
 }
+
 
 a {
     color: rgb(0, 100, 200);

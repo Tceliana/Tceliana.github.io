@@ -17,7 +17,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        margin: 30px 1px;
+        margin: 1vh 1vw;
         display: flex;
         justify-content: space-between;
         align-items: center;

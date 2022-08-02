@@ -17,7 +17,8 @@ body {
 
 body {
     color: #333;
-    margin: 20px;
+    background-color:seashell;
+    margin: 0px 20px;
     box-sizing: border-box;
     min-height: 100vh;
 
@@ -33,6 +34,7 @@ body {
         Cantarell,
         "Helvetica Neue",
         sans-serif;
+    font-size:2em;
 }
 
 

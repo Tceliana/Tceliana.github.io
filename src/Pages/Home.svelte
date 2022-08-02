@@ -1,18 +1,9 @@
 <script lang="ts">
-    import Counter from "../lib/Counter.svelte";
+    import Counter from "../Components/Counter.svelte";
 </script>
 
-<main>
-    <header>
-        <a href="#" class="logo">Logo</a>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Work</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </header>
-    <h1 style="font-family: earthsmightiestbold;">Tceliana</h1>
+<main class="rows">
+    <h1 style="font-family: earthsmightiestbold; color: var(--COLOR_PRIMARY); ">Tceliana</h1>
 
     <div class="card">
         <Counter />

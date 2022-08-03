@@ -1,41 +1,69 @@
 <script lang="ts">
+    import gsap from "gsap";
+    import { onMount } from "svelte";
+    import RatingCard from "./RatingCard.svelte";
+    gsap.registerPlugin(ScrollTrigger);
     export let name: string;
     export let stars: number;
     export let review: string;
+
+    export let startPercentage: number;
+    export let endPercentage: number;
+
+    let firstQuartile = (startPercentage + endPercentage) / 4;
+    let thirdQuartile = ((startPercentage + endPercentage) * 3) / 4;
+
+    let mainDiv: HTMLElement = null;
+
+    console.log(window.innerWidth * 0.2);
+
+    onMount(() => {
+        gsap.fromTo(
+            mainDiv,
+            { opacity: 1 },
+            {
+                y: 0,
+                x: window.innerWidth * 0.9,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".scrollElement",
+                    start: startPercentage + "% top",
+                    end: firstQuartile + "% top",
+                    scrub: 1,
+                },
+            }
+        );
+
+        gsap.fromTo(
+            mainDiv,
+            { opacity: 1 },
+            {
+                y: 0,
+                x: 0,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".scrollElement",
+                    start: thirdQuartile + "% top",
+                    end: endPercentage + "% top",
+                    scrub: 1,
+                },
+            }
+        );
+    });
 </script>
 
-<div class="rating col-12 col-lg-4">
-    <div class="review-item">
-        <p>{name}</p>
-        <div>
-            {#each Array(stars) as _}
-                <span class="full-star" />
-            {/each}
-        </div>
-        <hr class="review-separator" />
-        <span class="review"><p>{review}</p></span>
-    </div>
+<div bind:this={mainDiv} class="rating columns flex_left">
+    <img src="./Images/TcelaDibus/patotata.png" alt="Tcela speaking" />
+    <RatingCard {name} {stars} {review} />
 </div>
 
 <style>
     .rating {
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding: 0px 10px;
-        background-color: #f4f4f4;
-        border-radius: 1vh;
-        box-shadow: 0 1px 10px 0 rgb(0 0 0 /30%);
-    }
+        position: fixed;
+        justify-content: space-between;
 
-    .review-separator {
-        margin-bottom: 10px;
-    }
-    .full-star:before {
-        display: inline-block;
-        position: relative;
-        width: 1.1em;
-        content: "\2605";
-        color: #ef5025 !important;
+        align-self: flex-start;
+        width: 45vw;
+        margin-left: calc(-45vw * 2);
     }
 </style>

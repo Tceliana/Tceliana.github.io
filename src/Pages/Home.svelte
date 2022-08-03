@@ -37,14 +37,17 @@
 
 <main class="rows">
     <h1 bind:this={title} style="font-family: earthsmightiestbold; color: var(--COLOR_PRIMARY); ">Tceliana</h1>
-
     <p id="bird">BIRD</p>
-
-    <Rating name="NAME" stars={5} review="REVIEW" />
-
     <p>The story begins.</p>
-
     <img class="hearth" src="./Images/hearth.svg" alt="hearth SVG" />
+
+    <Rating
+        name="CarlosMushuTV"
+        stars={5}
+        review="Intento aprender de su contenido pero me es imposible por que me hornea demasiado verlo "
+        startPercentage={10}
+        endPercentage={20}
+    />
 </main>
 
 <style>

@@ -1,7 +1,6 @@
 <script lang="ts">
     import gsap from "gsap";
     import { onMount } from "svelte";
-    import Rating from "../Components/Rating.svelte";
     gsap.registerPlugin(ScrollTrigger);
 
     let title: HTMLElement = null;

@@ -24,7 +24,8 @@
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 100% 100%;
-        padding: 8vh 8vh;
+        padding: 8vh 5vh;
+        width: 100%;
     }
 
     .rating {
@@ -32,18 +33,20 @@
         justify-content: flex-start;
         align-items: flex-start;
         border: 10vw 10px;
-        /* background-color: #f4f4f4; */
-        /* box-shadow: 0 1px 10px 0 rgb(0 0 0 /30%); */
     }
     .rating p {
         margin: 10px;
     }
 
     .review-separator {
-        margin-bottom: 10px;
-        height: 2vh;
+        margin-bottom: 0px;
+        height: 6vh;
         width: 100%;
         background-image: url("/Images/Lines/hr.png");
+        background-size: cover; /* <------ */
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100% 100%;
     }
     .full-star {
         display: inline-block;

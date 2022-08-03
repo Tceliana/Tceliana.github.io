@@ -10,6 +10,9 @@
         title.style.paddingLeft = value * 5 + "px";
     });
 
+    console.log("Inner Height = " + window.innerHeight);
+    console.log("Inner Width = " + window.innerWidth);
+
     onMount(() => {
         gsap.fromTo(
             "#bird",
@@ -40,14 +43,6 @@
     <p id="bird">BIRD</p>
     <p>The story begins.</p>
     <img class="hearth" src="./Images/hearth.svg" alt="hearth SVG" />
-
-    <Rating
-        name="CarlosMushuTV"
-        stars={5}
-        review="Intento aprender de su contenido pero me es imposible por que me hornea demasiado verlo "
-        startPercentage={10}
-        endPercentage={20}
-    />
 </main>
 
 <style>

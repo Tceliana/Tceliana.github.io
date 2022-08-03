@@ -54,14 +54,20 @@
 
 <div bind:this={mainDiv} class="rating columns flex_left">
     <img src="./Images/TcelaDibus/patotata.png" alt="Tcela speaking" />
-    <RatingCard {name} {stars} {review} />
+    <div style="flex-grow: 1">
+        <RatingCard {name} {stars} {review} />
+    </div>
 </div>
 
 <style>
+    .rating img {
+        width: 50%;
+        height: 50%;
+    }
     .rating {
         position: fixed;
         justify-content: space-between;
-
+        top: 5%;
         align-self: flex-start;
         width: 45vw;
         margin-left: calc(-45vw * 2);

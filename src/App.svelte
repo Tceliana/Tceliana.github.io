@@ -1,6 +1,7 @@
 <script lang="ts">
     import Home from "./Pages/Home.svelte";
     import Header from "./Components/Header.svelte";
+    import Rating from "./Components/Rating.svelte";
 </script>
 
 <main
@@ -11,6 +12,13 @@
 >
     <Header />
     <Home />
+    <Rating
+        name="CarlosMushuTV"
+        stars={5}
+        review="Intento aprender de su contenido pero me es imposible por que me hornea demasiado verlo "
+        startPercentage={10}
+        endPercentage={20}
+    />
 </main>
 
 <style>

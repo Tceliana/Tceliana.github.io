@@ -1,14 +1,13 @@
 <script lang="ts">
     import gsap from "gsap";
-    import { onMount } from "svelte";
 
     import RatingCard from "./RatingCard.svelte";
     gsap.registerPlugin(ScrollTrigger);
     export let name: string;
     export let stars: number;
     export let review: string;
-
     export let startPercentage: number;
+    export let mode: "U" | "R" | "L" | "D";
     export let endPercentage: number;
 
     let firstQuartile = (startPercentage + endPercentage) / 4;
@@ -18,17 +17,25 @@
     let YPosition: number;
     console.log(window.innerWidth * 0.2);
 
-    onMount(() => {
-        addMovement();
-    });
-
     function addMovement() {
+        function getDeltaY(): number {
+            if (["L", "R"].indexOf(mode) != -1) return 0;
+            if (mode == "D") return window.innerWidth * 0.9;
+            return -window.innerWidth * 0.9;
+        }
+        function getDeltaX(): number {
+            if (["U", "D"].indexOf(mode) != -1) return 0;
+            if (mode == "L") return window.innerWidth * 0.9;
+            return -window.innerWidth * 0.9;
+        }
+        console.log(getDeltaX());
+        console.log(getDeltaY());
         gsap.fromTo(
             mainDiv,
             { opacity: 1 },
             {
-                y: 0,
-                x: window.innerWidth * 0.9,
+                x: getDeltaX(),
+                y: getDeltaY(),
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: ".scrollElement",
@@ -57,15 +64,6 @@
         return true;
     }
 
-    function getScrollPercent() {
-        var h = document.documentElement,
-            b = document.body,
-            st = "scrollTop",
-            sh = "scrollHeight";
-        return ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100;
-    }
-    console.log(getScrollPercent());
-
     function isActive(YPosition: number): boolean {
         if (
             YPosition > ((startPercentage - 5) / 100) * document.body.scrollHeight &&
@@ -79,27 +77,51 @@
 </script>
 
 {#if isActive(YPosition)}
-    <div bind:this={mainDiv} class="rating columns flex_left">
-        <img src="./Images/TcelaDibus/patotata.png" alt="Tcela speaking" />
-        <div style="flex-grow: 1">
+    {#if mode === "L"}
+        <div bind:this={mainDiv} class="{mode} columns ">
+            <img class="TcelaImage" src="./Images/TcelaDibus/patotata.png" alt="Tcela speaking" />
             <RatingCard {name} {stars} {review} />
         </div>
-    </div>
+    {:else if mode === "R"}
+        <div bind:this={mainDiv} class="columns  {mode}">
+            <RatingCard {name} {stars} {review} />
+            <img class="TcelaImage" src="./Images/TcelaDibus/patotata.png" alt="Tcela speaking" />
+        </div>
+    {/if}
 {/if}
 
 <svelte:window bind:scrollY={YPosition} />
 
 <style>
-    .rating img {
+    .TcelaImage {
         width: 50%;
         height: 50%;
     }
-    .rating {
+    .R {
+        right: 0;
         position: fixed;
         justify-content: space-between;
         top: 5%;
         align-self: flex-start;
-        width: 45vw;
+        width: 20vw;
+        margin-right: calc(-45vw * 2);
+    }
+
+    .L {
+        left: 0;
+        position: fixed;
+        justify-content: space-between;
+        top: 5%;
+        align-self: flex-start;
+        width: 20vw;
         margin-left: calc(-45vw * 2);
+    }
+
+    .U {
+        top: 0;
+    }
+
+    .D {
+        bottom: 0;
     }
 </style>

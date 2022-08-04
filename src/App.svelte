@@ -18,6 +18,15 @@
         review="Intento aprender de su contenido pero me es imposible por que me hornea demasiado verlo "
         startPercentage={10}
         endPercentage={20}
+        mode="L"
+    />
+    <Rating
+        name="WilmiRosa"
+        stars={5}
+        review="Mejor programador de UwU!"
+        startPercentage={40}
+        endPercentage={50}
+        mode="R"
     />
 </main>
 

@@ -26,6 +26,7 @@
         background-size: 100% 100%;
         padding: 8vh 5vh;
         width: 100%;
+        box-sizing: border-box;
     }
 
     .rating {

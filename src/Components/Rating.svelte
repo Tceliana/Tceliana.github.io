@@ -10,14 +10,16 @@
     export let mode: "U" | "R" | "L" | "D";
     export let endPercentage: number;
 
+    const DEBUG_ACTIVE_ANIMATIONS: boolean = true;
+
     let firstQuartile = (startPercentage + endPercentage) / 4;
     let thirdQuartile = ((startPercentage + endPercentage) * 3) / 4;
 
     let mainDiv: HTMLElement = null;
     let YPosition: number;
-    console.log(window.innerWidth * 0.2);
 
     function addMovement() {
+        if (DEBUG_ACTIVE_ANIMATIONS === false) return;
         function getDeltaY(): number {
             if (["L", "R"].indexOf(mode) != -1) return 0;
             if (mode == "D") return window.innerWidth * 0.9;
@@ -28,8 +30,6 @@
             if (mode == "L") return window.innerWidth * 0.9;
             return -window.innerWidth * 0.9;
         }
-        console.log(getDeltaX());
-        console.log(getDeltaY());
         gsap.fromTo(
             mainDiv,
             { opacity: 1 },
@@ -85,7 +85,7 @@
     {:else if mode === "R"}
         <div bind:this={mainDiv} class="columns  {mode}">
             <RatingCard {name} {stars} {review} />
-            <img class="TcelaImage" src="./Images/TcelaDibus/patotata.png" alt="Tcela speaking" />
+            <img class="TcelaImage flipX" src="./Images/TcelaDibus/patotata.png" alt="Tcela speaking" />
         </div>
     {/if}
 {/if}
@@ -94,27 +94,28 @@
 
 <style>
     .TcelaImage {
-        width: 50%;
-        height: 50%;
+        width: 10vw;
+    }
+
+    .flipX {
+        transform: scaleX(-1);
     }
     .R {
         right: 0;
         position: fixed;
-        justify-content: space-between;
         top: 5%;
         align-self: flex-start;
-        width: 20vw;
+        width: fit-content;
         margin-right: calc(-45vw * 2);
     }
 
     .L {
         left: 0;
         position: fixed;
-        justify-content: space-between;
         top: 5%;
         align-self: flex-start;
-        width: 20vw;
         margin-left: calc(-45vw * 2);
+        width: fit-content;
     }
 
     .U {

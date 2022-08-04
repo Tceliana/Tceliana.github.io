@@ -25,7 +25,7 @@
         background-position: center center;
         background-size: 100% 100%;
         padding: 8vh 5vh;
-        width: 100%;
+        width: fit-content;
         box-sizing: border-box;
     }
 
@@ -65,5 +65,10 @@
     .starsContainer {
         display: flex;
         justify-content: flex-start;
+    }
+
+    .review {
+        max-width: 30vw;
+        word-wrap: break-word;
     }
 </style>

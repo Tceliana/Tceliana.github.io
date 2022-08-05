@@ -5,7 +5,9 @@
     export let startPercentage: number;
     export let endPercentage: number;
     export let mode: "U" | "R" | "L" | "D";
-    export let deltaSize: number;
+    export let deltaSizePercentage: number;
+
+    const offset: number = Math.floor(Math.random() * 50);
 
     const DEBUG_ACTIVE_ANIMATIONS: boolean = true;
 
@@ -19,17 +21,17 @@
         if (DEBUG_ACTIVE_ANIMATIONS === false) return;
         function getDeltaY(): number {
             if (["L", "R"].indexOf(mode) != -1) return 0;
-            if (mode == "D") return window.innerWidth * deltaSize;
-            return -window.innerWidth * deltaSize;
+            if (mode == "D") return window.innerWidth * deltaSizePercentage;
+            return -window.innerWidth * deltaSizePercentage;
         }
         function getDeltaX(): number {
             if (["U", "D"].indexOf(mode) != -1) return 0;
-            if (mode == "L") return window.innerWidth * deltaSize;
-            return -window.innerWidth * deltaSize;
+            if (mode == "L") return window.innerWidth * deltaSizePercentage;
+            return -window.innerWidth * deltaSizePercentage;
         }
         gsap.fromTo(
             mainDiv,
-            { opacity: 1 },
+            {},
             {
                 x: getDeltaX(),
                 y: getDeltaY(),
@@ -45,7 +47,7 @@
 
         gsap.fromTo(
             mainDiv,
-            { opacity: 1 },
+            {},
             {
                 y: 0,
                 x: 0,
@@ -63,8 +65,8 @@
 
     function isActive(YPosition: number): boolean {
         if (
-            YPosition > ((startPercentage - 3) / 100) * document.body.scrollHeight &&
-            YPosition < ((endPercentage + 3) / 100) * document.body.scrollHeight
+            YPosition > ((startPercentage - 5) / 100) * document.body.scrollHeight &&
+            YPosition < ((endPercentage + 5) / 100) * document.body.scrollHeight
         ) {
             addMovement();
             return true;
@@ -74,7 +76,13 @@
 </script>
 
 {#if isActive(YPosition)}
-    <div bind:this={mainDiv} class="{mode} columns " style="--deltaSize:{-deltaSize * 100 + 'vw'}">
+    <div
+        bind:this={mainDiv}
+        class="{mode} columns Appearable "
+        style="
+        --deltaSize:{-deltaSizePercentage * 100 + 'vw'}; 
+        --offset:{offset + '%'}"
+    >
         <slot />
     </div>
 {/if}
@@ -82,21 +90,21 @@
 <svelte:window bind:scrollY={YPosition} />
 
 <style>
+    .Appearable {
+        position: fixed;
+        align-self: flex-start;
+        width: fit-content;
+        height: fit-content;
+    }
     .L {
         left: 0;
-        position: fixed;
-        top: 5%;
-        align-self: flex-start;
+        top: var(--offset);
         margin-left: var(--deltaSize);
-        width: fit-content;
     }
 
     .R {
         right: 0;
-        position: fixed;
-        top: 5%;
-        align-self: flex-start;
-        width: fit-content;
+        top: var(--offset);
         margin-right: var(--deltaSize);
     }
 

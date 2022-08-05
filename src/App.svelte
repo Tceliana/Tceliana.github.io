@@ -14,7 +14,7 @@
     <Home />
     <Rating
         name="CarlosMushuTV"
-        stars={5}
+        stars={1}
         review="Intento aprender de su contenido pero me es imposible por que me hornea demasiado verlo "
         startPercentage={10}
         endPercentage={20}

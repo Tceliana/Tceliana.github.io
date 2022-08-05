@@ -44,7 +44,6 @@
         height: 6vh;
         width: 100%;
         background-image: url("/Images/Lines/hr.png");
-        background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 100% 100%;
@@ -52,7 +51,6 @@
     .full-star {
         display: inline-block;
         position: relative;
-        background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 100% 100%;

@@ -6,7 +6,7 @@
     <a href=".." class="logo">La leyenda</a>
     <ul>
         <li><HeaderLink linkName="Home" path=".." /></li>
-        <li><HeaderLink linkName="About" path=".." /></li>
+        <li><HeaderLink linkName="Games" path="/games" /></li>
         <li><HeaderLink linkName="Work" path=".." /></li>
         <li><HeaderLink linkName="Contact" path=".." /></li>
     </ul>

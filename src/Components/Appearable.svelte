@@ -64,12 +64,19 @@
     }
 
     function isActive(YPosition: number): boolean {
+        const max_scrollbar_height: number = document.body.scrollHeight - window.innerHeight;
+
+        if (max_scrollbar_height <= 0) {
+            // No scrollbar!
+            if (startPercentage <= 0) return true;
+            return false;
+        }
+
         if (
-            YPosition > ((startPercentage - 5) / 100) * document.body.scrollHeight &&
-            YPosition < ((endPercentage + 5) / 100) * document.body.scrollHeight
+            YPosition > ((startPercentage - 5) / 100) * max_scrollbar_height &&
+            YPosition < ((endPercentage + 5) / 100) * max_scrollbar_height
         ) {
             addMovement();
-            console.log("OK");
             return true;
         }
         return false;

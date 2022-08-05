@@ -1,9 +1,7 @@
 <script lang="ts">
-    import gsap from "gsap";
     import Appearable from "./Appearable.svelte";
-
     import RatingCard from "./RatingCard.svelte";
-    gsap.registerPlugin(ScrollTrigger);
+
     export let name: string;
     export let stars: number;
     export let review: string;

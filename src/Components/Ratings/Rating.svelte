@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Appearable from "./Appearable.svelte";
+    import Appearable from "../Appearable.svelte";
     import RatingCard from "./RatingCard.svelte";
 
     export let name: string;

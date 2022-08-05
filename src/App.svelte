@@ -1,7 +1,7 @@
 <script lang="ts">
     import Home from "./Pages/Home.svelte";
-    import Header from "./Components/Header.svelte";
-    import Rating from "./Components/Rating.svelte";
+    import Header from "./Components/Header/Header.svelte";
+    import Rating from "./Components/Ratings/Rating.svelte";
 
     var uwuList = [];
     function FillList() {

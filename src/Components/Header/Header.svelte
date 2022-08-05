@@ -1,13 +1,14 @@
 <script lang="ts">
+    import HeaderLink from "./HeaderLink.svelte";
 </script>
 
 <header class="columns">
     <a href=".." class="logo">La leyenda</a>
     <ul>
-        <li><a href="..">Home</a></li>
-        <li><a href="..">About</a></li>
-        <li><a href="..">Work</a></li>
-        <li><a href="..">Contact</a></li>
+        <li><HeaderLink linkName="Home" path=".." /></li>
+        <li><HeaderLink linkName="About" path=".." /></li>
+        <li><HeaderLink linkName="Work" path=".." /></li>
+        <li><HeaderLink linkName="Contact" path=".." /></li>
     </ul>
 </header>
 
@@ -41,17 +42,5 @@
     header ul li {
         list-style: none;
         margin-left: 20px;
-    }
-
-    header ul li a {
-        text-decoration: none;
-        padding: 6px 15px;
-        color: var(--COLOR_SECONDARY);
-        border-radius: 20px;
-    }
-
-    header ul li a:hover {
-        background-color: #fff;
-        color: #2b1055;
     }
 </style>

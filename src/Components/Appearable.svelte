@@ -5,6 +5,7 @@
     export let startPercentage: number;
     export let endPercentage: number;
     export let mode: "U" | "R" | "L" | "D";
+    export let deltaSize: number;
 
     const DEBUG_ACTIVE_ANIMATIONS: boolean = true;
 
@@ -18,13 +19,13 @@
         if (DEBUG_ACTIVE_ANIMATIONS === false) return;
         function getDeltaY(): number {
             if (["L", "R"].indexOf(mode) != -1) return 0;
-            if (mode == "D") return window.innerWidth * 0.9;
-            return -window.innerWidth * 0.9;
+            if (mode == "D") return window.innerWidth * deltaSize;
+            return -window.innerWidth * deltaSize;
         }
         function getDeltaX(): number {
             if (["U", "D"].indexOf(mode) != -1) return 0;
-            if (mode == "L") return window.innerWidth * 0.9;
-            return -window.innerWidth * 0.9;
+            if (mode == "L") return window.innerWidth * deltaSize;
+            return -window.innerWidth * deltaSize;
         }
         gsap.fromTo(
             mainDiv,
@@ -73,10 +74,7 @@
 </script>
 
 {#if isActive(YPosition)}
-    <div bind:this={mainDiv} class="{mode} columns ">
-        <slot />
-    </div>
-    <div bind:this={mainDiv} class="{mode} columns  ">
+    <div bind:this={mainDiv} class="{mode} columns " style="--deltaSize:{-deltaSize * 100 + 'vw'}">
         <slot />
     </div>
 {/if}
@@ -84,22 +82,22 @@
 <svelte:window bind:scrollY={YPosition} />
 
 <style>
+    .L {
+        left: 0;
+        position: fixed;
+        top: 5%;
+        align-self: flex-start;
+        margin-left: var(--deltaSize);
+        width: fit-content;
+    }
+
     .R {
         right: 0;
         position: fixed;
         top: 5%;
         align-self: flex-start;
         width: fit-content;
-        margin-right: calc(-45vw * 2);
-    }
-
-    .L {
-        left: 0;
-        position: fixed;
-        top: 5%;
-        align-self: flex-start;
-        margin-left: calc(-45vw * 2);
-        width: fit-content;
+        margin-right: var(--deltaSize);
     }
 
     .U {

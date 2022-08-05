@@ -12,7 +12,7 @@
     export let endPercentage: number;
 </script>
 
-<Appearable {startPercentage} {endPercentage} {mode}>
+<Appearable {startPercentage} {endPercentage} {mode} deltaSize={0.9}>
     {#if mode === "L"}
         <img class="TcelaImage" src="./Images/TcelaDibus/patotata.png" alt="Tcela speaking" />
         <RatingCard {name} {stars} {review} />

@@ -24,7 +24,7 @@
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 100% 100%;
-        padding: 8vh 5vh;
+        padding: 8vh 10vh;
         width: fit-content;
         box-sizing: border-box;
     }

@@ -4,21 +4,14 @@ body {
 }
 
 @font-face {
-    font-family: 'earthsmightiestbold';
-    src: url("./fonts/earthsmightiestbold.ttf");
-}
-
-@font-face {
     font-family: 'BadHandwriting';
     src: url("./fonts/Badhandwriting.woff");
 }
 
 @font-face {
-    font-family: 'BadHandwriting1';
-    src: url("./fonts/badhandwriting-1-webfont.woff");
+    font-family: 'earthsmightiestbold';
+    src: url("./fonts/earthsmightiestbold.ttf");
 }
-
-
 
 
 body {

@@ -20,12 +20,12 @@
     function addMovement() {
         if (DEBUG_ACTIVE_ANIMATIONS === false) return;
         function getDeltaY(): number {
-            if (["L", "R"].indexOf(mode) != -1) return 0;
-            if (mode == "D") return window.innerWidth * deltaSizePercentage;
-            return -window.innerWidth * deltaSizePercentage;
+            if (["L", "R"].includes(mode)) return 0;
+            if (mode == "D") return -window.innerHeight * deltaSizePercentage;
+            return window.innerHeight * deltaSizePercentage;
         }
         function getDeltaX(): number {
-            if (["U", "D"].indexOf(mode) != -1) return 0;
+            if (["U", "D"].includes(mode)) return 0;
             if (mode == "L") return window.innerWidth * deltaSizePercentage;
             return -window.innerWidth * deltaSizePercentage;
         }
@@ -69,6 +69,7 @@
             YPosition < ((endPercentage + 5) / 100) * document.body.scrollHeight
         ) {
             addMovement();
+            console.log("OK");
             return true;
         }
         return false;
@@ -76,15 +77,27 @@
 </script>
 
 {#if isActive(YPosition)}
-    <div
-        bind:this={mainDiv}
-        class="{mode} columns Appearable "
-        style="
+    {#if ["L", "R"].includes(mode)}
+        <div
+            bind:this={mainDiv}
+            class="Appearable columns {mode} "
+            style="
         --deltaSize:{-deltaSizePercentage * 100 + 'vw'}; 
         --offset:{offset + '%'}"
-    >
-        <slot />
-    </div>
+        >
+            <slot />
+        </div>
+    {:else if ["U", "D"].includes(mode)}
+        <div
+            bind:this={mainDiv}
+            class="Appearable rows {mode} "
+            style="
+        --deltaSize:{-deltaSizePercentage * 100 + 'vh'}; 
+        --offset:{offset + '%'}"
+        >
+            <slot />
+        </div>
+    {/if}
 {/if}
 
 <svelte:window bind:scrollY={YPosition} />
@@ -110,9 +123,13 @@
 
     .U {
         top: 0;
+        right: var(--offset);
+        margin-top: var(--deltaSize);
     }
 
     .D {
         bottom: 0;
+        right: var(--offset);
+        margin-bottom: var(--deltaSize);
     }
 </style>

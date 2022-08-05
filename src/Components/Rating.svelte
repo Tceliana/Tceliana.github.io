@@ -19,6 +19,12 @@
     {:else if mode === "R"}
         <RatingCard {name} {stars} {review} />
         <img class="TcelaImage flipX" src="./Images/TcelaDibus/patotata.png" alt="Tcela speaking" />
+    {:else if mode === "U"}
+        <img class="TcelaImage rotate90" src="./Images/TcelaDibus/patotataV.png" alt="Tcela speaking" />
+        <RatingCard {name} {stars} {review} />
+    {:else if mode === "D"}
+        <RatingCard {name} {stars} {review} />
+        <img class="TcelaImage flipY" src="./Images/TcelaDibus/patotataV.png" alt="Tcela speaking" />
     {/if}
 </Appearable>
 
@@ -29,5 +35,9 @@
 
     .flipX {
         transform: scaleX(-1);
+    }
+
+    .flipY {
+        transform: scaleY(-1);
     }
 </style>

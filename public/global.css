@@ -10,8 +10,14 @@ body {
 
 @font-face {
     font-family: 'BadHandwriting';
-    src: url("./fonts/Badhandwriting-1.ttf");
+    src: url("./fonts/Badhandwriting.woff");
 }
+
+@font-face {
+    font-family: 'BadHandwriting1';
+    src: url("./fonts/badhandwriting-1-webfont.woff");
+}
+
 
 
 

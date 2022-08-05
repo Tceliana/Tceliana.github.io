@@ -20,7 +20,7 @@
 <style>
     .frame {
         background-image: url("/Images/Lines/ReviewFrame.png");
-        background-size: cover; /* <------ */
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 100% 100%;

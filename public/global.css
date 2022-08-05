@@ -19,7 +19,7 @@ body {
     background-color:seashell;
     margin: 0px 20px;
     box-sizing: border-box;
-    min-height: 500vh;
+    min-height: 1000vh;
     overflow-x: hidden;
     overflow-y: scroll;
 

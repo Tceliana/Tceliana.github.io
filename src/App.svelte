@@ -28,6 +28,14 @@
         endPercentage={50}
         mode="R"
     />
+    <Rating
+        name="WayraisBleu"
+        stars={5}
+        review="Felizmente me encontre con este programador y me pareció una persona muy amable y atenta, por lo que casé con el"
+        startPercentage={70}
+        endPercentage={80}
+        mode="L"
+    />
 </main>
 
 <style>

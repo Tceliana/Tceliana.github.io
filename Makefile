@@ -12,11 +12,6 @@ install:
 deploy: 
 	git fetch --prune
 	git subtree push --prefix public origin gh-pages
-	# git push origin --delete gh-pages
-	# git branch -D gh-pages
-	# git branch gh-pages HEAD
-	# git filter-branch -f --subdirectory-filter public -- gh-pages
-	# git push --set-upstream origin gh-pages
 	git fetch --prune
 
 edeploy: 

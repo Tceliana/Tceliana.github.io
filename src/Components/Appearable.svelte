@@ -73,8 +73,8 @@
         }
 
         if (
-            YPosition > ((startPercentage - 5) / 100) * max_scrollbar_height &&
-            YPosition < ((endPercentage + 5) / 100) * max_scrollbar_height
+            (YPosition / max_scrollbar_height) * 100 > startPercentage - 5 &&
+            (YPosition / max_scrollbar_height) * 100 < endPercentage + 5
         ) {
             addMovement();
             return true;

@@ -2,17 +2,18 @@
     import SvgScrollPath from "./SVGScrollPath.svelte";
 
     export let flipX: boolean = false;
-    export let startPercentage: number;
-    export let endPercentage: number;
+    export let startAtPixelY: number;
+    export let endAtPixelY: number;
 </script>
 
 <div class="gameView">
-    <SvgScrollPath {flipX} {startPercentage} {endPercentage} />
+    <SvgScrollPath {flipX} {startAtPixelY} {endAtPixelY} />
 </div>
 
 <style>
     .gameView {
         position: fixed;
         top: 0;
+        z-index: -1;
     }
 </style>

@@ -45,9 +45,8 @@
             scrollUpOffset =
                 window.innerHeight * ((YPosition - startScrollAtPixelY) / (endAtPixelY - startScrollAtPixelY));
         }
-
-        console.log("PercentageCompleted =" + percentageCompleted + " // offset = " + scrollUpOffset);
     });
+
     onMount(() => {
         totalLength = svgPath.getTotalLength();
     });
@@ -56,7 +55,7 @@
 <svg
     viewBox="{currentCircle.xOffset} {currentCircle.yOffset} {currentCircle.width} {currentCircle.height}"
     preserveAspectRatio="none"
-    style="transform:scaleX({flipX ? -1 : 1})"
+    style="transform:scaleX({flipX ? -1 : 1}); margin-top:{-scrollUpOffset}px"
 >
     <path
         bind:this={svgPath}

@@ -1,19 +1,20 @@
 <script lang="ts">
-    import GameDescription from "./GameDescription.svelte";
     import SvgScrollPath from "./SVGScrollPath.svelte";
-    import type { GameInfo } from "../../gameInfo";
 
     export let flipX: boolean = false;
     export let startAtPixelY: number;
     export let endAtPixelY: number;
 
-    export let gameInfo: GameInfo;
+    export let gameName: string;
+    export let description: string;
+    export let link: string;
+    export let imageLink: string;
 </script>
 
 <div class="gameView">
     <SvgScrollPath {flipX} {startAtPixelY} {endAtPixelY}>
-        <GameDescription {gameInfo} style="width:50vw;" />
-        <img src={gameInfo.embeddedLink} alt="dsadsa" style="width:50vw;" />
+        <div>Wathing My Daughter Go Black</div>
+        <div>Wathing My Daughter Go Black</div>
     </SvgScrollPath>
 </div>
 

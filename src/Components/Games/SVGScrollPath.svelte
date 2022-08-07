@@ -52,24 +52,30 @@
     });
 </script>
 
-<svg
-    viewBox="{currentCircle.xOffset} {currentCircle.yOffset} {currentCircle.width} {currentCircle.height}"
-    preserveAspectRatio="none"
-    style="transform:scaleX({flipX ? -1 : 1}); margin-top:{-scrollUpOffset}px"
->
-    <path
-        bind:this={svgPath}
-        fill="none"
-        d={currentCircle.svgPath}
-        style="stroke-dasharray: {totalLength} {totalLength};stroke-dashoffset: {-totalLength -
-            totalLength * percentageCompleted}; "
-    />
-</svg>
+<div class="fullScreen">
+    <svg
+        class="fullScreen"
+        viewBox="{currentCircle.xOffset} {currentCircle.yOffset} {currentCircle.width} {currentCircle.height}"
+        preserveAspectRatio="none"
+        style="transform:scaleX({flipX ? -1 : 1}); margin-top:{-scrollUpOffset}px"
+    >
+        <path
+            bind:this={svgPath}
+            fill="none"
+            d={currentCircle.svgPath}
+            style="stroke-dasharray: {totalLength} {totalLength};stroke-dashoffset: {-totalLength -
+                totalLength * percentageCompleted}; "
+        />
+    </svg>
+    <div class="columns">
+        <slot />
+    </div>
+</div>
 
 <svelte:window bind:scrollY={YPosition} />
 
 <style>
-    svg {
+    .fullScreen {
         width: 100vw;
         height: 100vh;
     }

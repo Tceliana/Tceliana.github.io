@@ -35,7 +35,7 @@
         }
 
         imageOpacity = getPercentage(0.2, 0.5, pathPercentage);
-        gameDescriptionOpacity = getPercentage(0.6, 0.7, pathPercentage);
+        gameDescriptionOpacity = getPercentage(0.7, 0.8, pathPercentage);
         gameDescriptionAppearance = getPercentage(0.5, 0.8, pathPercentage);
     });
 </script>

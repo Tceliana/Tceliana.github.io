@@ -13,12 +13,13 @@
     .gameView {
         box-sizing: border-box;
         margin-left: 1vw;
-        padding: 2vh 1vw;
-        filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.2));
-        box-shadow: 20px;
-
+        padding: 5vh 1vw;
+        filter: drop-shadow(0px 2px 3px rgba(0, 0, 255, 0.5));
         background-color: rgb(255 255 255 /10%);
         border-radius: 0.5vh;
-        box-shadow: 0 1px 10px 0 rgb(0 0 0 /5%);
+        box-shadow: 0 1px 9px 0 rgb(0 0 0 / 20%);
+        height: fit-content;
+        max-height: 100%;
+        margin: 1vh 2vw;
     }
 </style>

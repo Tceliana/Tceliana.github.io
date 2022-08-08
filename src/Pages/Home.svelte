@@ -55,7 +55,7 @@
         <h1 bind:this={title} style="font-family: earthsmightiestbold; color: var(--COLOR_PRIMARY); ">Tceliana</h1>
         <p id="bird">BIRD</p>
         <p>The story begins.</p>
-        <img class="hearth" src="./Images/hearth.svg" alt="hearth SVG" />
+        <img class="hearth" src="/Images/hearth.svg" alt="hearth SVG" />
     </div>
 </div>
 <Rating

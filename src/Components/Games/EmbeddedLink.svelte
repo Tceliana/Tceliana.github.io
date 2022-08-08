@@ -1,6 +1,6 @@
 <script lang="ts">
     import Youtube from "svelte-youtube";
-    type EmbeddedType = "png" | "gif" | "mp4" | "webm" | "youtube";
+    type EmbeddedType = "png" | "gif" | "mp4" | "webm" | "youtube" | "tiktok";
 
     export let embeddedLink: string;
     export let aspectRatio: "expand" | "preserveRatio" = "preserveRatio";
@@ -17,6 +17,12 @@
             }
             return "youtube";
         }
+        if (embeddedLink.startsWith("https://www.tiktok.com") || embeddedLink.startsWith("www.tiktok.com"))
+        {
+            
+            return "tiktok";
+        }
+
         if (embeddedLink.endsWith(".png")) return "png";
         else if (embeddedLink.endsWith(".gif")) return "gif";
         else if (embeddedLink.endsWith(".mp4")) return "mp4";
@@ -58,6 +64,8 @@
     </div>
 {:else if embeddedType === "youtube"}
     <Youtube videoId={videoID} options={YoutubeOptions} class="YOUTUBE_VIDEO_CONTAINER" on:end={onYTVideoEnd} />
+{:else if embeddedType === "tiktok"}
+    <iframe title="tiktok video" src="{embeddedLink}" class={aspectRatio} />
 {/if}
 
 <style>

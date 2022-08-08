@@ -11,9 +11,17 @@ export interface GameInfo{
 
 
 const Games: GameInfo[] =
-[
+[    
+{title:"Spatial Game",
+    description: `The famous spatial game.
+    `,
+    link: ["https://www.twitch.tv/tcela"],
+    embeddedLink:"https://www.tiktok.com/embed/v2/7114078078732750085",
+    embeddedAspect :"expand"
+    },
+
     {title:"Tcela and Jayrumi dance",
-description: `Yeah, this is not a game, but.. well, it's Tcela and Jayrumi dancing UwU.
+description: `Yeah, this is not a game, but.. well, it's Tcela and Jayrumi dancing!
 `,
 link: ["https://www.twitch.tv/tcela"],
 embeddedLink:"https://user-images.githubusercontent.com/83143288/183411849-2297da5e-f505-4494-a920-7dd757433685.mp4",

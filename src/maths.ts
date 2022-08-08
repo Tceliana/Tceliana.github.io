@@ -1,5 +1,5 @@
 
-export function Clamp(min, max, value)
+export function Clamp(min:number, max:number, value:number):number
 {
 	if(value < min)
 		return min;

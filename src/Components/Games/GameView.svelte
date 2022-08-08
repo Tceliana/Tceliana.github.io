@@ -2,7 +2,7 @@
     import GameDescription from "./GameDescription.svelte";
     import SvgScrollPath from "./SVGScrollPath.svelte";
     import type { GameInfo } from "../../gameInfo";
-    import { Clamp } from "../../maths";
+    import { getPercentage } from "../../maths";
     import EmbeddedLink from "./EmbeddedLink.svelte";
 
     export let gameInfo: GameInfo;
@@ -10,50 +10,39 @@
     export let flipX: boolean = false;
     export let startAtPixelY: number;
     export let endAtPixelY: number;
-    export let scrollUpAtPercentage: number = 80;
+    const startScrollUpAtPixelY = startAtPixelY + (endAtPixelY - startAtPixelY) * 0.8;
 
     let YPosition: number;
-    let scrollUpOffset: number = 0;
-    let percentageCompleted: number = 0;
+    let pathPercentage: number = 0; // 0 to 1 between StartAtPixelY and startScrollUpAtPixelY
+    let scrollUpPercentage: number = 0; // 0 to 1 between startScrollUpAtPixelY and endAtPixelY
 
     let imageOpacity: number = 0;
     let gameDescriptionOpacity: number = 0;
-
-    const startScrollAtPixelY = startAtPixelY + ((endAtPixelY - startAtPixelY) * scrollUpAtPercentage) / 100;
+    let gameDescriptionAppearance: number = 0;
 
     window.addEventListener("scroll", () => {
         if (YPosition < startAtPixelY || YPosition > endAtPixelY) {
-            percentageCompleted = 0;
-            scrollUpOffset = 0;
+            pathPercentage = 0;
+            scrollUpPercentage = 0;
             return;
         }
-        if (YPosition < startScrollAtPixelY) {
-            percentageCompleted = (YPosition - startAtPixelY) / (startScrollAtPixelY - startAtPixelY);
-
-            scrollUpOffset = 0;
+        if (YPosition < startScrollUpAtPixelY) {
+            pathPercentage = getPercentage(startAtPixelY, startScrollUpAtPixelY, YPosition);
+            scrollUpPercentage = 0;
         } else {
-            percentageCompleted = 1;
-            scrollUpOffset =
-                window.innerHeight * ((YPosition - startScrollAtPixelY) / (endAtPixelY - startScrollAtPixelY));
+            pathPercentage = 1;
+            scrollUpPercentage = getPercentage(startScrollUpAtPixelY, endAtPixelY, YPosition);
         }
 
-        imageOpacity = getOpacityByPercentageScroll(0.2, 0.5, percentageCompleted);
-        gameDescriptionOpacity = getOpacityByPercentageScroll(0.6, 0.7, percentageCompleted);
+        imageOpacity = getPercentage(0.2, 0.5, pathPercentage);
+        gameDescriptionOpacity = getPercentage(0.6, 0.7, pathPercentage);
+        gameDescriptionAppearance = getPercentage(0.5, 0.8, pathPercentage);
     });
-
-    function getOpacityByPercentageScroll(
-        startAtPercentage: number,
-        endAtPercentage: number,
-        percentageCompleted: number
-    ): number {
-        let returned = (percentageCompleted - startAtPercentage) / (endAtPercentage - startAtPercentage);
-        return Clamp(0, 1, returned);
-    }
 </script>
 
 {#if YPosition > startAtPixelY && YPosition < endAtPixelY}
-    <div class="gameView" style="margin-top:{-scrollUpOffset}px">
-        <SvgScrollPath {flipX} {percentageCompleted} />
+    <div class="gameView" style="margin-top:{-scrollUpPercentage * window.innerHeight}px">
+        <SvgScrollPath {flipX} percentageCompleted={pathPercentage} />
         <div class="columns">
             <div class="midScreen" style="opacity:{flipX ? imageOpacity : gameDescriptionOpacity}">
                 {#if flipX}
@@ -61,12 +50,16 @@
                         <EmbeddedLink embeddedLink={gameInfo.embeddedLink} aspectRatio={gameInfo.embeddedAspect} />
                     </div>
                 {:else}
-                    <GameDescription {gameInfo} style="width:50vw;" />
+                    <div class="TextPositioner" style="margin-left:-{100 - gameDescriptionAppearance * 100}%;">
+                        <GameDescription {gameInfo} />
+                    </div>
                 {/if}
             </div>
             <div class="midScreen" style="opacity:{flipX ? gameDescriptionOpacity : imageOpacity}">
                 {#if flipX}
-                    <GameDescription {gameInfo} style="width:50vw;" />
+                    <div class="TextPositioner" style="margin-left:-{100 - gameDescriptionAppearance * 100}%;">
+                        <GameDescription {gameInfo} />
+                    </div>
                 {:else}
                     <div class="ImagePositionerR">
                         <EmbeddedLink embeddedLink={gameInfo.embeddedLink} aspectRatio={gameInfo.embeddedAspect} />
@@ -104,5 +97,12 @@
         right: 11.05%;
         height: 62.4%;
         bottom: 22.45%;
+    }
+
+    .TextPositioner {
+        position: absolute;
+        height: 62.4%;
+        bottom: 22.45%;
+        width: 50%;
     }
 </style>

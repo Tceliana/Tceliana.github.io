@@ -1,6 +1,4 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-
     import GameView from "../Components/Games/GameView.svelte";
     import Games from "../gameInfo";
     const pageHeight: number = (Games.length + 1) * 1.5;

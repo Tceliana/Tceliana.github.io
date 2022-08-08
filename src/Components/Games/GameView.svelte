@@ -52,7 +52,9 @@
         <div class="columns">
             <div class="midScreen" style="opacity:{flipX ? imageOpacity : gameDescriptionOpacity}">
                 {#if flipX}
-                    <img src={gameInfo.embeddedLink} alt="dsadsa" style="width:50vw;" />
+                    <div class="ImagePositionerL">
+                        <img src={gameInfo.embeddedLink} alt="dsadsa" style="width:100%; height:100%;" />
+                    </div>
                 {:else}
                     <GameDescription {gameInfo} style="width:50vw;" />
                 {/if}
@@ -61,7 +63,9 @@
                 {#if flipX}
                     <GameDescription {gameInfo} style="width:50vw;" />
                 {:else}
-                    <img src={gameInfo.embeddedLink} alt="dsadsa" style="width:50vw;" />
+                    <div class="ImagePositionerR">
+                        <img src={gameInfo.embeddedLink} alt="dsadsa" style="width:100%;height:100%;" />
+                    </div>
                 {/if}
             </div>
         </div>
@@ -80,5 +84,20 @@
     .midScreen {
         width: 50vw;
         height: 100vh;
+    }
+
+    .ImagePositionerL {
+        position: absolute;
+        width: 38.8%;
+        left: 11.25%;
+        height: 62.4%;
+        bottom: 22.45%;
+    }
+    .ImagePositionerR {
+        position: absolute;
+        width: 38.8%;
+        right: 11.05%;
+        height: 62.4%;
+        bottom: 22.45%;
     }
 </style>

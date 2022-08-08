@@ -4,7 +4,6 @@
     export let embeddedLink: string;
     export let aspectRatio: "expand" | "preserveRatio" = "preserveRatio";
     // TODO: Parse link to deduce type: png / gif / mp4 etc etc etc etc
-    console.log(embeddedLink);
 
     let embeddedType: EmbeddedType = getEmbeddedType(embeddedLink);
 
@@ -14,8 +13,6 @@
         else if (embeddedLink.endsWith(".mp4")) return "mp4";
         console.error("TYPE " + link + " Isn't recognized.");
     }
-
-    console.log(embeddedType);
 </script>
 
 {#if embeddedType === "png"}

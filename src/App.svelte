@@ -4,6 +4,7 @@
     import Home from "./Pages/Home.svelte";
     import Header from "./Components/Header/Header.svelte";
     import Games from "./Pages/Games.svelte";
+    
 </script>
 
 <main

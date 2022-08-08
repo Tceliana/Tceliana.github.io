@@ -11,7 +11,6 @@
     function getEmbeddedType(link: string): EmbeddedType {
         if (embeddedLink.startsWith("https://www.youtube.com") || embeddedLink.startsWith("www.youtube.com")) {
             videoID = getYoutubeId(link);
-            console.log(videoID);
             if (videoID === null) {
                 console.error("TYPE " + link + " Isn't recognized.");
                 return;
@@ -52,11 +51,10 @@
 {:else if embeddedType === "gif"}
     <div class="expand ">
         <img src={embeddedLink} alt="Embedded link" class={aspectRatio} />
-        <video src={embeddedLink} class="expand" autoplay loop><track kind="captions" /></video>
     </div>
 {:else if embeddedType === "mp4" || embeddedType === "webm"}
     <div class="expand blackBackground">
-        <video src={embeddedLink} class="expand" autoplay loop><track kind="captions" /></video>
+        <video src={embeddedLink} class={aspectRatio} autoplay loop><track kind="captions" /></video>
     </div>
 {:else if embeddedType === "youtube"}
     <Youtube videoId={videoID} options={YoutubeOptions} class="YOUTUBE_VIDEO_CONTAINER" on:end={onYTVideoEnd} />

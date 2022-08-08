@@ -9,7 +9,12 @@
 <div class="rows">
     <h1 style="font-family: earthsmightiestbold; color: var(--COLOR_PRIMARY);">GAMES</h1>
     <GameView startAtPixelY={0.1 * max_scrollbar_height} endAtPixelY={0.3 * max_scrollbar_height} gameInfo={Games[0]} />
-    <!-- <GameView flipX startAtPixelY={0.3 * max_scrollbar_height} endAtPixelY={0.5 * max_scrollbar_height} /> -->
+    <GameView
+        flipX
+        startAtPixelY={0.3 * max_scrollbar_height}
+        endAtPixelY={0.5 * max_scrollbar_height}
+        gameInfo={Games[0]}
+    />
 </div>
 
 <style>

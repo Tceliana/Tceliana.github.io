@@ -16,10 +16,11 @@ body {
 
 body {
     color: #333;
-    background-color:seashell;
-    margin: 0px 20px;
+    background-color:#f6f8ed;
+    /* margin: 0px 20px; */
+    margin: 0px;
     box-sizing: border-box;
-    min-height: 1000vh;
+   
     overflow-x: hidden;
     overflow-y: scroll;
 

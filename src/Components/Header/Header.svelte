@@ -41,6 +41,6 @@
 
     header ul li {
         list-style: none;
-        margin-left: 20px;
+        margin-right: 20px;
     }
 </style>

@@ -23,6 +23,5 @@
 
 <style>
     main {
-        min-height: 1000vh;
     }
 </style>

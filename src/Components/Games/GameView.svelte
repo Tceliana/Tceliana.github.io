@@ -3,15 +3,39 @@
     import SvgScrollPath from "./SVGScrollPath.svelte";
     import type { GameInfo } from "../../gameInfo";
 
+    export let gameInfo: GameInfo;
+
     export let flipX: boolean = false;
     export let startAtPixelY: number;
     export let endAtPixelY: number;
+    export let scrollUpAtPercentage: number = 80;
 
-    export let gameInfo: GameInfo;
+    let YPosition: number;
+    let scrollUpOffset: number = 0;
+    let percentageCompleted: number = 0;
+
+    const startScrollAtPixelY = startAtPixelY + ((endAtPixelY - startAtPixelY) * scrollUpAtPercentage) / 100;
+
+    window.addEventListener("scroll", () => {
+        if (YPosition < startAtPixelY || YPosition > endAtPixelY) {
+            percentageCompleted = 0;
+            scrollUpOffset = 0;
+            return;
+        }
+        if (YPosition < startScrollAtPixelY) {
+            percentageCompleted = (YPosition - startAtPixelY) / (startScrollAtPixelY - startAtPixelY);
+
+            scrollUpOffset = 0;
+        } else {
+            percentageCompleted = 1;
+            scrollUpOffset =
+                window.innerHeight * ((YPosition - startScrollAtPixelY) / (endAtPixelY - startScrollAtPixelY));
+        }
+    });
 </script>
 
-<div class="gameView">
-    <SvgScrollPath {flipX} {startAtPixelY} {endAtPixelY}>
+<div class="gameView" style="margin-top:{-scrollUpOffset}px">
+    <SvgScrollPath {flipX} {percentageCompleted}>
         <div class="midScreen">
             {#if flipX}
                 <img src={gameInfo.embeddedLink} alt="dsadsa" style="width:50vw;" />
@@ -28,6 +52,8 @@
         </div>
     </SvgScrollPath>
 </div>
+
+<svelte:window bind:scrollY={YPosition} />
 
 <style>
     .gameView {

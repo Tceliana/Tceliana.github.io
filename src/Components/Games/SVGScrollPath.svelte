@@ -9,14 +9,10 @@
     }
 
     export let flipX: boolean = false;
-    export let startAtPixelY: number;
-    export let endAtPixelY: number;
-    export let scrollUpAtPercentage: number = 80;
-
-    const startScrollAtPixelY = startAtPixelY + ((endAtPixelY - startAtPixelY) * scrollUpAtPercentage) / 100;
+    export let percentageCompleted: number;
 
     let svgPath: SVGGeometryElement;
-    let currentCircle: SVGPath = {
+    let currentPath: SVGPath = {
         xOffset: 0,
         yOffset: 0,
         width: 160,
@@ -26,56 +22,34 @@
     };
 
     let totalLength: number = 0;
-    let percentageCompleted: number = 0;
-    let YPosition: number;
-    let scrollUpOffset: number = 0;
-
-    window.addEventListener("scroll", () => {
-        if (YPosition < startAtPixelY || YPosition > endAtPixelY) {
-            percentageCompleted = 0;
-            scrollUpOffset = 0;
-            return;
-        }
-        if (YPosition < startScrollAtPixelY) {
-            percentageCompleted = (YPosition - startAtPixelY) / (startScrollAtPixelY - startAtPixelY);
-
-            scrollUpOffset = 0;
-        } else {
-            percentageCompleted = 1;
-            scrollUpOffset =
-                window.innerHeight * ((YPosition - startScrollAtPixelY) / (endAtPixelY - startScrollAtPixelY));
-        }
-    });
 
     onMount(() => {
         totalLength = svgPath.getTotalLength();
     });
 </script>
 
-<div class="fullScreen" style="position:relative; margin-top:{-scrollUpOffset}px">
-    <svg
-        class="fullScreen"
-        viewBox="{currentCircle.xOffset} {currentCircle.yOffset} {currentCircle.width} {currentCircle.height}"
-        preserveAspectRatio="none"
-        style="transform:scaleX({flipX ? -1 : 1})"
-    >
-        <path
-            bind:this={svgPath}
-            fill="none"
-            d={currentCircle.svgPath}
-            style="stroke-dasharray: {totalLength} {totalLength};stroke-dashoffset: {-totalLength -
-                totalLength * percentageCompleted}; "
-        />
-    </svg>
-    <div class="columns fullScreen" style="position:absolute; top:0px;">
+<!-- <div class="fullScreen"> -->
+<svg
+    class="fullScreen"
+    viewBox="{currentPath.xOffset} {currentPath.yOffset} {currentPath.width} {currentPath.height}"
+    preserveAspectRatio="none"
+    style="transform:scaleX({flipX ? -1 : 1})"
+>
+    <path
+        bind:this={svgPath}
+        fill="none"
+        d={currentPath.svgPath}
+        style="stroke-dasharray: {totalLength} {totalLength};stroke-dashoffset: {-totalLength -
+            totalLength * percentageCompleted}; "
+    />
+</svg>
+<!-- <div class="columns fullScreen" style="position:absolute; top:0px;">
         {#if YPosition > startAtPixelY && YPosition < endAtPixelY}
             <slot />
         {/if}
-    </div>
-</div>
+    </div> -->
 
-<svelte:window bind:scrollY={YPosition} />
-
+<!-- </div> -->
 <style>
     .fullScreen {
         width: 100vw;

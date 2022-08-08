@@ -17,9 +17,7 @@
             }
             return "youtube";
         }
-        if (embeddedLink.startsWith("https://www.tiktok.com") || embeddedLink.startsWith("www.tiktok.com"))
-        {
-            
+        if (embeddedLink.startsWith("https://www.tiktok.com") || embeddedLink.startsWith("www.tiktok.com")) {
             return "tiktok";
         }
 
@@ -50,6 +48,47 @@
     function onYTVideoEnd(event) {
         event.detail.target.playVideo();
     }
+
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
+    // TODO: calculate tiktok embedded video sizes by hand (i.e. pass the % -> px) I suspect this will make tiktok api to charge the video
 </script>
 
 {#if embeddedType === "png"}
@@ -65,7 +104,15 @@
 {:else if embeddedType === "youtube"}
     <Youtube videoId={videoID} options={YoutubeOptions} class="YOUTUBE_VIDEO_CONTAINER" on:end={onYTVideoEnd} />
 {:else if embeddedType === "tiktok"}
-    <iframe title="tiktok video" src="{embeddedLink}" class={aspectRatio} />
+    <blockquote
+        class="tiktok-embed"
+        cite="https://www.tiktok.com/@tceladev/video/7114078078732750085"
+        data-video-id="7114078078732750085"
+        style="width: 100%; height: 100%; scroll:hidden;"
+    >
+        <section />
+    </blockquote>
+    <!-- <iframe title="tiktok video" src={embeddedLink} class={aspectRatio} /> -->
 {/if}
 
 <style>

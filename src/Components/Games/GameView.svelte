@@ -41,7 +41,11 @@
         gameDescriptionOpacity = getOpacityByPercentageScroll(0.6, 0.7, percentageCompleted);
     });
 
-    function getOpacityByPercentageScroll(startAtPercentage:number, endAtPercentage:number, percentageCompleted: number): number {
+    function getOpacityByPercentageScroll(
+        startAtPercentage: number,
+        endAtPercentage: number,
+        percentageCompleted: number
+    ): number {
         let returned = (percentageCompleted - startAtPercentage) / (endAtPercentage - startAtPercentage);
         return Clamp(0, 1, returned);
     }

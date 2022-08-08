@@ -12,14 +12,6 @@ export interface GameInfo{
 
 const Games: GameInfo[] =
 [
-
-{title:"UwU",
-description: `UwU`,
-link: ["https://www.twitch.tv/tcela"],
-embeddedLink:"https://www.icegif.com/wp-content/uploads/2022/02/icegif-924.gif",
-embeddedAspect :"expand"
-},
-    
     {title:"Tcela and Jayrumi dance",
 description: `Yeah, this is not a game, but.. well, it's Tcela and Jayrumi dancing UwU.
 `,
@@ -35,12 +27,9 @@ Popular game for everyone.
 Hope you like it. If not, give me feedback. Thanks!
 `,
 link: ["https://tcela.itch.io/tentacles-ship"],
-embeddedLink:"https://user-images.githubusercontent.com/83143288/183268397-f2cbc797-ff76-44fd-8aca-866e16d18ede.png",
+embeddedLink:"/videos/TentaclesShip.mp4",
 embeddedAspect :"expand"
 },
-
-
-
 
 {title:"Project (Paraminia)",
 description: `Experiment # 7 wake up.
@@ -52,6 +41,26 @@ Creating a  breakdown in space time. We become the only option to be able to rev
 `,
 link: ["https://tcela.itch.io/paraminia"],
 embeddedLink:"https://www.youtube.com/watch?v=xoG298XpNLM",
+embeddedAspect :"preserveRatio"
+},
+
+{title:"UwU",
+description: `UwU`,
+link: ["https://www.twitch.tv/tcela"],
+embeddedLink:"https://www.icegif.com/wp-content/uploads/2022/02/icegif-924.gif",
+embeddedAspect :"expand"
+},
+
+
+{title:"El despertar de Arari",
+description: `El reposo de Arari fue interrumpido cuando un grupo de traficantes de fósiles extrajeron ilícitamente sus restos y los llevaron a un museo lejano. Ahora necesita tu ayuda para recuperar y restaurar la mitad de su cráneo.
+
+Explora distintos escenarios, presta atención a los objetos que te rodean y resuelve acertijos para que Arari pueda descansar en paz y para repatriar otros fósiles extraídos y vendidos ilegalmente.
+
+Tu misión será arriesgada, pero Arari estará junto a ti para guiarte.
+`,
+link: ["https://faramilner.itch.io/el-despertar-de-arari"],
+embeddedLink:"https://www.youtube.com/watch?v=EQQGTiAKNUk&t",
 embeddedAspect :"preserveRatio"
 },
 

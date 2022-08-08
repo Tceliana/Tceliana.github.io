@@ -54,7 +54,7 @@
     </div>
 {:else if embeddedType === "mp4" || embeddedType === "webm"}
     <div class="expand blackBackground">
-        <video src={embeddedLink} class={aspectRatio} autoplay loop><track kind="captions" /></video>
+        <video src={embeddedLink} class={aspectRatio} autoplay loop controls><track kind="captions" /></video>
     </div>
 {:else if embeddedType === "youtube"}
     <Youtube videoId={videoID} options={YoutubeOptions} class="YOUTUBE_VIDEO_CONTAINER" on:end={onYTVideoEnd} />

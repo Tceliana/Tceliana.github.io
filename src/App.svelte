@@ -10,6 +10,7 @@
     style="
 --COLOR_PRIMARY:#fae035;
 --COLOR_SECONDARY:#0064c8;
+--COLOR_BEACH: #008aff;
 "
 >
     <Header />
@@ -20,4 +21,7 @@
 </main>
 
 <style>
+    main {
+        min-height: 1000vh;
+    }
 </style>

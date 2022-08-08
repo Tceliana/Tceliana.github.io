@@ -3,6 +3,7 @@
     import SvgScrollPath from "./SVGScrollPath.svelte";
     import type { GameInfo } from "../../gameInfo";
     import { Clamp } from "../../maths";
+    import EmbeddedLink from "./EmbeddedLink.svelte";
 
     export let gameInfo: GameInfo;
 
@@ -53,7 +54,7 @@
             <div class="midScreen" style="opacity:{flipX ? imageOpacity : gameDescriptionOpacity}">
                 {#if flipX}
                     <div class="ImagePositionerL">
-                        <img src={gameInfo.embeddedLink} alt="dsadsa" style="width:100%; height:100%;" />
+                        <EmbeddedLink embeddedLink={gameInfo.embeddedLink} aspectRatio={gameInfo.embeddedAspect} />
                     </div>
                 {:else}
                     <GameDescription {gameInfo} style="width:50vw;" />
@@ -64,7 +65,7 @@
                     <GameDescription {gameInfo} style="width:50vw;" />
                 {:else}
                     <div class="ImagePositionerR">
-                        <img src={gameInfo.embeddedLink} alt="dsadsa" style="width:100%;height:100%;" />
+                        <EmbeddedLink embeddedLink={gameInfo.embeddedLink} aspectRatio={gameInfo.embeddedAspect} />
                     </div>
                 {/if}
             </div>

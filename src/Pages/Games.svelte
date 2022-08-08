@@ -3,7 +3,7 @@
     import Games from "../gameInfo";
     const max_scrollbar_height: number = document.body.scrollHeight - window.innerHeight;
 
-    console.log(Games[0]);
+    
 </script>
 
 <div class="background" />
@@ -14,7 +14,7 @@
         flipX
         startAtPixelY={0.3 * max_scrollbar_height}
         endAtPixelY={0.5 * max_scrollbar_height}
-        gameInfo={Games[0]}
+        gameInfo={Games[1]}
     />
 </div>
 <img class="footer" src="./Images/TcelaDibus/beach.png" alt="Tcela looking at infinitum xD" />

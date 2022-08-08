@@ -52,12 +52,12 @@
     });
 </script>
 
-<div class="fullScreen">
+<div class="fullScreen" style="position:relative; margin-top:{-scrollUpOffset}px">
     <svg
         class="fullScreen"
         viewBox="{currentCircle.xOffset} {currentCircle.yOffset} {currentCircle.width} {currentCircle.height}"
         preserveAspectRatio="none"
-        style="transform:scaleX({flipX ? -1 : 1}); margin-top:{-scrollUpOffset}px"
+        style="transform:scaleX({flipX ? -1 : 1})"
     >
         <path
             bind:this={svgPath}
@@ -67,8 +67,10 @@
                 totalLength * percentageCompleted}; "
         />
     </svg>
-    <div class="columns">
-        <slot />
+    <div class="columns fullScreen" style="position:absolute; top:0px;">
+        {#if YPosition > startAtPixelY && YPosition < endAtPixelY}
+            <slot />
+        {/if}
     </div>
 </div>
 

@@ -11,6 +11,7 @@
 --COLOR_PRIMARY:#fae035;
 --COLOR_SECONDARY:#0064c8;
 --COLOR_BEACH: #008aff;
+--COLOR_BACKGROUND: #f6f8ed
 "
 >
     <Header />

@@ -28,7 +28,6 @@
     });
 </script>
 
-<!-- <div class="fullScreen"> -->
 <svg
     class="fullScreen"
     viewBox="{currentPath.xOffset} {currentPath.yOffset} {currentPath.width} {currentPath.height}"
@@ -43,13 +42,7 @@
             totalLength * percentageCompleted}; "
     />
 </svg>
-<!-- <div class="columns fullScreen" style="position:absolute; top:0px;">
-        {#if YPosition > startAtPixelY && YPosition < endAtPixelY}
-            <slot />
-        {/if}
-    </div> -->
 
-<!-- </div> -->
 <style>
     .fullScreen {
         width: 100vw;

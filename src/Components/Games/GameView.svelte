@@ -2,6 +2,7 @@
     import GameDescription from "./GameDescription.svelte";
     import SvgScrollPath from "./SVGScrollPath.svelte";
     import type { GameInfo } from "../../gameInfo";
+    import { Clamp } from "../../maths";
 
     export let gameInfo: GameInfo;
 
@@ -13,6 +14,9 @@
     let YPosition: number;
     let scrollUpOffset: number = 0;
     let percentageCompleted: number = 0;
+
+    let imageOpacity: number = 0;
+    let gameDescriptionOpacity: number = 0;
 
     const startScrollAtPixelY = startAtPixelY + ((endAtPixelY - startAtPixelY) * scrollUpAtPercentage) / 100;
 
@@ -31,27 +35,38 @@
             scrollUpOffset =
                 window.innerHeight * ((YPosition - startScrollAtPixelY) / (endAtPixelY - startScrollAtPixelY));
         }
+
+        imageOpacity = getOpacityByPercentageScroll(0.2, 0.5, percentageCompleted);
+        gameDescriptionOpacity = getOpacityByPercentageScroll(0.6, 0.7, percentageCompleted);
     });
+
+    function getOpacityByPercentageScroll(startAtPercentage, endAtPercentage, percentageCompleted: number): number {
+        let returned = (percentageCompleted - startAtPercentage) / (endAtPercentage - startAtPercentage);
+        return Clamp(0, 1, returned);
+    }
 </script>
 
-<div class="gameView" style="margin-top:{-scrollUpOffset}px">
-    <SvgScrollPath {flipX} {percentageCompleted}>
-        <div class="midScreen">
-            {#if flipX}
-                <img src={gameInfo.embeddedLink} alt="dsadsa" style="width:50vw;" />
-            {:else}
-                <GameDescription {gameInfo} style="width:50vw;" />
-            {/if}
+{#if YPosition > startAtPixelY && YPosition < endAtPixelY}
+    <div class="gameView" style="margin-top:{-scrollUpOffset}px">
+        <SvgScrollPath {flipX} {percentageCompleted} />
+        <div class="columns">
+            <div class="midScreen" style="opacity:{flipX ? imageOpacity : gameDescriptionOpacity}">
+                {#if flipX}
+                    <img src={gameInfo.embeddedLink} alt="dsadsa" style="width:50vw;" />
+                {:else}
+                    <GameDescription {gameInfo} style="width:50vw;" />
+                {/if}
+            </div>
+            <div class="midScreen" style="opacity:{flipX ? gameDescriptionOpacity : imageOpacity}">
+                {#if flipX}
+                    <GameDescription {gameInfo} style="width:50vw;" />
+                {:else}
+                    <img src={gameInfo.embeddedLink} alt="dsadsa" style="width:50vw;" />
+                {/if}
+            </div>
         </div>
-        <div class="midScreen">
-            {#if flipX}
-                <GameDescription {gameInfo} style="width:50vw;" />
-            {:else}
-                <img src={gameInfo.embeddedLink} alt="dsadsa" style="width:50vw;" />
-            {/if}
-        </div>
-    </SvgScrollPath>
-</div>
+    </div>
+{/if}
 
 <svelte:window bind:scrollY={YPosition} />
 

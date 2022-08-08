@@ -32,7 +32,7 @@
     class="fullScreen"
     viewBox="{currentPath.xOffset} {currentPath.yOffset} {currentPath.width} {currentPath.height}"
     preserveAspectRatio="none"
-    style="transform:scaleX({flipX ? -1 : 1})"
+    style="transform:scaleX({flipX ? -1 : 1}); position:fixed"
 >
     <path
         bind:this={svgPath}

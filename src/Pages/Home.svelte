@@ -1,19 +1,12 @@
 <script lang="ts">
-    import gsap from "gsap";
-    import { onMount } from "svelte";
     import Bird from "../Components/Bird.svelte";
     import RatingFiller from "../Components/Ratings/RatingFiller.svelte";
-
-    gsap.registerPlugin(ScrollTrigger);
 
     let title: HTMLElement = null;
     window.addEventListener("scroll", function () {
         let value: number = window.scrollY;
         title.style.paddingLeft = value * 5 + "px";
     });
-
-    console.log("Inner Height = " + window.innerHeight);
-    console.log("Inner Width = " + window.innerWidth);
 </script>
 
 <RatingFiller />

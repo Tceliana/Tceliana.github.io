@@ -29,6 +29,7 @@
             if (mode == "L") return window.innerWidth * deltaSizePercentage;
             return -window.innerWidth * deltaSizePercentage;
         }
+        if (mainDiv === null) return;
         gsap.fromTo(
             mainDiv,
             {},
@@ -60,7 +61,6 @@
                 },
             }
         );
-        return true;
     }
 
     function isActive(YPosition: number): boolean {

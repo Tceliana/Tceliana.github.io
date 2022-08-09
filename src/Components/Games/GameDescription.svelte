@@ -5,14 +5,14 @@
 </script>
 
 <div class="gameView" style={stylish}>
-    <h1>
+    <h2>
         <a href={gameInfo.link[0]}>{gameInfo.title}</a>
-    </h1>
+    </h2>
     <div>{gameInfo.description}</div>
 </div>
 
 <style>
-    h1 {
+    h2 {
         position: relative;
         margin: 0 0 1vh 0;
         color: var(--COLOR_SECONDARY);
@@ -27,7 +27,7 @@
         text-decoration: none;
         color: inherit;
     }
-    h1:hover {
+    h2:hover {
         font-weight: bolder;
     }
     .gameView {

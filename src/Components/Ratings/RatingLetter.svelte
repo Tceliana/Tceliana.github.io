@@ -1,19 +1,18 @@
 <script lang="ts">
-    export let name: string;
-    export let stars: number;
-    export let review: string;
+    import type { RatingInfo } from "../../ratings";
+    export let ratingInfo: RatingInfo;
 </script>
 
 <div class="frame">
     <div class="rating rows">
-        <p>{name}</p>
+        <p>{ratingInfo.name}</p>
         <div class="starsContainer">
-            {#each Array(stars) as _}
+            {#each Array(ratingInfo.stars) as _}
                 <span class="full-star" />
             {/each}
         </div>
         <div class="review-separator" />
-        <span class="review"><p>{review}</p></span>
+        <span class="review"><p>{ratingInfo.review}</p></span>
     </div>
 </div>
 

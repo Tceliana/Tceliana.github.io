@@ -46,7 +46,7 @@
         },
     };
 
-    function onYTVideoEnd(event) {
+    function onYTVideoEnd(event: any) {
         event.detail.target.playVideo();
     }
 </script>

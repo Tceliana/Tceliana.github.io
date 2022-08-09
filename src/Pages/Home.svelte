@@ -1,7 +1,7 @@
 <script lang="ts">
     import gsap from "gsap";
     import { onMount } from "svelte";
-    import Rating from "../Components/Ratings/Rating.svelte";
+    import RatingFiller from "../Components/Ratings/RatingFiller.svelte";
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -13,17 +13,6 @@
 
     console.log("Inner Height = " + window.innerHeight);
     console.log("Inner Width = " + window.innerWidth);
-
-    var uwuList = [];
-    function FillList() {
-        for (var i = 0; i <= 25; i++) {
-            uwuList.push({
-                StartPercentage: Math.floor(Math.random() * 25) + 70,
-                mode: ["U", "D", "R", "L"][Math.floor(Math.random() * 4)],
-            });
-        }
-    }
-    FillList();
 
     onMount(() => {
         gsap.fromTo(
@@ -50,6 +39,7 @@
     });
 </script>
 
+<RatingFiller />
 <div style="min-height: 1000vh;">
     <div class="rows">
         <h1 bind:this={title} style="font-family: earthsmightiestbold; color: var(--COLOR_PRIMARY); ">Tceliana</h1>
@@ -58,48 +48,6 @@
         <img class="hearth" src="/Images/hearth.svg" alt="hearth SVG" />
     </div>
 </div>
-<Rating
-    name="CarlosMushuTV"
-    stars={1}
-    review="Intento aprender de su contenido pero me es imposible por que me hornea demasiado verlo."
-    startPercentage={10}
-    endPercentage={20}
-    mode="U"
-/>
-<Rating
-    name="WilmiRosa"
-    stars={5}
-    review="¡Mejor programador de UwU!"
-    startPercentage={15}
-    endPercentage={25}
-    mode="R"
-/>
-<Rating
-    name="WayraisBleu"
-    stars={5}
-    review="Felizmente me encontré con este programador y me pareció una persona muy amable y atenta, por lo que casé con él."
-    startPercentage={27}
-    endPercentage={37}
-    mode="L"
-/>
-<Rating
-    name="Chicken"
-    stars={5}
-    review="Felizmente me encontré con este programador y me pareció una persona muy amable y atenta, por lo que casé con él."
-    startPercentage={50}
-    endPercentage={60}
-    mode="D"
-/>
-{#each uwuList as uwuItem}
-    <Rating
-        name=""
-        stars={5}
-        review="UWU"
-        startPercentage={uwuItem.StartPercentage}
-        endPercentage={100}
-        mode={uwuItem.mode}
-    />
-{/each}
 
 <style>
     .hearth {

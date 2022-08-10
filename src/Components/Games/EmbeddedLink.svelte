@@ -1,12 +1,41 @@
 <script lang="ts">
     import Youtube from "svelte-youtube";
+    import { onMount } from "svelte";
     type EmbeddedType = "png" | "gif" | "mp4" | "webm" | "youtube" | "tiktok";
 
     export let embeddedLink: string;
     export let aspectRatio: "expand" | "preserveRatio" = "preserveRatio";
+    export let isDisplayed: boolean;
 
     let videoID: string = null;
     let embeddedType: EmbeddedType = getEmbeddedType(embeddedLink);
+    let videoElement: HTMLVideoElement;
+    let youtubeElement: Youtube;
+    let youtubeVideo: any;
+
+    $: OnDisplay(isDisplayed), isDisplayed;
+    function OnDisplay(isDisplayed: boolean) {
+        if (isVideoFormat(embeddedType) == false) return;
+
+        if (isDisplayed) TryStartVideo();
+        else PauseVideo();
+    }
+
+    function TryStartVideo() {
+        if (videoElement) videoElement.play();
+        else if (youtubeElement) {
+            youtubeVideo.playVideo();
+        }
+    }
+
+    function PauseVideo() {
+        if (videoElement) videoElement.pause();
+        else if (youtubeElement) youtubeVideo.pauseVideo();
+    }
+
+    function isVideoFormat(embeddedType: EmbeddedType): boolean {
+        return ["mp4", "webm", "youtube", "tiktok"].includes(embeddedType);
+    }
 
     function getEmbeddedType(link: string): EmbeddedType {
         if (embeddedLink.startsWith("https://www.youtube.com") || embeddedLink.startsWith("www.youtube.com")) {
@@ -42,12 +71,12 @@
         playerVars: {
             rel: 0,
             modestbranding: 1,
-            autoplay: 1,
+            autoplay: 0,
         },
     };
 
-    function onYTVideoEnd(event: any) {
-        event.detail.target.playVideo();
+    function onYTVideoStart(event: any) {
+        youtubeVideo = event.detail.target;
     }
 </script>
 
@@ -59,10 +88,18 @@
     </div>
 {:else if embeddedType === "mp4" || embeddedType === "webm"}
     <div class="expand blackBackground">
-        <video src={embeddedLink} class={aspectRatio} autoplay loop controls><track kind="captions" /></video>
+        <video src={embeddedLink} class={aspectRatio} loop controls bind:this={videoElement} muted
+            ><track kind="captions" /></video
+        >
     </div>
 {:else if embeddedType === "youtube"}
-    <Youtube videoId={videoID} options={YoutubeOptions} class="YOUTUBE_VIDEO_CONTAINER" on:end={onYTVideoEnd} />
+    <Youtube
+        videoId={videoID}
+        options={YoutubeOptions}
+        class="YOUTUBE_VIDEO_CONTAINER"
+        on:ready={onYTVideoStart}
+        bind:this={youtubeElement}
+    />
 {:else if embeddedType === "tiktok"}
     <!-- <blockquote
         class="tiktok-embed"

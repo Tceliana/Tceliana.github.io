@@ -10,8 +10,7 @@
     let videoID: string = null;
     let embeddedType: EmbeddedType = getEmbeddedType(embeddedLink);
     let videoElement: HTMLVideoElement;
-    let youtubeElement: Youtube;
-    let youtubeVideo: any;
+    let youtubeVideo: { playVideo: () => void; pauseVideo: () => void } = null;
 
     $: OnDisplay(isDisplayed), isDisplayed;
     function OnDisplay(isDisplayed: boolean) {
@@ -23,14 +22,12 @@
 
     function TryStartVideo() {
         if (videoElement) videoElement.play();
-        else if (youtubeElement) {
-            youtubeVideo.playVideo();
-        }
+        else if (youtubeVideo) youtubeVideo.playVideo();
     }
 
     function PauseVideo() {
         if (videoElement) videoElement.pause();
-        else if (youtubeElement) youtubeVideo.pauseVideo();
+        else if (youtubeVideo) youtubeVideo.pauseVideo();
     }
 
     function isVideoFormat(embeddedType: EmbeddedType): boolean {
@@ -93,13 +90,7 @@
         >
     </div>
 {:else if embeddedType === "youtube"}
-    <Youtube
-        videoId={videoID}
-        options={YoutubeOptions}
-        class="YOUTUBE_VIDEO_CONTAINER"
-        on:ready={onYTVideoStart}
-        bind:this={youtubeElement}
-    />
+    <Youtube videoId={videoID} options={YoutubeOptions} class="YOUTUBE_VIDEO_CONTAINER" on:ready={onYTVideoStart} />
 {:else if embeddedType === "tiktok"}
     <!-- <blockquote
         class="tiktok-embed"

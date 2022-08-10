@@ -1,6 +1,5 @@
 <script lang="ts">
     import Youtube from "svelte-youtube";
-    import { onMount } from "svelte";
     type EmbeddedType = "png" | "gif" | "mp4" | "webm" | "youtube" | "tiktok";
 
     export let embeddedLink: string;

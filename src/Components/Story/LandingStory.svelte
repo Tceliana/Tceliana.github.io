@@ -26,18 +26,19 @@
         lastWords="videojuegos."
         order={3}
     />
-
 </article>
 
 <style>
+
     .landingStory 
     {
-        color: var(--COLOR_TERTIARY);
-        font-size: 2rem;
-        line-height: 1.5rem;
-        font-weight: 3rem;
-        padding: 1rem;
-        font-style: italic;
-        text-align: center;
+        color:          var(--COLOR_TERTIARY);
+        font-size:      2rem;
+        line-height:    1.5rem;
+        font-weight:    3rem;
+        padding:        1rem;
+        font-style:     italic;
+        text-align:     center;
     }
+
 </style>

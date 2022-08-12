@@ -2,7 +2,8 @@
     import Bird from "../Components/Bird.svelte";
     import LandingStory from "../Components/Story/LandingStory.svelte";
     import RatingFiller from "../Components/Ratings/RatingFiller.svelte";
-    import RatingFireworks from "../Components/Ratings/RatingFireworks.svelte";
+    import Fireworks from "../Components/Decorations/Fireworks.svelte";
+    import KeyboardTeclas from "../Components/KeyboardTeclas.svelte";
 
     let title: HTMLElement = null;
     window.addEventListener("scroll", function () {
@@ -10,10 +11,8 @@
         title.style.paddingLeft = value * 5 + "px";
     });
 </script>
-<RatingFireworks 
-    showTrigger
-    autoPlayFireworks
-/>
+<!-- <KeyboardTeclas /> -->
+
 <RatingFiller />
 
 <div style="min-height: 1000vh;">
@@ -22,7 +21,9 @@
         <Bird />
         <p>The story begins.</p>
         <LandingStory />
+        
         <img class="hearth" src="/Images/hearth.svg" alt="hearth SVG" />
+        <Fireworks showTrigger autoPlayFireworks />
     </div>
 </div>
 

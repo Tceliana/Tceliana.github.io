@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { RatingInfo } from "../../ratings";
-    export let ratingInfo: RatingInfo;
+    export let ratingInfo : RatingInfo;
 </script>
 
 <div class="frame">

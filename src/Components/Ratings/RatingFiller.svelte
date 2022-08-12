@@ -1,6 +1,6 @@
 <script lang="ts">
     import Rating from "./Rating.svelte";
-    import { AllRatings } from "../../ratings";
+    import { AllRatings }   from "../../ratings";
     import { shuffleArray } from "../../maths";
 
     type UwuListType = { StartPercentage: number; mode: "U" | "D" | "R" | "L" }[];

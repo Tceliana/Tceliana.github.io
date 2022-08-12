@@ -1,34 +1,39 @@
 <script lang="ts">
     import GameDescription from "./GameDescription.svelte";
     import SvgScrollPath from "./SVGScrollPath.svelte";
-    import type { GameInfo } from "../../gameInfo";
-    import { getPercentage } from "../../maths";
     import EmbeddedLink from "./EmbeddedLink.svelte";
+    import { getPercentage } from "../../maths";
+    import type { GameInfo } from "../../gameInfo";
 
-    export let gameInfo: GameInfo;
-    export let flipX: boolean = false;
-    export let startAtPixelY: number;
-    export let endAtPixelY: number;
-    const startScrollUpAtPixelY = startAtPixelY + (endAtPixelY - startAtPixelY) * 0.8;
+    export let gameInfo         : GameInfo;
+    export let flipX            : boolean = false;
+    export let startAtPixelY    : number;
+    export let endAtPixelY      : number;
 
-    let YPosition: number;
-    let pathPercentage: number = 0; // 0 to 1 between StartAtPixelY and startScrollUpAtPixelY
-    let scrollUpPercentage: number = 0; // 0 to 1 between startScrollUpAtPixelY and endAtPixelY
+    const startScrollUpAtPixelY : number 
+        = startAtPixelY + (endAtPixelY - startAtPixelY) * 0.8;
 
-    let imageOpacity: number = 0;
-    let gameDescriptionOpacity: number = 0;
-    let gameDescriptionAppearance: number = 0;
+    let YPosition                   : number;
+    let pathPercentage              : number = 0; // 0 to 1 between StartAtPixelY and startScrollUpAtPixelY
+    let scrollUpPercentage          : number = 0; // 0 to 1 between startScrollUpAtPixelY and endAtPixelY
+    let imageOpacity                : number = 0;
+    let gameDescriptionOpacity      : number = 0;
+    let gameDescriptionAppearance   : number = 0;
 
     window.addEventListener("scroll", () => {
-        if (YPosition < startAtPixelY || YPosition > endAtPixelY) {
-            pathPercentage = 0;
-            scrollUpPercentage = 0;
+        if (YPosition < startAtPixelY || YPosition > endAtPixelY) 
+        {
+            pathPercentage      = 0;
+            scrollUpPercentage  = 0;
             return;
         }
-        if (YPosition < startScrollUpAtPixelY) {
+        if (YPosition < startScrollUpAtPixelY) 
+        {
             pathPercentage = getPercentage(startAtPixelY, startScrollUpAtPixelY, YPosition);
             scrollUpPercentage = 0;
-        } else {
+        } 
+        else 
+        {
             pathPercentage = 1;
             scrollUpPercentage = getPercentage(startScrollUpAtPixelY, endAtPixelY, YPosition);
         }
@@ -38,12 +43,13 @@
         gameDescriptionAppearance = getPercentage(0.5, 0.8, pathPercentage);
     });
 
-    function isDisplayed(Ypos: number): boolean {
+    function isDisplayed(Ypos : number) : boolean 
+    {
         return Ypos > startAtPixelY && Ypos < endAtPixelY;
     }
 </script>
 
- <div
+<div
     class="gameView"
     style="margin-top:{-scrollUpPercentage * window.innerHeight}px; opacity:{isDisplayed(YPosition)
         ? 1

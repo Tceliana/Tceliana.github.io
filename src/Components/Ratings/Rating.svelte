@@ -1,12 +1,12 @@
 <script lang="ts">
-    import Appearable from "../Appearable.svelte";
+    import Appearable   from "../Appearable.svelte";
     import RatingLetter from "./RatingLetter.svelte";
     import type { RatingInfo } from "../../ratings";
 
-    export let ratingInfo: RatingInfo;
-    export let startPercentage: number;
-    export let endPercentage: number;
-    export let mode: "U" | "R" | "L" | "D";
+    export let ratingInfo       : RatingInfo;
+    export let startPercentage  : number;
+    export let endPercentage    : number;
+    export let mode             : "U" | "R" | "L" | "D";
 </script>
 
 <Appearable {startPercentage} {endPercentage} {mode} deltaSizePercentage={0.9}>

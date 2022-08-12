@@ -13,35 +13,39 @@
 </header>
 
 <style>
-    header {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        margin: 1vh 1vw;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1;
+    header 
+    {
+        position:           relative;
+        top:                0;
+        left:               0;
+        width:              100%;
+        margin:             1vh 1vw;
+        display:            flex;
+        justify-content:    space-between;
+        align-items:        center;
+        z-index:            1;
     }
 
-    header .logo {
-        color: var(--COLOR_SECONDARY);
-        font-weight: 700;
-        text-decoration: none;
-        font-size: 2em;
-        text-transform: uppercase;
-        letter-spacing: 2px;
+    header .logo 
+    {
+        color:              var(--COLOR_SECONDARY);
+        font-weight:        700;
+        text-decoration:    none;
+        font-size:          2em;
+        text-transform:     uppercase;
+        letter-spacing:     2px;
     }
 
-    header ul {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    header ul 
+    {
+        display:            flex;
+        justify-content:    center;
+        align-items:        center;
     }
 
-    header ul li {
-        list-style: none;
-        margin-right: 20px;
+    header ul li 
+    {
+        list-style:     none;
+        margin-right:   20px;
     }
 </style>

@@ -1,13 +1,14 @@
 <script type="ts">
     import 'animate.css';
 
-    export let capitalWords: string= "";
-    export let parragraph: string;
-    export let centerWords: string = "";
-    export let secondaryParragraph: string = "";
-    export let lastWords: string = "";
-    export let order: number;
+    export let capitalWords         : string    = "";
+    export let parragraph           : string;
+    export let centerWords          : string    = "";
+    export let secondaryParragraph  : string    = "";
+    export let lastWords            : string    = "";
+    export let order                : number;
 </script>
+
 <div class="scroll" id="parrafo{order}">
     <p>
         <span class="animate__animated animate__jackInTheBox">
@@ -23,26 +24,32 @@
         </span>
     </p>
 </div>
+
 <style>
+
     span 
     {
-        display: inline-block;
-        color: var(--COLOR_SECONDARY);
+        display:    inline-block;
+        color:      var(--COLOR_SECONDARY);
     }
+    
     span:hover 
     {
-        color: var(--COLOR_BEACH);
+        color:      var(--COLOR_BEACH);
     }
+    
     .scroll 
     {
-        animation: scrollText;
-        animation-duration: 4s;
-        animation-iteration-count: 1;
-
+        animation:                  scrollText;
+        animation-duration:         4s;
+        animation-iteration-count:  1;
     }
+    
+    
     @keyframes scrollText 
     {
         0%   { transform: translateY(100%); }
         100% { transform: translateY(0%); }
     }
+
 </style>

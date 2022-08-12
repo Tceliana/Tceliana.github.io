@@ -4,7 +4,7 @@
 
 2. Git, para poder interactuar con éste repo: Aquí la [Guía de instalación](https://phoenixnap.com/kb/how-to-install-git-windows).
 
-3. Makefile (opcional). [Guía de instalación](http://gnuwin32.sourceforge.net/packages/make.html).
+3. Makefile (opcional). [Guía de instalación](http://gnuwin32.sourceforge.net/packages/make.htm) Follow Vasantha Ganesh Response: (https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
 
 4. Clona el proyecto: ![Img](https://user-images.githubusercontent.com/83143288/183264967-d8ba9e98-3b7a-45c5-8e65-01bfad604911.png)
 

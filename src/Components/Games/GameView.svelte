@@ -6,7 +6,6 @@
     import EmbeddedLink from "./EmbeddedLink.svelte";
 
     export let gameInfo: GameInfo;
-
     export let flipX: boolean = false;
     export let startAtPixelY: number;
     export let endAtPixelY: number;
@@ -38,37 +37,58 @@
         gameDescriptionOpacity = getPercentage(0.7, 0.8, pathPercentage);
         gameDescriptionAppearance = getPercentage(0.5, 0.8, pathPercentage);
     });
+
+    function isDisplayed(Ypos: number): boolean {
+        return Ypos > startAtPixelY && Ypos < endAtPixelY;
+    }
 </script>
 
-{#if YPosition > startAtPixelY && YPosition < endAtPixelY}
-    <div class="gameView" style="margin-top:{-scrollUpPercentage * window.innerHeight}px">
+ <div
+    class="gameView"
+    style="margin-top:{-scrollUpPercentage * window.innerHeight}px; opacity:{isDisplayed(YPosition)
+        ? 1
+        : 0}; margin-right:{isDisplayed(YPosition) ? 0 : 200}vw "
+> 
+<!-- <div
+    class="gameView"
+    style="margin-top:{-scrollUpPercentage * window.innerHeight}px; opacity:{isDisplayed(YPosition) ? 1 : 0};"
+> -->
+    {#if isDisplayed(YPosition)}
         <SvgScrollPath {flipX} percentageCompleted={pathPercentage} />
-        <div class="columns">
-            <div class="midScreen" style="opacity:{flipX ? imageOpacity : gameDescriptionOpacity}">
-                {#if flipX}
-                    <div class="ImagePositionerL">
-                        <EmbeddedLink embeddedLink={gameInfo.embeddedLink} aspectRatio={gameInfo.embeddedAspect} />
-                    </div>
-                {:else}
-                    <div class="TextPositioner" style="margin-left:-{100 - gameDescriptionAppearance * 100}%;">
-                        <GameDescription {gameInfo} />
-                    </div>
-                {/if}
-            </div>
-            <div class="midScreen" style="opacity:{flipX ? gameDescriptionOpacity : imageOpacity}">
-                {#if flipX}
-                    <div class="TextPositioner" style="margin-left:-{100 - gameDescriptionAppearance * 100}%;">
-                        <GameDescription {gameInfo} />
-                    </div>
-                {:else}
-                    <div class="ImagePositionerR">
-                        <EmbeddedLink embeddedLink={gameInfo.embeddedLink} aspectRatio={gameInfo.embeddedAspect} />
-                    </div>
-                {/if}
-            </div>
+    {/if}
+    <div class="columns">
+        <div class="midScreen" style="opacity:{flipX ? imageOpacity : gameDescriptionOpacity}">
+            {#if flipX}
+                <div class="ImagePositionerL">
+                    <EmbeddedLink
+                        embeddedLink={gameInfo.embeddedLink}
+                        aspectRatio={gameInfo.embeddedAspect}
+                        isDisplayed={isDisplayed(YPosition)}
+                    />
+                </div>
+            {:else}
+                <div class="TextPositioner" style="margin-left:-{100 - gameDescriptionAppearance * 100}%;">
+                    <GameDescription {gameInfo} />
+                </div>
+            {/if}
+        </div>
+        <div class="midScreen" style="opacity:{flipX ? gameDescriptionOpacity : imageOpacity}">
+            {#if flipX}
+                <div class="TextPositioner" style="margin-left:-{100 - gameDescriptionAppearance * 100}%;">
+                    <GameDescription {gameInfo} />
+                </div>
+            {:else}
+                <div class="ImagePositionerR">
+                    <EmbeddedLink
+                        embeddedLink={gameInfo.embeddedLink}
+                        aspectRatio={gameInfo.embeddedAspect}
+                        isDisplayed={isDisplayed(YPosition)}
+                    />
+                </div>
+            {/if}
         </div>
     </div>
-{/if}
+</div>
 
 <svelte:window bind:scrollY={YPosition} />
 

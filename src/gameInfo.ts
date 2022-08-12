@@ -14,21 +14,21 @@ const Games: GameInfo[] =
     title:"Horror game (WIP)",
     description: `Under development (TODO TALK WITH MUSHU PILOT)`,
     link: ["https://www.twitch.tv/tcela"],
-    embeddedLink:"https://www.tiktok.com/embed/v2/7114078078732750085",
+    embeddedLink:"https://user-images.githubusercontent.com/83143288/184445754-6798ff82-6ec8-4e25-b4a5-d7751938b0d2.mp4",
     embeddedAspect :"expand"
 }, 
 {
     title:"Procedural Dungeon",
     description: `A basic way to develop a random and procedural 3D Dungeon with customized prefabs (models). Available on github!`,
     link: ["https://github.com/tenecela19/Dungeon_Procedural"],
-    embeddedLink:"https://www.tiktok.com/embed/v2/7106320568089070854",
+    embeddedLink:"https://user-images.githubusercontent.com/83143288/184445747-ec89b0ea-8503-4dff-aac9-378c0c91ebf6.mp4",
     embeddedAspect :"expand"   
 },    
 {
     title:"Spatial Game",
     description: `The famous spatial game.`,
     link: ["https://www.twitch.tv/tcela"],
-    embeddedLink:"https://www.tiktok.com/embed/v2/7055194299008339205",
+    embeddedLink:"https://user-images.githubusercontent.com/83143288/184445736-e8fd52fe-0961-4d05-aecc-c6a2d8e79aaf.mp4",
     embeddedAspect :"expand"
 },
 {
@@ -71,7 +71,7 @@ const Games: GameInfo[] =
     title:"The cake game?",
     description: `Sweetly made for you `,
     link: ["https://www.twitch.tv/tcela"],
-    embeddedLink:"https://www.tiktok.com/embed/v2/6964181556793445637",
+    embeddedLink:"https://user-images.githubusercontent.com/83143288/184445812-c63af07f-c7aa-4628-837a-ec9548da0596",
     embeddedAspect :"expand"
 },
 {

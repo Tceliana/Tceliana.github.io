@@ -70,6 +70,7 @@
         position:   relative;
         display:    inline-block;
         cursor:     pointer;
+        right:      3vw;
     }
 
     .button a 
@@ -106,12 +107,11 @@
 
     i 
     {
-        font-size:      0.5rem;
-        margin-bottom:  0.5rem;
+        font-size:      1.1vw;
         display:        inline-block;
         position:       relative;
-        top:            -0.125rem;
-        right:          -0.125rem;
+        top:            -0.3vw;
+        right:          -0.5vw;
     }
 
     @keyframes draw {

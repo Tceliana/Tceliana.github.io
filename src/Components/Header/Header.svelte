@@ -1,5 +1,6 @@
 <script lang="ts">
     import HeaderLink from "./HeaderLink.svelte";
+import SocialNetworkButton from "./SocialNetworkButton.svelte";
 </script>
 
 <header class="columns">
@@ -8,6 +9,7 @@
         <li class="menu_tab">
             <HeaderLink linkName="Home" path=".." icon="home" />
         </li>
+        <li><SocialNetworkButton/></li>
         <li class="menu_tab">
             <HeaderLink linkName="Games" path="/games" icon="gamepad" />
         </li>

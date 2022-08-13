@@ -43,7 +43,7 @@
 }
 
 .bubble {
-    height: 6vw;
+    height: 8vh;
     width:fit-content;
     background: var(--COLOR_BUBBLE_BACKGROUND);
     margin: 1.5vw 0px;
@@ -64,8 +64,8 @@
 .icon {
   float: left;
   position: relative;
-  width: 5vw;
-  height: 5vw;
+  width: 7vh;
+  height: 7vh;
 }
 
 .icon:last-of-type {
@@ -104,6 +104,8 @@
   filter: blur(25px);
   transform: translateZ(0);
   will-change: transform;
+  left: 0px;
+  
 }
 .icon:hover .icon__name {
   transition: all 0.3s ease-out;

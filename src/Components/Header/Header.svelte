@@ -9,7 +9,6 @@ import SocialNetworkButton from "./SocialNetworkButton.svelte";
         <li class="menu_tab">
             <HeaderLink linkName="Home" path=".." icon="home" />
         </li>
-        <li><SocialNetworkButton/></li>
         <li class="menu_tab">
             <HeaderLink linkName="Games" path="/games" icon="gamepad" />
         </li>
@@ -19,6 +18,7 @@ import SocialNetworkButton from "./SocialNetworkButton.svelte";
         <li class="menu_tab">
             <HeaderLink linkName="Contact" path=".." icon="envelopes-bulk" />
         </li>
+        <li><SocialNetworkButton/></li>
     </ul>
 </header>
 

@@ -4,11 +4,19 @@
 
 <header class="columns">
     <a href=".." class="logo">La leyenda</a>
-    <ul>
-        <li><HeaderLink linkName="Home" path=".." /></li>
-        <li><HeaderLink linkName="Games" path="/games" /></li>
-        <li><HeaderLink linkName="Work" path=".." /></li>
-        <li><HeaderLink linkName="Contact" path=".." /></li>
+    <ul id="nav_menu">
+        <li class="menu_tab">
+            <HeaderLink linkName="Home" path=".." icon="home" />
+        </li>
+        <li class="menu_tab">
+            <HeaderLink linkName="Games" path="/games" icon="gamepad" />
+        </li>
+        <li class="menu_tab">
+            <HeaderLink linkName="Work" path=".." icon="briefcase" />
+        </li>
+        <li class="menu_tab">
+            <HeaderLink linkName="Contact" path=".." icon="envelopes-bulk" />
+        </li>
     </ul>
 </header>
 

@@ -5,11 +5,25 @@
 
     export let showTrigger       : boolean  = false;
     export let autoPlayFireworks : boolean  = true;
+    export let autoStartY        : number   = 1500;
 
-    const firePosition   : {x : number, y : number} = { x: 0, y: 0 };
+    const firePosition   : { x : number, y : number } = { x: 0, y: 0 };
     const svgElementType : string   = 'http://www.w3.org/2000/svg';
 
     let stage : any = null;
+    
+
+    window.addEventListener("scroll", () => 
+    {
+        if(window.scrollY > autoStartY && !autoPlayFireworks) 
+        {
+            toggleAuto();
+        }
+        else if(window.scrollY < autoStartY && autoPlayFireworks) 
+        {
+            toggleAuto();
+        }
+    } )
 
     window.onpointerdown = window.onpointermove = (mouse : MouseEvent) =>
     {
@@ -17,7 +31,7 @@
         firePosition.y = mouse.clientY + window.scrollY;
     }
 
-    function fire(firePosition : any) : void
+    function fire(firePosition : { x : number, y : number }) : void
     {
         const 
         g       : string = 'g',
@@ -170,9 +184,12 @@
             gsap.delayedCall(
                 i/2, 
                 fire, 
-                [{
+                [{ //no consigo hacer que el auto se vea en screen :c
                     x:gsap.utils.random(99, innerWidth-99, 1), 
-                    y:gsap.utils.random(99, innerHeight-99, 1)
+                    y:gsap.utils.random(
+                        window.screenY + innerHeight + 99, 
+                        window.screenY - innerHeight - 99, 
+                        1)
                 }]
             );
         }  

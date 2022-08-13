@@ -1,6 +1,7 @@
 <script lang="ts">
     export let linkName : string;
     export let path     : string;
+    export let icon     : string;
 
     interface SVGPath 
     {
@@ -49,7 +50,9 @@
 </script>
 
 <div class="button">
-    <a on:mouseenter={GenerateNewCircle} href={path}>{linkName} </a>
+    <a on:mouseenter={GenerateNewCircle} href={path}>
+        <i class="fa-solid fa-{icon}"></i> {linkName}
+    </a>
 
     <svg
         viewBox="{currentCircle.xOffset} {currentCircle.yOffset} {currentCircle.width} {currentCircle.height}"
@@ -99,6 +102,16 @@
     .button:hover path 
     {
         animation: draw 0.6s forwards;
+    }
+
+    i 
+    {
+        font-size:      0.5rem;
+        margin-bottom:  0.5rem;
+        display:        inline-block;
+        position:       relative;
+        top:            -0.125rem;
+        right:          -0.125rem;
     }
 
     @keyframes draw {

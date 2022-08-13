@@ -71,15 +71,14 @@ const Games: GameInfo[] =
     title:"The cake game?",
     description: `Sweetly made for you `,
     link: ["https://www.twitch.tv/tcela"],
-    embeddedLink:"https://user-images.githubusercontent.com/83143288/184445812-c63af07f-c7aa-4628-837a-ec9548da0596",
+    embeddedLink:"https://user-images.githubusercontent.com/83143288/184445812-c63af07f-c7aa-4628-837a-ec9548da0596.mp4",
     embeddedAspect :"expand"
 },
 {
     title:"El despertar de Arari",
     description: `El reposo de Arari fue interrumpido cuando un grupo de traficantes de fósiles extrajeron ilícitamente sus restos y los llevaron a un museo lejano. Ahora necesita tu ayuda para recuperar y restaurar la mitad de su cráneo.
     Explora distintos escenarios, presta atención a los objetos que te rodean y resuelve acertijos para que Arari pueda descansar en paz y para repatriar otros fósiles extraídos y vendidos ilegalmente.
-    Tu misión será arriesgada, pero Arari estará junto a ti para guiarte.
-    `,
+    Tu misión será arriesgada, pero Arari estará junto a ti para guiarte.`,
     link: ["https://faramilner.itch.io/el-despertar-de-arari"],
     embeddedLink:"https://www.youtube.com/watch?v=EQQGTiAKNUk&t",
     embeddedAspect :"preserveRatio"

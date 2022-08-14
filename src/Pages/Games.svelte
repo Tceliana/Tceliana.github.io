@@ -1,8 +1,7 @@
 <script lang="ts">
     import GameView from "../Components/Games/GameView.svelte";
     import Games from "../gameInfo";
-    const pageHeight: number = (Games.length + 1) * 1.5;
-    const lengthOfOneGameViewPer = 1 / Games.length;
+    const pageHeight: number = (Games.length + 1) * 1;
     let max_scrollbar_height: number = window.innerHeight * pageHeight;
 </script>
 
@@ -13,15 +12,15 @@
         {#each Games as game, index}
             {#if index % 2 == 0}
                 <GameView
-                    startAtPixelY={index * lengthOfOneGameViewPer * max_scrollbar_height}
-                    endAtPixelY={(index + 1) * lengthOfOneGameViewPer * max_scrollbar_height}
+                    startAtPixelY={index * max_scrollbar_height / Games.length}
+                    endAtPixelY={(index + 1) * max_scrollbar_height / Games.length}
                     gameInfo={game}
                 />
             {:else}
                 <GameView
                     flipX
-                    startAtPixelY={index * lengthOfOneGameViewPer * max_scrollbar_height}
-                    endAtPixelY={(index + 1) * lengthOfOneGameViewPer * max_scrollbar_height}
+                    startAtPixelY={index * max_scrollbar_height / Games.length}
+                    endAtPixelY={(index + 1) * max_scrollbar_height / Games.length}
                     gameInfo={game}
                 />
             {/if}

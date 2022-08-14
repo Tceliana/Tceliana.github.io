@@ -6,26 +6,36 @@
 <div class="container">
   <div class="pointer"></div>
     <div class="columns bubble flexContainer">
-        <div class="icon icon--instagram">
-          <a href="#">
+      <div class="icon icon--instagram">
+        <a target="_blank" href="https://www.instagram.com/donvictort/">
             <i class="fa-solid fa-heart"></i>
           </a>
-        </div>
-        <div class="icon icon--flickr">
-          <a href="#">
-            <i class="fa-solid fa-heart"></i>
-          </a>
-        </div>
-        <div class="icon icon--spotify">
-          <a href="#">
-            <i class="fa-solid fa-heart"></i>
-          </a>
-        </div>
-        <div class="icon icon--github">
-          <a href="#">
-            <i class="fa-solid fa-heart"></i>
-          </a>
-        </div>
+      </div>
+      <div class="icon icon--youtube">
+        <a target="_blank" href="https://www.youtube.com/user/tenecela19?sub_confirmation=1">
+          <i class="fa-solid fa-heart"></i>
+        </a>
+      </div>
+      <div class="icon icon--itchio">
+        <a target="_blank" href="https://tcela.itch.io/">
+          <i class="fa-solid fa-heart"></i>
+        </a>
+      </div>
+      <div class="icon icon--twitch">
+        <a target="_blank" href="https://www.twitch.tv/tcela">
+          <i class="fa-solid fa-heart"></i>
+        </a>
+      </div>
+      <!-- <div class="icon icon--spotify">
+        <a target="_blank" href="#">
+          <i class="fa-solid fa-heart"></i>
+        </a>
+      </div> -->
+      <div class="icon icon--github">
+        <a target="_blank" href="https://github.com/tenecela19">
+          <i class="fa-solid fa-heart"></i>
+        </a>
+      </div>
     </div>
 </div>
 
@@ -113,23 +123,36 @@ i {
 }
 
 .icon--instagram a {
-  background-color: #405de6;
-  background-image: url("https://benhodgson.net/img/social/instagram.svg");
+  background-color:#7c1afb;
+  background-image: url("/Images/icons/instagram.svg"), linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(120,17,247,.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(254,197,0,.8), rgba(0,0,255,0) 70.71%);
+  background-size: 100% 100%;
 }
 
-.icon--flickr a {
-  background-color: #ff0084;
-  background-image: url("https://benhodgson.net/img/social/flickr.svg");
+.icon--itchio a {
+  background-color: #fa5c5c;
+  background-image: url("/Images/icons/itchio.svg"); 
+}
+
+.icon--twitch a {
+  background-color: #9147ff;
+  background-image: url("/Images/icons/twitch.svg"); 
+}
+
+.icon--youtube a {
+  background-color: #ff0000;
+  background-image: url("/Images/icons/YouTube.svg"); 
 }
 
 .icon--spotify a {
   background-color: #80b719;
-  background-image: url("https://benhodgson.net/img/social/spotify.svg");
+  background-image: url("/Images/icons/spotify.svg"); 
 }
 
 .icon--github a {
   background-color: #4078c0;
-  background-image: url("https://benhodgson.net/img/social/github.svg");
+  background-image: url("/Images/icons/github.svg");
 }
 
 </style>

@@ -31,8 +31,9 @@
         firePosition.y = mouse.clientY + window.scrollY;
     }
 
-    function fire(firePosition : { x : number, y : number }) : void
+    function fire(firePositionArg : { x : number, y : number }) : void
     {
+        console.log(firePositionArg);
         const 
         g       : string = 'g',
         path    : string = 'path',
@@ -62,8 +63,8 @@
             (
                 trailDrawer, 
                 {
-                    x:  firePosition.x, 
-                    y:  firePosition.y + innerHeight,
+                    x:  firePositionArg.x, 
+                    y:  firePositionArg.y + innerHeight,
                     attr:
                     {
                         d:          'M0,0 0,'+innerHeight, 'stroke-width':i,
@@ -72,7 +73,7 @@
                     }
                 },
                 {
-                    y:      firePosition.y, 
+                    y:      firePositionArg.y, 
                     ease:   'expo'
                 }
             );
@@ -89,8 +90,8 @@
             (
                 fwCircle, 
                 {
-                    x:  firePosition.x, 
-                    y:  firePosition.y, 
+                    x:  firePositionArg.x, 
+                    y:  firePositionArg.y, 
                     attr:
                     {
                         class:              'core', 
@@ -186,9 +187,8 @@
                 fire, 
                 [{ //no consigo hacer que el auto se vea en screen :c
                     x:gsap.utils.random(99, innerWidth-99, 1), 
-                    y:gsap.utils.random(
-                        window.screenY + innerHeight + 99, 
-                        window.screenY - innerHeight - 99, 
+                    y:gsap.utils.random(window.scrollY, 
+                        window.scrollY + innerHeight,
                         1)
                 }]
             );

@@ -1,11 +1,12 @@
 <script lang="ts">
-    import Bird from "../Components/Bird.svelte";
-    import LandingStory from "../Components/Story/LandingStory.svelte";
-    import RatingFiller from "../Components/Ratings/RatingFiller.svelte";
-    import Fireworks from "../Components/Decorations/Fireworks.svelte";
+    import Bird             from "../Components/Bird.svelte";
+    import LandingStory     from "../Components/Story/LandingStory.svelte";
+    import RatingFiller     from "../Components/Ratings/RatingFiller.svelte";
+    import Fireworks        from "../Components/Decorations/Fireworks.svelte";
 
     let title: HTMLElement = null;
-    window.addEventListener("scroll", function () {
+    window.addEventListener("scroll", function () 
+    {
         let value: number = window.scrollY;
         title.style.paddingLeft = value * 5 + "px";
     });

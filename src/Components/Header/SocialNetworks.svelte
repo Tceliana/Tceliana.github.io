@@ -4,29 +4,29 @@
 
 
 <div class="container">
-    <div class="pointer"></div>
+  <div class="pointer"></div>
     <div class="columns bubble flexContainer">
         <div class="icon icon--instagram">
           <a href="#">
-            <span class="icon__name">Instagram</span>
+            <i class="fa-solid fa-heart"></i>
           </a>
         </div>
         <div class="icon icon--flickr">
           <a href="#">
-            <span class="icon__name">Flickr</span>
+            <i class="fa-solid fa-heart"></i>
           </a>
         </div>
         <div class="icon icon--spotify">
           <a href="#">
-            <span class="icon__name">Spotify</span>
+            <i class="fa-solid fa-heart"></i>
           </a>
         </div>
         <div class="icon icon--github">
           <a href="#">
-            <span class="icon__name">GitHub</span>
+            <i class="fa-solid fa-heart"></i>
           </a>
         </div>
-    </div>   
+    </div>
 </div>
 
 <style>
@@ -85,19 +85,18 @@
   background-position: center center;
   transition: all 0.2s ease-out;
 }
+
 .icon a:hover {
   background-color: #222;
   background-size: 0%;
   transition: all 0.2s ease-out;
 }
 
-.icon__name {
+i {
   position: absolute;
-  top: 50%;
+  top: 25%;
   width: 100%;
-  margin-top: -7px;
   color: #fff;
-  font-size: 13px;
   text-align: center;
   transition: all 0.3s ease-out;
   opacity: 0;
@@ -105,14 +104,13 @@
   transform: translateZ(0);
   will-change: transform;
   left: 0px;
-  
 }
-.icon:hover .icon__name {
+
+.icon:hover i {
   transition: all 0.3s ease-out;
   opacity: 1;
   filter: blur(0);
 }
-
 
 .icon--instagram a {
   background-color: #405de6;

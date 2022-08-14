@@ -2,12 +2,14 @@
     import CircleAnimation from "./CircleAnimation.svelte";
 import SocialNetworks from "./SocialNetworks.svelte";
     let isHovering: boolean         = false;
-    let showSocialNetwork: boolean  = true;
+    let showSocialNetwork: boolean  = false;
 
 </script>
 
 <div class="button" on:mousedown={() => showSocialNetwork = !showSocialNetwork} >
-    <span on:mouseenter={()=>isHovering=true} on:mouseleave={()=>isHovering=false}>Networks</span>
+    <span on:mouseenter={()=>isHovering=true} on:mouseleave={()=>isHovering=false}>
+        <i class="fa-solid fa-heart header-fa-icon"></i> Follow me
+    </span>
     {#if isHovering}
         <CircleAnimation />
     {/if}
@@ -26,7 +28,7 @@ import SocialNetworks from "./SocialNetworks.svelte";
         cursor:     pointer;
     }
 
-    span
+     span
     {
         padding:            8px 16px;
         border:             none;
@@ -35,5 +37,6 @@ import SocialNetworks from "./SocialNetworks.svelte";
         color:              var(--COLOR_SECONDARY);
         text-decoration:    none;
     }
+    
 
 </style>

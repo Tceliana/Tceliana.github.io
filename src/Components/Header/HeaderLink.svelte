@@ -11,7 +11,7 @@
 
 <div class="button">
     <a on:mouseenter={()=>isHovering=true} on:mouseleave={()=>isHovering=false} href={path}>
-        <i class="fa-solid fa-{icon}"></i> {linkName}
+        <i class="fa-solid fa-{icon} header-fa-icon"></i> {linkName}
     </a>
     {#if isHovering}
         <CircleAnimation />
@@ -25,7 +25,6 @@
         position:   relative;
         display:    inline-block;
         cursor:     pointer;
-        right:      3vw;
     }
 
     .button a 
@@ -38,14 +37,6 @@
         text-decoration:    none;
     }
 
-    i 
-    {
-        font-size:      1.1vw;
-        display:        inline-block;
-        position:       relative;
-        top:            -0.3vw;
-        right:          -0.5vw;
-    }
 
 
 </style>

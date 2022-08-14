@@ -18,7 +18,9 @@ import SocialNetworkButton from "./SocialNetworkButton.svelte";
         <li class="menu_tab">
             <HeaderLink linkName="Contact" path=".." icon="envelopes-bulk" />
         </li>
-        <li><SocialNetworkButton/></li>
+        <li class="menu_tab">
+           <SocialNetworkButton/>
+       </li> 
     </ul>
 </header>
 
@@ -58,4 +60,15 @@ import SocialNetworkButton from "./SocialNetworkButton.svelte";
         list-style:     none;
         margin-right:   20px;
     }
+
+    .menu_tab
+    {
+        right:      3vw;
+    }
+
+    li:last-child
+    {
+        margin-right: 1vw;
+    }
+
 </style>

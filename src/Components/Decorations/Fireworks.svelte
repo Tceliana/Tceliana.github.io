@@ -2,6 +2,7 @@
 
     import { onMount }  from "svelte";
     import gsap         from "gsap";
+    import { getRandomNumber } from "../../maths";
 
     export let showTrigger       : boolean  = false;
     export let autoPlayFireworks : boolean  = true;
@@ -47,7 +48,7 @@
             document.createElementNS(svgElementType, g),
 
         hsl : string = 
-            'hsl('+gsap.utils.random(0,360,1)+',100%,50%)'
+            'hsl('+getRandomNumber(0,360)+',100%,50%)'
 
         stage.appendChild(firework);
         firework.appendChild(trail);
@@ -98,7 +99,7 @@
                         fill:               'none', 
                         stroke:             hsl, 
                         'stroke-width':     gsap.utils.random(1.5,3.4), 
-                        'stroke-dasharray': '1 '+gsap.utils.random(15,30,1)
+                        'stroke-dasharray': '1 '+ getRandomNumber(15,30)
                     }
                 }
             );
@@ -124,7 +125,7 @@
                     trail.children, 
                     {
                         duration:   0.4, 
-                        scale:      () => gsap.utils.random(40,80,1), 
+                        scale:      () => getRandomNumber(40,80),
                         attr:       { stroke:hsl }, 
                         stagger:    -0.15, 
                         ease:       'expo'
@@ -179,16 +180,14 @@
 
     function autoPlay() : void
     {
-        for (let i : number = 0; i < gsap.utils.random(3,9,1); i++)
+        for (let i : number = 0; i < getRandomNumber(3,9); i++)
         {
             gsap.delayedCall(
                 i/2, 
                 fire, 
                 [{ //no consigo hacer que el auto se vea en screen :c
-                    x:gsap.utils.random(99, innerWidth-99, 1), 
-                    y:gsap.utils.random(window.scrollY, 
-                        window.scrollY + innerHeight,
-                        1)
+                    x:getRandomNumber(99, innerWidth-99), 
+                    y:getRandomNumber(window.scrollY, window.scrollY + innerHeight)
                 }]
             );
         }  

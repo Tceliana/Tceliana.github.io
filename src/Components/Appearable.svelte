@@ -1,5 +1,6 @@
 <script lang="ts">
     import gsap from "gsap";
+import { getRandomNumber } from "../maths";
 
     gsap.registerPlugin(ScrollTrigger);
     export let startPercentage: number;
@@ -8,8 +9,7 @@
     export let movingQuantity: number = 0.7;
     let stylish=$$props.style;
 
-
-    const offset: number = Math.floor(Math.random() * 50);
+    let offset:number = getRandomNumber(20,60);
 
     const DEBUG_ACTIVE_ANIMATIONS: boolean = true;
 

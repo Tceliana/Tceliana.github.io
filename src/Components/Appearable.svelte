@@ -1,18 +1,20 @@
 <script lang="ts">
     import gsap from "gsap";
+    import { getRandomNumber } from "../maths";
 
     gsap.registerPlugin(ScrollTrigger);
     export let startPercentage: number;
     export let endPercentage: number;
     export let mode: "U" | "R" | "L" | "D";
-    export let deltaSizePercentage: number;
+    export let movingQuantity: number = 0.7;
+    let stylish=$$props.style;
 
-    const offset: number = Math.floor(Math.random() * 50);
+    let offset:number = getRandomNumber(20,60);
 
     const DEBUG_ACTIVE_ANIMATIONS: boolean = true;
 
-    let firstQuartile = startPercentage + (endPercentage-startPercentage) / 4;
-    let thirdQuartile =startPercentage + (endPercentage-startPercentage) *3/ 4;
+    let firstQuartile = startPercentage + (endPercentage-startPercentage) / 5;
+    let thirdQuartile =startPercentage + (endPercentage-startPercentage) *4/ 5;
 
     let mainDiv: HTMLElement = null;
     let YPosition: number;
@@ -21,13 +23,13 @@
         if (DEBUG_ACTIVE_ANIMATIONS === false) return;
         function getDeltaY(): number {
             if (["L", "R"].includes(mode)) return 0;
-            if (mode == "D") return -window.innerHeight * deltaSizePercentage;
-            return window.innerHeight * deltaSizePercentage;
+            if (mode == "D") return -window.innerHeight * movingQuantity;
+            return window.innerHeight * movingQuantity;
         }
         function getDeltaX(): number {
             if (["U", "D"].includes(mode)) return 0;
-            if (mode == "L") return window.innerWidth * deltaSizePercentage;
-            return -window.innerWidth * deltaSizePercentage;
+            if (mode == "L") return window.innerWidth * movingQuantity;
+            return -window.innerWidth * movingQuantity;
         }
         if (mainDiv === null) return;
         gsap.fromTo(
@@ -88,8 +90,8 @@
         <div
             bind:this={mainDiv}
             class="Appearable columns {mode} "
-            style="
-        --deltaSize:{-deltaSizePercentage * 100 + 'vw'}; 
+            style=" {stylish};
+        --deltaSize:{-movingQuantity * 100 + 'vw'}; 
         --offset:{offset + '%'}"
         >
             <slot />
@@ -98,8 +100,8 @@
         <div
             bind:this={mainDiv}
             class="Appearable rows {mode} "
-            style="
-        --deltaSize:{-deltaSizePercentage * 100 + 'vh'}; 
+            style="{stylish};
+        --deltaSize:{-movingQuantity * 100 + 'vh'}; 
         --offset:{offset + '%'}"
         >
             <slot />

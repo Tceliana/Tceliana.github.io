@@ -7,27 +7,63 @@
     export let startPercentage  : number;
     export let endPercentage    : number;
     export let mode             : "U" | "R" | "L" | "D";
+
+    let displayLetter = false;
+
 </script>
 
-<Appearable {startPercentage} {endPercentage} {mode} deltaSizePercentage={0.9}>
+<Appearable {startPercentage} {endPercentage} {mode} style="z-index:1">
     {#if mode === "L"}
-        <img class="TcelaImage" src="/Images/TcelaDibus/patotata.png" alt="Tcela speaking" />
-        <RatingLetter {ratingInfo} />
+        <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
+            <img class="TcelaImage" src="/Images/TcelaDibus/patotata.png" alt="Tcela speaking"/>
+        </div>
+        <div class = "LetterContainer" style="left:100%;">
+            {#if displayLetter}            
+                <div class ="MoveLR" >
+                    <RatingLetter {ratingInfo} />
+                </div>
+            {/if}           
+        </div>
     {:else if mode === "R"}
-        <RatingLetter {ratingInfo} />
-        <img class="TcelaImage flipX" src="/Images/TcelaDibus/patotata.png" alt="Tcela speaking" />
+        <div class = "LetterContainer" style="right:100%;">
+            {#if displayLetter}            
+                <div class ="MoveRL" >
+                    <RatingLetter {ratingInfo} />
+                </div>
+            {/if}           
+        </div>
+        <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
+            <img class="TcelaImage flipX" src="/Images/TcelaDibus/patotata.png" alt="Tcela speaking"/>
+        </div>
     {:else if mode === "U"}
-        <img class="TcelaImage rotate90" src="/Images/TcelaDibus/patotataV.png" alt="Tcela speaking" />
-        <RatingLetter {ratingInfo} />
+        <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
+            <img class="TcelaImage rotate90" src="/Images/TcelaDibus/patotataV.png" alt="Tcela speaking"/>
+        </div>
+        <div class = "LetterContainer" style="top:100%;">
+            {#if displayLetter}
+                <div class ="MoveUD" >
+                    <RatingLetter {ratingInfo} />
+                </div>
+            {/if}           
+        </div>
     {:else if mode === "D"}
-        <RatingLetter {ratingInfo} />
-        <img class="TcelaImage flipY" src="/Images/TcelaDibus/patotataV.png" alt="Tcela speaking" />
+        <div class = "LetterContainer" style="bottom:100%">
+            {#if displayLetter}
+                <div class ="MoveDU" >
+                    <RatingLetter {ratingInfo} />
+                </div>
+            {/if}
+        </div>
+        <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
+            <img class="TcelaImage flipY" src="/Images/TcelaDibus/patotataV.png" alt="Tcela speaking"/>
+        </div>
     {/if}
 </Appearable>
 
 <style>
     .TcelaImage {
         width: 10vw;
+        vertical-align: bottom;
     }
 
     .flipX {
@@ -37,4 +73,57 @@
     .flipY {
         transform: scaleY(-1);
     }
+
+    .LetterContainer
+    {
+        position:absolute;
+        width:max-content;
+    }
+
+     .ImageContainer{
+        z-index:1;
+    } 
+
+    .ImageContainer:hover {
+		  animation: shake 250ms 2 linear;
+    }
+
+
+        .MoveUD{
+            animation: UD 500ms 1 ease-out;
+        }
+        @keyframes UD {
+		  0%    {transform: translate(0, -100vh);	}
+          50%   {transform: translate(0, -100vh);	}          
+		  100%  {transform: translate(0, 0);		}
+		}
+
+        .MoveDU{
+            animation: DU 500ms 1 ease-out;
+        }
+        @keyframes DU {
+		  0%    {transform: translate(0, 100vh);	}
+          50%   {transform: translate(0, 100vh);	}          
+		  100%  {transform: translate(0, 0);		}
+		}
+
+        .MoveLR{
+            animation: LR 500ms 1 ease-out;
+        }
+        @keyframes LR {
+		  0%    {transform: translate(-100vw, 0);	}
+          50%   {transform: translate(-100vw, 0);	}          
+		  100%  {transform: translate(0, 0);		}
+		}
+
+        .MoveRL{
+            animation: RL 500ms 1 ease-out;
+        }
+        @keyframes RL {
+		  0%    {transform: translate(100vw, 0);	}
+          50%   {transform: translate(100vw, 0);	}          
+		  100%  {transform: translate(0, 0);		}
+		}
+
+
 </style>

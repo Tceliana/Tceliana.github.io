@@ -55,10 +55,6 @@
         ? 1
         : 0}; margin-right:{isDisplayed(YPosition) ? 0 : 200}vw "
 > 
-<!-- <div
-    class="gameView"
-    style="margin-top:{-scrollUpPercentage * window.innerHeight}px; opacity:{isDisplayed(YPosition) ? 1 : 0};"
-> -->
     {#if isDisplayed(YPosition)}
         <SvgScrollPath {flipX} percentageCompleted={pathPercentage} />
     {/if}

@@ -4,7 +4,6 @@
 
 
 <div class="container">
-  <div class="pointer"></div>
     <div class="columns bubble flexContainer">
       <div class="icon icon--instagram">
         <a target="_blank" href="https://www.instagram.com/donvictort/">
@@ -41,16 +40,6 @@
 
 <style>
 
-.pointer {
-    height:         3vw;
-    width:          3vw;
-    background:     var(--COLOR_BUBBLE_BACKGROUND);
-    margin:         0 auto;
-    transform:      rotate(45deg);
-    border-radius:  12px 0 0 0;
-    position:       absolute;
-    margin-left:    2.25vw;
-}
 
 .bubble {
     height:         8vh;
@@ -63,6 +52,7 @@
     right:          2vw;
     padding:        1vw;
     box-sizing:     border-box;
+    filter: drop-shadow(-2px 5px 2px rgba(0, 0, 0, 0.4));
 }
 
 .flexContainer

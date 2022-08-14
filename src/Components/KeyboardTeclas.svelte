@@ -1,17 +1,11 @@
 <script type="ts">
     import { onMount } from "svelte";
-
+    import { getRandomNumber } from "../maths";
+   
     const keys        : string[]  = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
     const timestamps  : any[]     = [];
 
     timestamps.unshift(getTimestamp());
-
-    function getRandomNumber(min : number, max : number) : number
-    {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
 
     function getRandomKey() : string
     {

@@ -12,7 +12,7 @@
     let videoElement    : HTMLVideoElement;
     let youtubeVideo    : { playVideo: () => void; pauseVideo: () => void } = null;
 
-    $: OnDisplay(isDisplayed), isDisplayed;
+    $: OnDisplay(isDisplayed), isDisplayed; // <- Reactive: executes OnDisplay(isDisplayed) each time the variable isDisplayed change its value
 
     function OnDisplay(isDisplayed : boolean) : void 
     {

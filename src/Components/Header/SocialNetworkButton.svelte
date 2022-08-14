@@ -1,22 +1,23 @@
 <script lang="ts">
     import CircleAnimation from "./CircleAnimation.svelte";
-
-    export let linkName : string;
-    export let path     : string;
-    export let icon     : string;
-
-    let isHovering: boolean = false;
+import SocialNetworks from "./SocialNetworks.svelte";
+    let isHovering: boolean         = false;
+    let showSocialNetwork: boolean  = false;
 
 </script>
 
-<div class="button">
-    <a on:mouseenter={()=>isHovering=true} on:mouseleave={()=>isHovering=false} href={path}>
-        <i class="fa-solid fa-{icon} header-fa-icon"></i> {linkName}
-    </a>
+<div class="button" on:mousedown={() => showSocialNetwork = !showSocialNetwork} >
+    <span on:mouseenter={()=>isHovering=true} on:mouseleave={()=>isHovering=false}>
+        <i class="fa-solid fa-heart header-fa-icon"></i> Follow me
+    </span>
     {#if isHovering}
         <CircleAnimation />
     {/if}
 </div>
+{#if showSocialNetwork}
+    <SocialNetworks />
+{/if}
+
 
 <style>
     
@@ -27,7 +28,7 @@
         cursor:     pointer;
     }
 
-    .button a 
+     span
     {
         padding:            8px 16px;
         border:             none;
@@ -36,7 +37,6 @@
         color:              var(--COLOR_SECONDARY);
         text-decoration:    none;
     }
-
-
+    
 
 </style>

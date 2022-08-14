@@ -1,5 +1,6 @@
 <script lang="ts">
     import HeaderLink from "./HeaderLink.svelte";
+    import SocialNetworkButton from "./SocialNetworkButton.svelte";
 </script>
 
 <header class="columns">
@@ -17,6 +18,9 @@
         <li class="menu_tab">
             <HeaderLink linkName="Contact" path=".." icon="envelopes-bulk" />
         </li>
+        <li class="menu_tab">
+           <SocialNetworkButton/>
+       </li> 
     </ul>
 </header>
 
@@ -56,4 +60,15 @@
         list-style:     none;
         margin-right:   20px;
     }
+
+    .menu_tab
+    {
+        right:      3vw;
+    }
+
+    li:last-child
+    {
+        margin-right: 1vw;
+    }
+
 </style>

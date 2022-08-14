@@ -21,7 +21,7 @@
         <p>The story begins.</p>
         <LandingStory />
         <img class="heart" src="/Images/heart.svg" alt="heart SVG <3"/>
-         <Fireworks showTrigger /> 
+        <Fireworks showTrigger /> 
     </div>
 </div>
 

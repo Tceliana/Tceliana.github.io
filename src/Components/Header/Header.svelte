@@ -1,6 +1,6 @@
 <script lang="ts">
     import HeaderLink from "./HeaderLink.svelte";
-import SocialNetworkButton from "./SocialNetworkButton.svelte";
+    import SocialNetworkButton from "./SocialNetworkButton.svelte";
 </script>
 
 <header class="columns">

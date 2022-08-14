@@ -14,7 +14,9 @@
 
 <Appearable {startPercentage} {endPercentage} {mode} style="z-index:1">
     {#if mode === "L"}
-        <img class="TcelaImage" src="/Images/TcelaDibus/patotata.png" alt="Tcela speaking" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}/>
+        <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
+            <img class="TcelaImage" src="/Images/TcelaDibus/patotata.png" alt="Tcela speaking"/>
+        </div>
         <div class = "LetterContainer" style="left:100%;">
             {#if displayLetter}            
                 <RatingLetter {ratingInfo} />
@@ -26,9 +28,13 @@
                 <RatingLetter {ratingInfo} />
             {/if}           
         </div>
-        <img class="TcelaImage flipX" src="/Images/TcelaDibus/patotata.png" alt="Tcela speaking" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}/>
+        <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
+            <img class="TcelaImage flipX" src="/Images/TcelaDibus/patotata.png" alt="Tcela speaking"/>
+        </div>
     {:else if mode === "U"}
-        <img class="TcelaImage rotate90" src="/Images/TcelaDibus/patotataV.png" alt="Tcela speaking" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}/>
+        <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
+            <img class="TcelaImage rotate90" src="/Images/TcelaDibus/patotataV.png" alt="Tcela speaking"/>
+        </div>
         <div class = "LetterContainer" style="top:100%;">
             {#if displayLetter}            
                 <RatingLetter {ratingInfo} />
@@ -40,13 +46,16 @@
                 <RatingLetter {ratingInfo} />
             {/if}
         </div>
-        <img class="TcelaImage flipY" src="/Images/TcelaDibus/patotataV.png" alt="Tcela speaking" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}/>
+        <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
+            <img class="TcelaImage flipY" src="/Images/TcelaDibus/patotataV.png" alt="Tcela speaking"/>
+        </div>
     {/if}
 </Appearable>
 
 <style>
     .TcelaImage {
         width: 10vw;
+        vertical-align: bottom;
     }
 
     .flipX {
@@ -62,5 +71,34 @@
         position:absolute;
         width:max-content;
     }
+
+    /* .ImageContainer{
+        width:fit-content;
+        height: fit-content;
+    } */
+    .ImageContainer:hover {
+		  animation: shake 250ms 2 linear;
+    }
+
+    @keyframes shake {
+		  0% {
+		    transform: translate(3px, 0);
+		  }
+          25%
+          {
+            transform: scaleX(1.2) scaleY(0.8);
+          }
+		  50% {
+		    transform: translate(-3px, 0);
+		  }
+          75%
+          {
+            transform: scaleX(0.8) scaleY(1.2);
+          }
+		  100% {
+		    transform: translate(0, 0) scale(1);
+		  }
+		}
+
     
 </style>

@@ -221,8 +221,6 @@ onMount(() =>
 
 <style>
 
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@600&display=swap');
-
     svg
     {
         width:      100%;

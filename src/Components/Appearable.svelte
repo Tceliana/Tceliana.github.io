@@ -11,8 +11,8 @@
 
     const DEBUG_ACTIVE_ANIMATIONS: boolean = true;
 
-    let firstQuartile = (startPercentage + endPercentage) / 4;
-    let thirdQuartile = ((startPercentage + endPercentage) * 3) / 4;
+    let firstQuartile = startPercentage + (endPercentage-startPercentage) / 4;
+    let thirdQuartile =startPercentage + (endPercentage-startPercentage) *3/ 4;
 
     let mainDiv: HTMLElement = null;
     let YPosition: number;
@@ -73,8 +73,8 @@
         }
 
         if (
-            (YPosition / max_scrollbar_height) * 100 > startPercentage - 5 &&
-            (YPosition / max_scrollbar_height) * 100 < endPercentage + 5
+            (YPosition / max_scrollbar_height) * 100 > startPercentage  &&
+            (YPosition / max_scrollbar_height) * 100 < endPercentage 
         ) {
             addMovement();
             return true;

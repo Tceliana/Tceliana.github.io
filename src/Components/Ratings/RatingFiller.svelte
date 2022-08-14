@@ -8,7 +8,7 @@
 
     function getUwUList(): UwuListType {
         let returned: UwuListType = [];
-        for (var i = 0; i <= 25; i++) {
+        for (var i = 0; i <= 4; i++) {
             returned.push({
                 StartPercentage: Math.floor(Math.random() * 25) + 70,
                 mode: ["U", "D", "R", "L"][Math.floor(Math.random() * 4)] as "U" | "D" | "R" | "L",
@@ -37,7 +37,7 @@
     <Rating
         ratingInfo={{ name: "", stars: 5, review: "UWU" }}
         startPercentage={uwuItem.StartPercentage}
-        endPercentage={100}
+        endPercentage={101}
         mode={uwuItem.mode}
     />
 {/each}

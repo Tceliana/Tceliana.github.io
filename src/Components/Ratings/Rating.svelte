@@ -88,26 +88,6 @@
 		  animation: shake 250ms 2 linear;
     }
 
-    @keyframes shake {
-		  0% {
-		    transform: translate(3px, 0);
-		  }
-          25%
-          {
-            transform: scaleX(1.2) scaleY(0.8);
-          }
-		  50% {
-		    transform: translate(-3px, 0);
-		  }
-          75%
-          {
-            transform: scaleX(0.8) scaleY(1.2);
-          }
-		  100% {
-		    transform: translate(0, 0) scale(1);
-		  }
-		}
-
 
         .MoveUD{
             animation: UD 500ms 1 ease-out;

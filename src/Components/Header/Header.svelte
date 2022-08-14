@@ -66,6 +66,11 @@
         right:      3vw;
     }
 
+    .menu_tab:hover{
+        font-weight:    600;
+        animation:      shake 150ms 1 linear;   
+    }
+
     li:last-child
     {
         margin-right: 1vw;

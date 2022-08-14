@@ -123,3 +123,25 @@ button:focus {
     top:            -0.3vw;
     right:          -0.5vw;
 } 
+
+
+
+@keyframes shake {
+    0% {
+      transform: translate(3px, 0);
+    }
+    25%
+    {
+      transform: scaleX(1.2) scaleY(0.8);
+    }
+    50% {
+      transform: translate(-3px, 0);
+    }
+    75%
+    {
+      transform: scaleX(0.8) scaleY(1.2);
+    }
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+  }

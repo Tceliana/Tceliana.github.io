@@ -31,11 +31,12 @@
         top:                0;
         left:               0;
         width:              100%;
-        margin:             1vh 1vw;
+        padding:            1vh 1vw;
         display:            flex;
         justify-content:    space-between;
         align-items:        center;
         z-index:            1;
+        box-sizing:         border-box;
     }
 
     header .logo 

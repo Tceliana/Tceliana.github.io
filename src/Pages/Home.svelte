@@ -20,14 +20,17 @@
         <Bird />
         <p>The story begins.</p>
         <LandingStory />
-        <img class="hearth" src="/Images/hearth.svg" alt="hearth SVG" />
+        <img class="heart" src="/Images/heart.svg" alt="heart SVG <3"/>
         <Fireworks showTrigger />
     </div>
 </div>
 
 
 <style>
-    .hearth {
+    .heart {
         width: 120vw;
+        user-select:none;
+        position:absolute;
+        z-index:-1;
     }
 </style>

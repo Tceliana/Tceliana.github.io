@@ -33,7 +33,6 @@
 
     function fire(firePositionArg : { x : number, y : number }) : void
     {
-        console.log(firePositionArg);
         const 
         g       : string = 'g',
         path    : string = 'path',

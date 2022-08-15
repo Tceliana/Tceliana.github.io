@@ -8,8 +8,8 @@
 
 <div class="icon">
   <a target="_blank" href="{link}" style="background-color:{backgroundColor}; background-image:url({imageUrl})">
-      <i class="fa-solid fa-heart"></i>
-    </a>
+    <img class="heart" src="/Images/heart.svg" alt="heart SVG <3"/> 
+  </a>
 </div>
 
 <style>
@@ -33,10 +33,11 @@
   border:               0;
   border-radius:        10px;
   background-color:     #fff;
-  background-size:      70%;
+  background-size:      100%;
   background-repeat:    no-repeat;
   background-position:  center center;
   transition:           all 0.2s ease-out;
+  filter:               drop-shadow(4px 5px 2px rgba(0, 0, 0, 0.4));
 }
 
 .icon a:hover {
@@ -45,21 +46,22 @@
   transition:       all 0.2s ease-out;
 }
 
-i {
-  position:     absolute;
-  top:          25%;
-  width:        100%;
-  color:      #fff;
-  text-align:   center;
-  transition:   all 0.3s ease-out;
-  opacity:      0;
-  filter:       blur(25px);
-  transform:    translateZ(0);
-  will-change:  transform;
-  left:         0px;
+img {
+  width:          70%;
+  color:        #fff;
+  position:       absolute;
+  left:           0;
+  right:          0;
+  top:            0;
+  bottom:         0;
+  margin:         auto;
+  transition:     all 0.3s ease-out;
+  opacity:        0;
+  filter:         blur(25px);
+  will-change:    transform;
 }
 
-.icon:hover i {
+.icon:hover img {
   transition: all 0.3s ease-out;
   opacity:    1;
   filter:     blur(0);

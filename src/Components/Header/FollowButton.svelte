@@ -1,12 +1,12 @@
 <script lang="ts">
+    import Balloons from "./Balloons.svelte";
     import CircleAnimation from "./CircleAnimation.svelte";
-    import SocialNetworks from "./SocialNetworks.svelte";
-    let isHovering: boolean         = false;
-    let showSocialNetwork: boolean  = false;
+    let isHovering: boolean             = false;
+    let showSocialNetworks: boolean     = false;
 
 </script>
 
-<div class="button" on:mousedown={() => showSocialNetwork = !showSocialNetwork} >
+<div class="button" on:mousedown={() => showSocialNetworks = !showSocialNetworks} >
     <span on:mouseenter={()=>isHovering=true} on:mouseleave={()=>isHovering=false}>
         <i class="fa-solid fa-heart header-fa-icon"></i> Follow me
     </span>
@@ -14,8 +14,8 @@
         <CircleAnimation />
     {/if}
 </div>
-{#if showSocialNetwork}
-    <SocialNetworks />
+{#if showSocialNetworks}
+    <Balloons />
 {/if}
 
 

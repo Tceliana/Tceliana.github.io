@@ -1,6 +1,6 @@
 <script lang="ts">
     import CircleAnimation from "./CircleAnimation.svelte";
-import SocialNetworks from "./SocialNetworks.svelte";
+    import SocialNetworks from "./SocialNetworks.svelte";
     let isHovering: boolean         = false;
     let showSocialNetwork: boolean  = false;
 
@@ -38,5 +38,8 @@ import SocialNetworks from "./SocialNetworks.svelte";
         text-decoration:    none;
     }
     
-
+    .button:hover{    
+        font-weight:    600;
+        animation:      shake 150ms 1 linear;   
+    }
 </style>

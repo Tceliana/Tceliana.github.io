@@ -1,6 +1,6 @@
 <script lang="ts">
     import HeaderLink from "./HeaderLink.svelte";
-    import SocialNetworkButton from "./SocialNetworkButton.svelte";
+    import FollowButton from "./FollowButton.svelte";
 </script>
 
 <header class="columns">
@@ -19,7 +19,7 @@
             <HeaderLink linkName="Contact" path=".." icon="envelopes-bulk" />
         </li>
         <li class="menu_tab">
-           <SocialNetworkButton/>
+           <FollowButton/>
        </li> 
     </ul>
 </header>
@@ -31,11 +31,12 @@
         top:                0;
         left:               0;
         width:              100%;
-        margin:             1vh 1vw;
+        padding:            1vh 1vw;
         display:            flex;
         justify-content:    space-between;
         align-items:        center;
         z-index:            1;
+        box-sizing:         border-box;
     }
 
     header .logo 
@@ -68,7 +69,7 @@
 
     li:last-child
     {
-        margin-right: 1vw;
+        margin-right: 0vw;
     }
 
 </style>

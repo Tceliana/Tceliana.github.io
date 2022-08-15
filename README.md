@@ -33,54 +33,20 @@ git pull
 ```
 
 # Interactuar con la web
-
-### Lanzar la web en local (localhost):
-
-Sin Makefile:
-
+1) Lanzar la web en local (localhost):
 ```
 npm run dev
 ```
-
-Con Makefile:
-
-```
-make run
-```
-
-### Hacer una build de la web (generar los ficheros de producción)
-
-Sin Makefile:
-
+2) Build de la web
 ```
 npm run build
 ```
-
-Con Makefile:
-
+3) Actualizar tceliana.github.com:
+Disclaimer: ¡Es necesario que haya algún cambio en la carpeta `public`!
 ```
-make build
-```
-
-### Actualizar la web.
-
-\*Requerimiento: es necesario que haya un cambio en la carpeta `public`.
-Sin Makefile:
-
-```
-git fetch --prune
 git subtree push --prefix public origin gh-pages
-git fetch --prune
 ```
 
-Con Makefile:
-
-```
-make deploy
-(si falla)
-make edeploy
-(si falla, probar de hacer "git checkout gh-pages", luego "git checkout main", y volver a probar)
-```
 
 # Links
 

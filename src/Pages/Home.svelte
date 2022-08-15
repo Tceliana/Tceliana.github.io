@@ -3,6 +3,7 @@
     import LandingStory     from "../Components/Story/LandingStory.svelte";
     import RatingFiller     from "../Components/Ratings/RatingFiller.svelte";
     import Fireworks        from "../Components/Decorations/Fireworks.svelte";
+    import KeyboardTeclas   from "../Components/KeyboardTeclas.svelte";
 
     let title: HTMLElement = null;
     window.addEventListener("scroll", function () 
@@ -22,6 +23,7 @@
         <LandingStory />
         <img class="hearth" src="/Images/hearth.svg" alt="hearth SVG" />
         <Fireworks showTrigger />
+        <KeyboardTeclas />
     </div>
 </div>
 

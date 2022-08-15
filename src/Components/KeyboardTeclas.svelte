@@ -4,6 +4,8 @@
     const keys        : string[]  = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
     const timestamps  : any[]     = [];
 
+    export let show   : boolean   = false;
+
     timestamps.unshift(getTimestamp());
 
     function getRandomNumber(min : number, max : number) : number
@@ -21,8 +23,9 @@
     function targetRandomKey() : void
     {
         const key : HTMLElement = document.getElementById(getRandomKey());
+        console.log(key);
         key.classList.add("selected");
-        //let start : number = Date.now()
+        let start : number = Date.now()
     }
 
 function getTimestamp() : number
@@ -30,14 +33,18 @@ function getTimestamp() : number
     return Math.floor(Date.now() / 1000)
 }
 
-document.addEventListener("keyup", event => {
+document.addEventListener("keyup", event => 
+{
     const 
-    keyPressed      : string       = String.fromCharCode(event.code.charCodeAt(0)),
-    keyElement      : HTMLElement  = document.getElementById(keyPressed),
-    highlightedKey  : Element     = document.querySelector(".selected");
-
-    keyElement.classList.add("hit")
-    keyElement.addEventListener('animationend', () => {
+    keyPressed      : string        = String.fromCharCode(event.keyCode),
+    keyElement      : HTMLElement   = document.getElementById(keyPressed),
+    highlightedKey  : Element       = document.querySelector(".selected");
+    console.log(keyPressed);
+    console.log(keyElement);
+    console.log(highlightedKey);
+    keyElement.classList.add("hit");
+    keyElement.addEventListener('animationend', () => 
+    {
         keyElement.classList.remove("hit")
     })
 
@@ -51,11 +58,18 @@ document.addEventListener("keyup", event => {
     } 
 })
 
-onMount(() => { targetRandomKey(); })
+onMount(() => 
+{ 
+  targetRandomKey();
+  let deleteElement = document.getElementById("delete");
+  //delete element "deleteElement"
+  deleteElement.remove();
+})
 </script>
-
+{#if show}
+<div class="selected pinky ring middle pointer1st pointer2nd fill-out-key hit" id="delete"></div>
 <div class="keyboard">
-    <ul class="row row-0">
+    <ul class="rowkb row-0">
         <li class="pinky" id="esc">ESC</li>
         <li class="pinky" id="1">1</li>
         <li class="ring" id="2">2</li>
@@ -71,7 +85,7 @@ onMount(() => { targetRandomKey(); })
         <li class="pinky" >+</li>
         <li class="pinky" id="back">BACK</li>
     </ul>
-    <ul class="row row-1">
+    <ul class="rowkb row-1">
         <li class="pinky" id="tab">TAB</li>
         <li class="pinky" id="Q">Q</li>
         <li class="ring" id="W">W</li>
@@ -87,7 +101,7 @@ onMount(() => { targetRandomKey(); })
         <li class="pinky" >]</li>
         <li class="pinky" >\</li>
     </ul>
-    <ul class="row row-2">
+    <ul class="rowkb row-2">
         <li class="pinky" id="caps">CAPS</li>
         <li class="pinky" id="A">A</li>
         <li class="ring" id="S">S</li>
@@ -102,7 +116,7 @@ onMount(() => { targetRandomKey(); })
         <li class="pinky" >''</li>
         <li class="pinky" id="enter">ENTER</li>
     </ul>
-    <ul class="row row-3">
+    <ul class="rowkb row-3">
         <li class="pinky" id="left-shift">SHIFT</li>
         <li class="pinky" id="Z">Z</li>
         <li class="ring" id="X">X</li>
@@ -117,33 +131,38 @@ onMount(() => { targetRandomKey(); })
         <li class="pinky" id="right-shift">SHIFT</li>
     </ul>
 </div>
-
+{/if}
 <style>
 
     .keyboard 
     {
+      margin-top:     20vw;
       display:        flex;
       flex-direction: column;
+      max-width:      90%;
     }
 
-  .row 
+  .rowkb 
   {
     list-style: none;
     display:    flex;
+    margin:     0px;
+    margin-top: 0.5vw;
+
   }
 
   li 
   {
-    height:         3em;
+    height:         2em;
     width:          3em;
     color:          rgba(0,0,0,0.7);
     border-radius:  0.4em;
     line-height:    3em;
     letter-spacing: 1px;
-    margin:         0.4em;
+    margin:         0.2vw;
     transition:     0.3s;
     text-align:     center;
-    font-size:      1em;
+    font-size:      2vw;
   }
 
   #tab 
@@ -230,15 +249,16 @@ onMount(() => { targetRandomKey(); })
     border: 2px solid slategrey;
   }
 
-  .selected {
+  .selected 
+  {
     background-color: transparent;
-    	-webkit-animation: vibrate-1 0.3s linear infinite both;
-  	        animation: vibrate-1 0.3s linear infinite both;
+    -webkit-animation: vibrate-1 0.3s linear infinite both;
+    animation: vibrate-1 0.3s linear infinite both;
   }
 
   .hit {
-  	-webkit-animation: hit 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  	        animation: hit 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    -webkit-animation: hit 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: hit 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   }
 
   @-webkit-keyframes hit {

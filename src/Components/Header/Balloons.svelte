@@ -1,5 +1,7 @@
 <script lang="ts">
       import SocialNetLink from "./SocialNetLink.svelte";
+      import gsap from "gsap";
+      import {onMount} from "svelte";
 
       let socialNets : {link:string, imageURL:string, backgroundCol:string}[]=
       [
@@ -54,6 +56,14 @@
       ]
 
 
+      onMount(() => {
+            const timeline = gsap.timeline();
+            timeline.fromTo(".container", {x:"0vw", }, {x:"-100vw", duration: 5, ease: "expo.out"});
+            timeline.fromTo(".container", {x:"-100vw", }, {x:"-200vw", delay:4, duration: 5, ease: "expo.in"});
+            timeline.fromTo(".container", {x:"-200vw", }, {x:"-200vw", delay:0.2, ease: "expo.in"});
+            timeline.repeat(-1).yoyo(true).play();
+      });
+
 </script>
 
 
@@ -73,8 +83,10 @@
       .container
       {
             position:   absolute;
-            top:        100%;
-            left:       0%;
+            margin-top: 1%;
+            justify-content: center;
+            width: fit-content;
+            right: -100%;
       }
 
       .balloon

@@ -17,7 +17,7 @@
 
 <div style="min-height: 1000vh; z-index=-2">
     <div class="rows">
-        <h1 bind:this={title} style="font-family: earthsmightiestbold; color: var(--COLOR_PRIMARY); margin-top:50%; ">Teclas</h1>
+        <h1 bind:this={title} style="font-family: earthsmightiestbold; color: var(--COLOR_PRIMARY); margin-top:20%; ">Teclas</h1>
         <Bird />
         <p>The story begins.</p>
         <LandingStory />

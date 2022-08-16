@@ -1,17 +1,50 @@
 <script type="ts">
     import { onMount } from "svelte";
     import { getRandomNumber } from "../maths";
-   
+
     const keys        : string[]  = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
     const timestamps  : any[]     = [];
 
     export let show   : boolean   = false;
 
+    let currentKey    : string    = "T";
+
     timestamps.unshift(getTimestamp());
 
     function getRandomKey() : string
     {
-        return keys[getRandomNumber(0, keys.length - 1)];
+        if (currentKey === "T")
+        {
+            currentKey = "C";
+            return "T";
+        }
+        else if (currentKey === "C")
+        {
+            currentKey = "E";
+            return "C";
+        }
+        else if (currentKey === "E")
+        {
+            currentKey = "L";
+            return "E";
+        }
+        else if (currentKey === "L")
+        {
+            currentKey = "A";
+            return "L";
+        }
+        else if (currentKey === "A")
+        {
+            currentKey = "Q";
+            return "A";
+        }
+        else if (currentKey === "Q")
+        {
+          show = false;
+          console.log("show", show);
+          return "Q";
+        }
+        //return keys[getRandomNumber(0, keys.length - 1)];
     }
 
     function targetRandomKey() : void

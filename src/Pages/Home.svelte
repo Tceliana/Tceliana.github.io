@@ -23,7 +23,7 @@
         <LandingStory />
         <img class="heart" src="/Images/heart.svg" alt="heart SVG <3"/>
         <Fireworks showTrigger /> 
-        <KeyboardTeclas />
+        <KeyboardTeclas show />
     </div>
 </div>
 

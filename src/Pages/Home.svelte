@@ -4,6 +4,7 @@
     import RatingFiller     from "../Components/Ratings/RatingFiller.svelte";
     import Fireworks        from "../Components/Decorations/Fireworks.svelte";
     import KeyboardTeclas   from "../Components/KeyboardTeclas.svelte";
+    import HomeFooter       from "../Components/HomeFooter/HomeFooter.svelte";
 
     let title: HTMLElement = null;
     window.addEventListener("scroll", function () 
@@ -25,10 +26,7 @@
         <Fireworks showTrigger /> 
         <KeyboardTeclas show />
         <Bird />
-        <div class="footer">
-            <!-- <img class="footer_image" src="/Images/TcelaDibus/big_tcela.png" alt="Big tcela as the footer of the webpage"/> -->
-            <div class="footer_image" />
-        </div>
+        <HomeFooter />
     </div>
 </div>
 
@@ -49,25 +47,5 @@
         margin-top:0%; 
         margin-bottom: 0;
     } 
-        
 
-    .footer
-    {
-        position:absolute;
-        bottom:0;
-        margin-bottom:0;
-        width:100vw;
-        height:50vh;
-    }
-
-    .footer_image{
-        background-image:       url("/Images/TcelaDibus/big_tcela.png");
-        background-repeat:      no-repeat;
-        background-position:    center top;
-        background-size:        100% 185%;
-        width:100%;
-        height:100%;
-        margin-bottom: 0%;
-        position:absolute;
-    }
 </style>

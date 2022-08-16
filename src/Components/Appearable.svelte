@@ -11,7 +11,7 @@
 
     let offset:number = getRandomNumber(20,60);
 
-    const DEBUG_ACTIVE_ANIMATIONS: boolean = true;
+    const DO_ANIMATIONS: boolean = true;
 
     let firstQuartile = startPercentage + (endPercentage-startPercentage) / 5;
     let thirdQuartile =startPercentage + (endPercentage-startPercentage) *4/ 5;
@@ -20,7 +20,7 @@
     let YPosition: number;
 
     function addMovement() {
-        if (DEBUG_ACTIVE_ANIMATIONS === false) return;
+        if (DO_ANIMATIONS === false) return;
         function getDeltaY(): number {
             if (["L", "R"].includes(mode)) return 0;
             if (mode == "D") return -window.innerHeight * movingQuantity;

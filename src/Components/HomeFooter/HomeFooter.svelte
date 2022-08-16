@@ -1,4 +1,5 @@
 <script lang="ts">
+import ActiveByScroll from "../ActiveByScroll.svelte";
 import Leaf from "./Leaf.svelte";
 
 
@@ -7,12 +8,14 @@ import Leaf from "./Leaf.svelte";
 
 <div class="footer">
     <div class="footer_image" />
-    <Leaf />
-    <Leaf />
-    <Leaf />
-    <Leaf />
-    <Leaf />
-    <Leaf />
+    <ActiveByScroll startPercentage={90}>
+        <Leaf />
+        <Leaf />
+        <Leaf />
+        <Leaf />
+        <Leaf />
+        <Leaf />
+    </ActiveByScroll>
 </div>
 
 <style>
@@ -22,17 +25,19 @@ import Leaf from "./Leaf.svelte";
         bottom:0;
         margin-bottom:0;
         width:100vw;
-        height:50vh;
+        height:100vh;
+        overflow: hidden;
     }
 
     .footer_image{
         background-image:       url("/Images/TcelaDibus/big_tcela.png");
         background-repeat:      no-repeat;
         background-position:    center top;
-        background-size:        100% 185%;
+        background-size:        100% 100%;
         width:100%;
         height:100%;
-        margin-bottom: 0%;
+        margin-bottom: -20%;
+        bottom: 0;
         position:absolute;
     }
 </style>

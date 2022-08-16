@@ -9,12 +9,9 @@ import Leaf from "./Leaf.svelte";
 <div class="footer">
     <div class="footer_image" />
     <ActiveByScroll startPercentage={90}>
-        <Leaf />
-        <Leaf />
-        <Leaf />
-        <Leaf />
-        <Leaf />
-        <Leaf />
+        {#each Array(10) as _}
+            <Leaf />
+        {/each}
     </ActiveByScroll>
 </div>
 

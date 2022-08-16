@@ -65,7 +65,7 @@
         color:          var(--COLOR_TERTIARY);
         font-size:      4vw;
         line-height:    2.5vw;
-        font-weight:    2..vw;
+        font-weight:    2vw;
         padding:        5vw;
         font-style:     italic;
         text-align:     center;

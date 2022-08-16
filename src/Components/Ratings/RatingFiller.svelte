@@ -8,28 +8,27 @@
 
     function getUwUList(): UwuListType {
         let returned: UwuListType = [];
-        for (var i = 0; i <= 4; i++) {
+        for (var i = 0; i < 5; i++) {
             returned.push({
-                StartPercentage: getRandomNumber(70,95),
+                StartPercentage: getRandomNumber(70,80),
                 mode: ["U", "D", "R", "L"][getRandomNumber(0,3)] as "U" | "D" | "R" | "L",
             });
         }
         return returned;
     }
 
-    shuffleArray(AllRatings);
-    const ratingRange = [10, 60];
-    const deltaPercentage = (ratingRange[1] - ratingRange[0]) / AllRatings.length;
+    const startPercentages = [...Array(AllRatings.length)].map(()=> getRandomNumber(10,60))
     function getNextMode(i: number): "U" | "D" | "R" | "L" {
         return ["U", "D", "R", "L"][i % 4] as any;
     }
+
 </script>
 
 {#each AllRatings as rating, i}
     <Rating
         ratingInfo={rating}
-        startPercentage={ratingRange[0] + i * deltaPercentage}
-        endPercentage={ratingRange[0] + (i + 1) * deltaPercentage}
+        startPercentage={startPercentages[i]}
+        endPercentage={startPercentages[i]+20}
         mode={getNextMode(i)}
     />
 {/each}
@@ -37,7 +36,7 @@
     <Rating
         ratingInfo={{ name: "", stars: 5, review: "UWU" }}
         startPercentage={uwuItem.StartPercentage}
-        endPercentage={101}
+        endPercentage={90}
         mode={uwuItem.mode}
     />
 {/each}

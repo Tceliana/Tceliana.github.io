@@ -18,7 +18,6 @@
     <Balloons />
 {/if}
 
-
 <style>
     
     .button 
@@ -28,7 +27,7 @@
         cursor:     pointer;
     }
 
-     span
+    span
     {
         padding:            8px 16px;
         border:             none;

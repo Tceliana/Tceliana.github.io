@@ -29,10 +29,11 @@
 
 
 <style>
-    .heart {
-        width: 120vw;
-        user-select:none;
-        position:absolute;
-        z-index:-1;
+    .heart 
+    {
+        width:          120vw;
+        user-select:    none;
+        position:       absolute;
+        z-index:        -1;
     }
 </style>

@@ -24,7 +24,7 @@
         {
             toggleAuto();
         }
-    } )
+    });
 
     window.onpointerdown = window.onpointermove = (mouse : MouseEvent) =>
     {
@@ -67,7 +67,8 @@
                     y:  firePositionArg.y + innerHeight,
                     attr:
                     {
-                        d:          'M0,0 0,'+innerHeight, 'stroke-width':i,
+                        d:          'M0,0 0,'+innerHeight, 
+                        'stroke-width':i,
                         opacity:    0.25, 
                         stroke:     hsl
                     }

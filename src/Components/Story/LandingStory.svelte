@@ -63,10 +63,10 @@
     .landingStory 
     {
         color:          var(--COLOR_TERTIARY);
-        font-size:      2rem;
-        line-height:    1.5rem;
-        font-weight:    3rem;
-        padding:        1rem;
+        font-size:      4vw;
+        line-height:    2.5vw;
+        font-weight:    2..vw;
+        padding:        5vw;
         font-style:     italic;
         text-align:     center;
     }

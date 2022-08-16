@@ -19,8 +19,8 @@
             <HeaderLink linkName="Contact" path=".." icon="envelopes-bulk" />
         </li>
         <li class="menu_tab">
-           <FollowButton/>
-       </li> 
+            <FollowButton/>
+        </li> 
     </ul>
 </header>
 

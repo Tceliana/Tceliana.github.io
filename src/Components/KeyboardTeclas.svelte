@@ -1,15 +1,36 @@
 <script type="ts">
-    import { onMount } from "svelte";
-    import { getRandomNumber } from "../maths";
+import all from "gsap/all";
 
-    const keys        : string[]  = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+    import { onMount } from "svelte";
+
     const timestamps  : any[]     = [];
 
     export let show   : boolean   = false;
 
+    let passworUnlock : boolean   = false;
     let currentKey    : string    = "T";
 
     timestamps.unshift(getTimestamp());
+
+    function getRandomAnimatecss() : string
+    {
+      const animations = ["animate__bounce"
+                          ,"animate__flash"
+                          ,"animate__pulse"
+                          ,"animate__rubberBand"
+                          ,"animate__shakeX"
+                          ,"animate__shakeY"
+                          ,"animate__headShake"
+                          ,"animate__swing"
+                          ,"animate__tada"
+                          ,"animate__wobble"
+                          ,"animate__jello"
+                          ,"animate__heartBeat"
+                          ,"animate__bounceIn"
+                          ,"animate__bounceInDown"
+                          ,"animate__bounceInLeft"];
+      return animations[Math.floor(Math.random() * animations.length)];
+    }
 
     function getRandomKey() : string
     {
@@ -40,9 +61,22 @@
         }
         else if (currentKey === "Q")
         {
-          show = false;
-          console.log("show", show);
-          return "Q";
+          var allLi = document.getElementsByTagName("li");
+          for (var i = 0; i < allLi.length; i++) {
+            allLi[i].classList.add("animate__animated");
+            allLi[i].classList.add(getRandomAnimatecss());
+            allLi[i].classList.add("animate__infinite");
+            
+          }
+          setTimeout(() => {
+            for (var i = 0; i < allLi.length; i++) allLi[i].classList.add("disolve");
+            
+            setTimeout(() => {
+              show = false;
+            }, 200);
+            return "ç";
+          }, 1000);
+          
         }
         //return keys[getRandomNumber(0, keys.length - 1)];
     }
@@ -87,14 +121,15 @@ document.addEventListener("keyup", event =>
 
 onMount(() => 
 { 
+  if(!show) return;
   targetRandomKey();
   let deleteElement = document.getElementById("delete");
-  //delete element "deleteElement"
   deleteElement.remove();
 })
 </script>
+<div class="disolve selected pinky ring middle pointer1st pointer2nd fill-out-key hit" id="delete"></div>
 {#if show}
-<div class="selected pinky ring middle pointer1st pointer2nd fill-out-key hit" id="delete"></div>
+<li id="ç" style="list-style: none;"></li>
 <div class="keyboard">
     <ul class="rowkb row-0">
         <li class="pinky" id="esc">ESC</li>
@@ -158,6 +193,9 @@ onMount(() =>
         <li class="pinky" id="right-shift">SHIFT</li>
     </ul>
 </div>
+{/if}
+{#if passworUnlock}
+<div>Aqui aparecerá una cosita muy chu chu chuli.</div>
 {/if}
 <style>
 
@@ -287,6 +325,10 @@ onMount(() =>
     -webkit-animation: hit 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: hit 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   }
+  .disolve
+  {
+    animation: disolve 0.2s;
+  }
 
   @-webkit-keyframes hit {
     0% {
@@ -361,5 +403,12 @@ onMount(() =>
               transform: translate(0);
     }
   }
-
+  @keyframes disolve {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 </style>

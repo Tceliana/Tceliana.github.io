@@ -57,11 +57,14 @@
 
 
       onMount(() => {
+            let duration = 4;
             const timeline = gsap.timeline();
-            timeline.fromTo(".container", {x:"0vw", }, {x:"-100vw", duration: 5, ease: "expo.out"});
-            timeline.fromTo(".container", {x:"-100vw", }, {x:"-200vw", delay:4, duration: 5, ease: "expo.in"});
+            timeline.fromTo(".container", {x:"0vw", }, {x:"-100vw", duration: duration, ease: "expo.out"});
+            timeline.fromTo(".container", {x:"-100vw", }, {x:"-200vw", delay:4, duration: duration, ease: "expo.in"});
             timeline.fromTo(".container", {x:"-200vw", }, {x:"-200vw", delay:0.2, ease: "expo.in"});
-            timeline.repeat(-1).yoyo(true).play();
+            timeline.fromTo(".container", {x:"-200vw", }, {x:"-125vw", duration: duration, ease: "expo.out"});
+            timeline.fromTo(".container", {x:"-125vw", }, {x:"0vw", delay:4, duration: duration, ease: "expo.in"});
+            timeline.repeat(-1).play();
       });
 
 </script>

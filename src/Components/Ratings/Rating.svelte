@@ -1,6 +1,7 @@
 <script lang="ts">
     import Appearable   from "../Appearable.svelte";
     import RatingLetter from "./RatingLetter.svelte";
+    import ActiveByScroll from "../ActiveByScroll.svelte";
     import type { RatingInfo } from "../../ratings";
 
     export let ratingInfo       : RatingInfo;
@@ -12,53 +13,55 @@
 
 </script>
 
-<Appearable {startPercentage} {endPercentage} {mode} style="z-index:1">
-    {#if mode === "L"}
-        <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
-            <img class="TcelaImage" src="/Images/TcelaDibus/patotata.png" alt="Tcela speaking"/>
-        </div>
-        <div class = "LetterContainer" style="left:100%;">
-            {#if displayLetter}            
-                <div class ="MoveLR" >
-                    <RatingLetter {ratingInfo} />
-                </div>
-            {/if}           
-        </div>
-    {:else if mode === "R"}
-        <div class = "LetterContainer" style="right:100%;">
-            {#if displayLetter}            
-                <div class ="MoveRL" >
-                    <RatingLetter {ratingInfo} />
-                </div>
-            {/if}           
-        </div>
-        <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
-            <img class="TcelaImage flipX" src="/Images/TcelaDibus/patotata.png" alt="Tcela speaking"/>
-        </div>
-    {:else if mode === "U"}
-        <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
-            <img class="TcelaImage rotate90" src="/Images/TcelaDibus/patotataV.png" alt="Tcela speaking"/>
-        </div>
-        <div class = "LetterContainer" style="top:100%;">
-            {#if displayLetter}
-                <div class ="MoveUD" >
-                    <RatingLetter {ratingInfo} />
-                </div>
-            {/if}           
-        </div>
-    {:else if mode === "D"}
-        <div class = "LetterContainer" style="bottom:100%">
-            {#if displayLetter}
-                <div class ="MoveDU" >
-                    <RatingLetter {ratingInfo} />
-                </div>
-            {/if}
-        </div>
-        <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
-            <img class="TcelaImage flipY" src="/Images/TcelaDibus/patotataV.png" alt="Tcela speaking"/>
-        </div>
-    {/if}
-</Appearable>
+<ActiveByScroll {startPercentage} {endPercentage}>
+    <Appearable {startPercentage} {endPercentage} {mode} style="z-index:1">
+        {#if mode === "L"}
+            <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
+                <img class="TcelaImage" src="/Images/TcelaDibus/patotata.png" alt="Tcela speaking"/>
+            </div>
+            <div class = "LetterContainer" style="left:100%;">
+                {#if displayLetter}            
+                    <div class ="MoveLR" >
+                        <RatingLetter {ratingInfo} />
+                    </div>
+                {/if}           
+            </div>
+        {:else if mode === "R"}
+            <div class = "LetterContainer" style="right:100%;">
+                {#if displayLetter}            
+                    <div class ="MoveRL" >
+                        <RatingLetter {ratingInfo} />
+                    </div>
+                {/if}           
+            </div>
+            <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
+                <img class="TcelaImage flipX" src="/Images/TcelaDibus/patotata.png" alt="Tcela speaking"/>
+            </div>
+        {:else if mode === "U"}
+            <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
+                <img class="TcelaImage rotate90" src="/Images/TcelaDibus/patotataV.png" alt="Tcela speaking"/>
+            </div>
+            <div class = "LetterContainer" style="top:100%;">
+                {#if displayLetter}
+                    <div class ="MoveUD" >
+                        <RatingLetter {ratingInfo} />
+                    </div>
+                {/if}           
+            </div>
+        {:else if mode === "D"}
+            <div class = "LetterContainer" style="bottom:100%">
+                {#if displayLetter}
+                    <div class ="MoveDU" >
+                        <RatingLetter {ratingInfo} />
+                    </div>
+                {/if}
+            </div>
+            <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
+                <img class="TcelaImage flipY" src="/Images/TcelaDibus/patotataV.png" alt="Tcela speaking"/>
+            </div>
+        {/if}
+    </Appearable>
+</ActiveByScroll>
 
 <style>
     .TcelaImage {

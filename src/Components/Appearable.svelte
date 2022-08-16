@@ -1,5 +1,6 @@
 <script lang="ts">
     import gsap from "gsap";
+    import { onMount } from "svelte";
     import { getRandomNumber } from "../maths";
 
     gsap.registerPlugin(ScrollTrigger);
@@ -65,49 +66,34 @@
         );
     }
 
-    function isActive(YPosition: number): boolean {
-        const max_scrollbar_height: number = document.body.scrollHeight - window.innerHeight;
+    onMount(() => addMovement())
+    
 
-        if (max_scrollbar_height <= 0) {
-            // No scrollbar!
-            if (startPercentage <= 0) return true;
-            return false;
-        }
-
-        if (
-            (YPosition / max_scrollbar_height) * 100 > startPercentage  &&
-            (YPosition / max_scrollbar_height) * 100 < endPercentage 
-        ) {
-            addMovement();
-            return true;
-        }
-        return false;
-    }
 </script>
 
-{#if isActive(YPosition)}
-    {#if ["L", "R"].includes(mode)}
-        <div
-            bind:this={mainDiv}
-            class="Appearable columns {mode} "
-            style=" {stylish};
-        --deltaSize:{-movingQuantity * 100 + 'vw'}; 
-        --offset:{offset + '%'}"
-        >
-            <slot />
-        </div>
-    {:else if ["U", "D"].includes(mode)}
-        <div
-            bind:this={mainDiv}
-            class="Appearable rows {mode} "
-            style="{stylish};
-        --deltaSize:{-movingQuantity * 100 + 'vh'}; 
-        --offset:{offset + '%'}"
-        >
-            <slot />
-        </div>
-    {/if}
+
+{#if ["L", "R"].includes(mode)}
+    <div
+        bind:this={mainDiv}
+        class="Appearable columns {mode} "
+        style=" {stylish};
+    --deltaSize:{-movingQuantity * 100 + 'vw'}; 
+    --offset:{offset + '%'}"
+    >
+        <slot />
+    </div>
+{:else if ["U", "D"].includes(mode)}
+    <div
+        bind:this={mainDiv}
+        class="Appearable rows {mode} "
+        style="{stylish};
+    --deltaSize:{-movingQuantity * 100 + 'vh'}; 
+    --offset:{offset + '%'}"
+    >
+        <slot />
+    </div>
 {/if}
+
 
 <svelte:window bind:scrollY={YPosition} />
 

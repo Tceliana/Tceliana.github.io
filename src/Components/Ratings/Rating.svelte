@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Appearable   from "../Appearable.svelte";
+    import MovingContainer   from "./MovingContainer.svelte";
     import RatingLetter from "./RatingLetter.svelte";
     import ActiveByScroll from "../ActiveByScroll.svelte";
     import type { RatingInfo } from "../../ratings";
@@ -14,7 +14,7 @@
 </script>
 
 <ActiveByScroll {startPercentage} {endPercentage}>
-    <Appearable {startPercentage} {endPercentage} {mode} style="z-index:1">
+    <MovingContainer {startPercentage} {endPercentage} {mode} style="z-index:1">
         {#if mode === "L"}
             <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
                 <img class="TcelaImage" src="/Images/TcelaDibus/patotata.png" alt="Tcela speaking"/>
@@ -60,7 +60,7 @@
                 <img class="TcelaImage flipY" src="/Images/TcelaDibus/patotataV.png" alt="Tcela speaking"/>
             </div>
         {/if}
-    </Appearable>
+    </MovingContainer>
 </ActiveByScroll>
 
 <style>

@@ -25,7 +25,6 @@
         <img class="heart" src="/Images/heart.svg" alt="heart SVG <3"/>
         <Fireworks showTrigger /> 
         <KeyboardTeclas show />
-        <Bird />
         <HomeFooter />
     </div>
 </div>
@@ -33,19 +32,19 @@
 
 <style>
     .heart {
-        width: 120vw;
-        user-select:none;
-        position:absolute;
-        z-index:-1;
-        top:0;
+        width:          120vw;
+        user-select:    none;
+        position:       absolute;
+        z-index:        -1;
+        top:            0;
     }
 
     .title
     {
-        font-family: earthsmightiestbold; 
-        color: var(--COLOR_PRIMARY); 
-        margin-top:0%; 
-        margin-bottom: 0;
+        font-family:    earthsmightiestbold; 
+        color:          var(--COLOR_PRIMARY); 
+        margin-top:     0%; 
+        margin-bottom:  0;
     } 
 
 </style>

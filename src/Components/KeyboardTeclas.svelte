@@ -61,7 +61,8 @@ import all from "gsap/all";
         }
         else if (currentKey === "Q")
         {
-          var allLi = document.getElementsByTagName("li");
+          var keyboard = document.getElementsByClassName("keyboard")[0];
+          var allLi = keyboard.getElementsByTagName("li");
           for (var i = 0; i < allLi.length; i++) {
             allLi[i].classList.add("animate__animated");
             allLi[i].classList.add(getRandomAnimatecss());

@@ -65,18 +65,19 @@
                 {
                     x:  firePositionArg.x, 
                     y:  firePositionArg.y + innerHeight,
-                    attr:
-                    {
-                        d:          'M0,0 0,'+innerHeight, 
-                        'stroke-width':i,
-                        opacity:    0.25, 
-                        stroke:     hsl
-                    }
                 },
                 {
                     y:      firePositionArg.y, 
-                    ease:   'expo'
-                }
+                    ease:   'expo',
+                    attr:
+                    {
+                        d: 'M0,0 0,'+innerHeight, 
+                        'stroke-width':i,
+                        opacity:    0.25, 
+                        stroke:     hsl
+                    },
+                    duration: 0,
+                }               
             );
             
             trail.appendChild(trailDrawer);

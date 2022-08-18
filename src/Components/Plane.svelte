@@ -3,9 +3,9 @@
     import { getRandomNumber } from "../maths";
 
     import SVGPath from "../SvgPath";
-	
-    let size = (Math.random()*2) + 2;
+    export let show :boolean = true;
 
+    let showPlane = true;
     let planes: string[] = [
         "./images/planes/red_plane.png",
         "./images/planes/yellow_plane.png",
@@ -24,35 +24,59 @@
     let svgPath: SVGGeometryElement;
 
 	let secondsDuration = 5;
-	let value = 0;
+	let currentLength = 0;
 	function addCurve() {
 		let precision = 30;
 		for (let i: number = 0; i < secondsDuration*1000 / precision; i++) {
 			setTimeout(() => {
-				value = -totalLength - ((totalLength * i) / (secondsDuration*1000)) * precision;
-			}, i * precision);
+                currentLength = -totalLength - ((totalLength * i) / (secondsDuration*1000)) * precision;
+                if(i===0)
+                    showPlane = true;
+                if((i+1) >= secondsDuration*1000 / precision)
+                    showPlane = false;
+                }, i * precision);
 		}
 	}
 
+    let animationMotion;
+
 	onMount(() => {
         totalLength= svgPath.getTotalLength();
-        addCurve();
+        AutoPlay();
      });
 
-     let correction = 0;
+    let scrollY = 0;
+    function AutoPlay()
+    {
+        if(show == false)
+            return;
+        addCurve();
+        scrollY = window.scrollY;
+
+        setTimeout(() => {AutoPlay()}, getRandomNumber(8,9)*1000)
+    }
+
+    function ended(e)
+    {
+        console.log(e);
+        console.log(typeof(e));
+    }
+
 </script>
 
+{#if showPlane}
 <svg
     viewBox="{currentPath.getViewPort()}"
     xmlns="http://www.w3.org/2000/svg"
+    style="top: {scrollY}px;"
 >
         <path
             bind:this={svgPath}
             d={currentPath.svgPath}
             fill="none"
-            stroke="cornflowerblue"
+            stroke="var(--COLOR_SECONDARY)"
             id="theMotionPath"
-            style="stroke-dasharray: {totalLength} {totalLength}; stroke-dashoffset: {value}; "
+            style="stroke-dasharray: {totalLength} {totalLength}; stroke-dashoffset: {currentLength}; "
         />
 
         <path
@@ -68,22 +92,23 @@
             fill="none"
             stroke="var(--COLOR_BACKGROUND)"
             stroke-width="3px"
-            style="stroke-dasharray: {totalLength} {totalLength}; stroke-dashoffset: {value + 100}; "
+            style="stroke-dasharray: {totalLength} {totalLength}; stroke-dashoffset: {currentLength + 100}; "
         />
 
-        <image
-            class="plane"
-            xlink:href={planes[getRandomNumber(0, planes.length - 1)]}
-            y="{-size*correction}vw"
-            x="{-size*correction}vw"
-            width="{size}vw"
-            
-        >
-            <animateMotion dur="{secondsDuration}s" repeatCount="2" rotate="auto" calcMode="linear">
-                <mpath href="#theMotionPath" />
-            </animateMotion>
-        </image>
-</svg>
+            <image
+                class="plane"
+                xlink:href={planes[getRandomNumber(0, planes.length - 1)]}
+                y="-1.5vh"
+                x="-1.5vw"
+                width="3vw"
+                height="3vh"            
+            >
+                <animateMotion on:reset={ended} bind:this={animationMotion} dur="{secondsDuration}s" repeatCount="indefinite" restart="always" rotate="auto" calcMode="linear">
+                    <mpath href="#theMotionPath" />
+                </animateMotion>
+            </image>
+        </svg>
+{/if}
 
 <style>
     svg {

@@ -7,6 +7,7 @@ import all from "gsap/all";
     const timestamps  : any[]     = [];
 
     export let show   : boolean   = false;
+    export let setPasswordUnlocked  : (v:boolean) => void;
 
     export let passworUnlock : boolean   = false;
     let currentKey    : string    = "T";
@@ -84,6 +85,7 @@ import all from "gsap/all";
             
             setTimeout(() => {
               passworUnlock = true;
+              setPasswordUnlocked(true);
               show = false;
             }, 200);
             return "ç";

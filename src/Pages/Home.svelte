@@ -12,18 +12,22 @@
         let value: number = window.scrollY;
         title.style.paddingLeft = value * 5 + "px";
     });
+
+    let isPasswordUnlocked : boolean = false;
+    function setPasswordUnlocked(value:boolean) { isPasswordUnlocked = value;}
+
 </script>
 
 <RatingFiller />
 <div style="min-height: 1000vh; z-index=-2">
     <div class="rows">
         <h1 bind:this={title} class="title">Teclas</h1>
-        <Plane />
         <p>The story begins.</p>
         <LandingStory />
         <img class="heart" src="/images/heart.svg" alt="heart SVG <3"/>
         <Fireworks showTrigger />  
-        <KeyboardTeclas show />
+        <KeyboardTeclas show  setPasswordUnlocked={setPasswordUnlocked} />
+        <Plane show={!isPasswordUnlocked} />
         <HomeFooter /> 
     </div>
 </div>

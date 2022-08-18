@@ -5,7 +5,7 @@
     import Fireworks        from "../Components/Decorations/Fireworks.svelte";
     import KeyboardTeclas   from "../Components/KeyboardTeclas.svelte";
     import HomeFooter       from "../Components/HomeFooter/HomeFooter.svelte";
-
+    import Matrix           from "../Components/Matrix.svelte";
     let title: HTMLElement = null;
     window.addEventListener("scroll", function () 
     {
@@ -16,7 +16,6 @@
 </script>
 
 <RatingFiller />
-
 <div style="min-height: 1000vh; z-index=-2">
     <div class="rows">
         <h1 bind:this={title} class="title">Teclas</h1>

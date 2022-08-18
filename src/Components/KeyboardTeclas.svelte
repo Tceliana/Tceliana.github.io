@@ -2,12 +2,13 @@
 import all from "gsap/all";
 
     import { onMount } from "svelte";
+    import Matrix from "./Matrix.svelte";
 
     const timestamps  : any[]     = [];
 
     export let show   : boolean   = false;
 
-    let passworUnlock : boolean   = false;
+    export let passworUnlock : boolean   = false;
     let currentKey    : string    = "T";
 
     timestamps.unshift(getTimestamp());
@@ -28,7 +29,16 @@ import all from "gsap/all";
                           ,"animate__heartBeat"
                           ,"animate__bounceIn"
                           ,"animate__bounceInDown"
-                          ,"animate__bounceInLeft"];
+                          ,"animate__bounceInLeft"
+                          ,"animate__bounceInRight"
+                          ,"animate__bounceInUp"
+                          ,"animate__bounceOut"
+                          ,"animate__bounceOutDown"
+                          ,"animate__bounceOutLeft"
+                          ,"animate__bounceOutRight"
+                          ,"animate__bounceOutUp"
+                          ,"animate__fadeIn"
+                          ,"animate__fadeInDown"];
       return animations[Math.floor(Math.random() * animations.length)];
     }
 
@@ -73,6 +83,7 @@ import all from "gsap/all";
             for (var i = 0; i < allLi.length; i++) allLi[i].classList.add("disolve");
             
             setTimeout(() => {
+              passworUnlock = true;
               show = false;
             }, 200);
             return "ç";
@@ -196,9 +207,22 @@ onMount(() =>
 </div>
 {/if}
 {#if passworUnlock}
-<div>Aqui aparecerá una cosita muy chu chu chuli.</div>
+<Matrix />
+<div><h2 id="pwd">Password Unlocked</h2>
+</div>
+<Matrix />
 {/if}
 <style>
+#pwd {
+    position: absolute;
+    color: #80ff80;
+    text-align: center;
+    font-size: 3vw;
+    letter-spacing: 2vw;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    filter: drop-shadow(2px 2px 2px #80ff00);
+}
 
     .keyboard 
     {

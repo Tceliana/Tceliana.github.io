@@ -10,7 +10,6 @@
     window.addEventListener("scroll", function () 
     {
         let value: number = window.scrollY;
-        title.style.rotate = value + "deg";
         title.style.paddingLeft = value * 5 + "px";
     });
 </script>

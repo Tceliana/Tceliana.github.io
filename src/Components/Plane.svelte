@@ -3,7 +3,6 @@
     import { getRandomNumber } from "../maths";
 
     import SVGPath from "../SvgPath";
-    export let show :boolean = true;
 
     let showPlane = true;
     let planes: string[] = [
@@ -48,18 +47,10 @@
     let scrollY = 0;
     function AutoPlay()
     {
-        if(show == false)
-            return;
         addCurve();
         scrollY = window.scrollY;
 
         setTimeout(() => {AutoPlay()}, getRandomNumber(8,9)*1000)
-    }
-
-    function ended(e)
-    {
-        console.log(e);
-        console.log(typeof(e));
     }
 
 </script>
@@ -103,7 +94,7 @@
                 width="3vw"
                 height="3vh"            
             >
-                <animateMotion on:reset={ended} bind:this={animationMotion} dur="{secondsDuration}s" repeatCount="indefinite" restart="always" rotate="auto" calcMode="linear">
+                <animateMotion bind:this={animationMotion} dur="{secondsDuration}s" repeatCount="indefinite" restart="always" rotate="auto" calcMode="linear">
                     <mpath href="#theMotionPath" />
                 </animateMotion>
             </image>

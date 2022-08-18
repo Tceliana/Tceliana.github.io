@@ -5,16 +5,12 @@
     import KeyboardTeclas   from "../Components/KeyboardTeclas.svelte";
     import HomeFooter       from "../Components/HomeFooter/HomeFooter.svelte";
     import Plane            from "../Components/Plane.svelte";
-    import Matrix           from "../Components/Matrix.svelte";
     let title: HTMLElement = null;
     window.addEventListener("scroll", function () 
     {
         let value: number = window.scrollY;
         title.style.paddingLeft = value * 5 + "px";
     });
-
-    let isPasswordUnlocked : boolean = false;
-    function setPasswordUnlocked(value:boolean) { isPasswordUnlocked = value;}
 
 </script>
 
@@ -26,8 +22,8 @@
         <LandingStory />
         <img class="heart" src="/images/heart.svg" alt="heart SVG <3"/>
         <Fireworks showTrigger />  
-        <KeyboardTeclas show  setPasswordUnlocked={setPasswordUnlocked} />
-        <Plane show />
+        <KeyboardTeclas show />
+        <Plane />
         <HomeFooter /> 
     </div>
 </div>

@@ -21,13 +21,13 @@
     let totalLength: number = 0;
     let svgPath: SVGGeometryElement;
 
-	let duration = 5000;
+	let secondsDuration = 5;
 	let value = 0;
 	function addCurve() {
 		let precision = 30;
-		for (let i: number = 0; i < duration / precision; i++) {
+		for (let i: number = 0; i < secondsDuration*1000 / precision; i++) {
 			setTimeout(() => {
-				value = -totalLength - ((totalLength * i) / duration) * precision;
+				value = -totalLength - ((totalLength * i) / (secondsDuration*1000)) * precision;
 			}, i * precision);
 		}
 	}
@@ -38,16 +38,12 @@
      });
 
 
-    let condition = true;
 </script>
-
-<button on:click={() => (condition = !condition)}> Show svg </button>
 
 <svg
     viewBox="{currentPath.getViewPort()}"
     xmlns="http://www.w3.org/2000/svg"
 >
-    {#if condition}
         <path
             bind:this={svgPath}
             d={currentPath.svgPath}
@@ -76,16 +72,15 @@
         <image
             class="plane"
             xlink:href={planes[getRandomNumber(0, planes.length - 1)]}
-            y="-15"
-            x="-15"
-            width="30px"
-            height="30px"
+            y="-1.5vh"
+            x="-1.5vw"
+            width="3vw"
+            height="3vh"
         >
-            <animateMotion dur="5s" repeatCount="2" rotate="auto" calcMode="linear">
+            <animateMotion dur="{secondsDuration}s" repeatCount="2" rotate="auto" calcMode="linear">
                 <mpath href="#theMotionPath" />
             </animateMotion>
         </image>
-    {/if}
 </svg>
 
 <style>
@@ -101,5 +96,9 @@
     } */
     .plane {
         transform: scaleY(-1);
+    }
+    image
+    {
+        filter: drop-shadow(4px 5px 2px rgba(0, 0, 0, 0.4));
     }
 </style>

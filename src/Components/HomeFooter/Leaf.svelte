@@ -3,7 +3,7 @@
     import {onMount} from "svelte";
     import gsap from "gsap";
 
-    const image = "/Images/leafs/leaf"+getRandomNumber(1,10)+".svg";
+    const image = "/images/leafs/leaf"+getRandomNumber(1,10)+".svg";
     var leaf: HTMLElement;
     const scale = Math.random() * (2 - 0.5 + 1) + 0.5;
 

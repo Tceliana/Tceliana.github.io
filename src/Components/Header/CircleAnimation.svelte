@@ -8,9 +8,9 @@
 
 
     const circlePaths: SVGPath[] = [
-        SVGPath.LoadFromFile("/Images/Lines/Circle1.svg"), 
-        SVGPath.LoadFromFile("/Images/Lines/Circle2.svg"), 
-        SVGPath.LoadFromFile("/Images/Lines/Circle3.svg"),
+        SVGPath.LoadFromFile("/images/lines/circle1.svg"), 
+        SVGPath.LoadFromFile("/images/lines/circle2.svg"), 
+        SVGPath.LoadFromFile("/images/lines/circle3.svg"),
     ]
 
     GenerateNewCircle();

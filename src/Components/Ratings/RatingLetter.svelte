@@ -3,8 +3,8 @@
     import type { RatingInfo } from "../../ratings";
     export let ratingInfo : RatingInfo;
 
-    const getRandomStar= () =>"/Images/Lines/star"+ getRandomNumber(1,3)+".png"
-    
+    const getRandomStar= () =>"/images/stars/star"+ getRandomNumber(1,3)+".png"
+
 </script>
 
 <div class="frame">
@@ -22,7 +22,7 @@
 
 <style>
     .frame {
-        background-image:       url("/Images/Lines/ReviewFrame.png");
+        background-image:       url("/images/lines/review_frame.png");
         background-size:        cover;
         background-repeat:      no-repeat;
         background-position:    center center;
@@ -46,7 +46,7 @@
         margin-bottom:          0px;
         height:                 6vh;
         width:                  100%;
-        background-image:       url("/Images/Lines/hr.png");
+        background-image:       url("/images/lines/hr.png");
         background-repeat:      no-repeat;
         background-position:    center center;
         background-size:        100% 100%;

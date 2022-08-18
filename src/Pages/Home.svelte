@@ -21,7 +21,7 @@
         <Plane />
         <p>The story begins.</p>
         <LandingStory />
-        <img class="heart" src="/Images/heart.svg" alt="heart SVG <3"/>
+        <img class="heart" src="/images/heart.svg" alt="heart SVG <3"/>
         <Fireworks showTrigger />  
         <KeyboardTeclas show />
         <HomeFooter /> 

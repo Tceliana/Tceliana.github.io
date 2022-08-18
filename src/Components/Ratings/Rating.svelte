@@ -17,7 +17,7 @@
     <MovingContainer {startPercentage} {endPercentage} {mode} style="z-index:1">
         {#if mode === "L"}
             <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
-                <img class="TcelaImage" src="/Images/TcelaDibus/patotata.png" alt="Tcela speaking"/>
+                <img class="TcelaImage" src="/images/tcela_dibus/patotata.png" alt="Tcela speaking"/>
             </div>
             <div class = "LetterContainer" style="left:100%;">
                 {#if displayLetter}            
@@ -35,11 +35,11 @@
                 {/if}           
             </div>
             <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
-                <img class="TcelaImage flipX" src="/Images/TcelaDibus/patotata.png" alt="Tcela speaking"/>
+                <img class="TcelaImage flipX" src="/images/tcela_dibus/patotata.png" alt="Tcela speaking"/>
             </div>
         {:else if mode === "U"}
             <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
-                <img class="TcelaImage rotate90" src="/Images/TcelaDibus/patotataV.png" alt="Tcela speaking"/>
+                <img class="TcelaImage rotate90" src="/images/tcela_dibus/patotatav.png" alt="Tcela speaking"/>
             </div>
             <div class = "LetterContainer" style="top:100%;">
                 {#if displayLetter}
@@ -57,7 +57,7 @@
                 {/if}
             </div>
             <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
-                <img class="TcelaImage flipY" src="/Images/TcelaDibus/patotataV.png" alt="Tcela speaking"/>
+                <img class="TcelaImage flipY" src="/images/tcela_dibus/patotatav.png" alt="Tcela speaking"/>
             </div>
         {/if}
     </MovingContainer>

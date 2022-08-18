@@ -5,15 +5,15 @@
     import SVGPath from "../SvgPath";
 	
     let planes: string[] = [
-        "./Images/planes/red_plane.png",
-        "./Images/planes/yellow_plane.png",
-        "./Images/planes/blue_plane.png",
+        "./images/planes/red_plane.png",
+        "./images/planes/yellow_plane.png",
+        "./images/planes/blue_plane.png",
     ];
 
     let paths: SVGPath[] = [
-        SVGPath.LoadFromFile("./Images/planes/curve1.svg"), 
-        SVGPath.LoadFromFile("./Images/planes/curve2.svg"),
-        SVGPath.LoadFromFile("./Images/planes/curve3.svg"),
+        SVGPath.LoadFromFile("./images/lines/curve1.svg"), 
+        SVGPath.LoadFromFile("./images/lines/curve2.svg"),
+        SVGPath.LoadFromFile("./images/lines/curve3.svg"),
     ];
 
     let currentPath: SVGPath = paths[getRandomNumber(0, paths.length - 1)];
@@ -36,7 +36,6 @@
         totalLength= svgPath.getTotalLength();
         addCurve();
      });
-
 
 </script>
 

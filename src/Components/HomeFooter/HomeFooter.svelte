@@ -27,7 +27,7 @@ import Leaf from "./Leaf.svelte";
     }
 
     .footer_image{
-        background-image:       url("/Images/TcelaDibus/big_tcela.png");
+        background-image:       url("/images/tcela_dibus/big_tcela.png");
         background-repeat:      no-repeat;
         background-position:    center top;
         background-size:        100% 100%;

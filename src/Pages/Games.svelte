@@ -26,7 +26,7 @@
             {/if}
         {/each}
     </div>
-    <img class="footer" src="/Images/TcelaDibus/beach.png" alt="Tcela looking at infinitum xD" />
+    <img class="footer" src="/images/tcela_dibus/beach.png" alt="Tcela looking at infinitum xD" />
 </div>
 
 <style>

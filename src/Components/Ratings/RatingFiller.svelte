@@ -1,7 +1,7 @@
 <script lang="ts">
     import Rating from "./Rating.svelte";
     import { AllRatings }   from "../../ratings";
-    import { getRandomNumber, shuffleArray } from "../../maths";
+    import { getRandomNumber} from "../../maths";
 
     type UwuListType = { StartPercentage: number; mode: "U" | "D" | "R" | "L" }[];
     var uwuList: UwuListType = getUwUList();

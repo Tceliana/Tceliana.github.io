@@ -5,7 +5,7 @@ export default class FileSystem
 	public static ReadFile(filePath:string) : string
 	{
 		var rawFile = new XMLHttpRequest();
-		rawFile.open("GET", "/Images/planes/curve1.svg", false);
+		rawFile.open("GET", filePath, false);
 		rawFile.send(null);
 
 		let isReadingOk: boolean = (rawFile.readyState == 4 && (rawFile.status === 200 || rawFile.status == 0))

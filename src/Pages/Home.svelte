@@ -1,10 +1,10 @@
 <script lang="ts">
-    import Bird             from "../Components/Bird.svelte";
     import LandingStory     from "../Components/Story/LandingStory.svelte";
     import RatingFiller     from "../Components/Ratings/RatingFiller.svelte";
     import Fireworks        from "../Components/Decorations/Fireworks.svelte";
     import KeyboardTeclas   from "../Components/KeyboardTeclas.svelte";
     import HomeFooter       from "../Components/HomeFooter/HomeFooter.svelte";
+    import Svg              from "../Components/Svg.svelte";
     import Matrix           from "../Components/Matrix.svelte";
     let title: HTMLElement = null;
     window.addEventListener("scroll", function () 
@@ -18,12 +18,15 @@
 <div style="min-height: 1000vh; z-index=-2">
     <div class="rows">
         <h1 bind:this={title} class="title">Teclas</h1>
+        <Svg />
+    <!-- 
         <p>The story begins.</p>
         <LandingStory />
         <img class="heart" src="/Images/heart.svg" alt="heart SVG <3"/>
-        <Fireworks showTrigger /> 
+        <Fireworks showTrigger />  
         <KeyboardTeclas show />
-        <HomeFooter />
+        <HomeFooter /> 
+    -->
     </div>
 </div>
 
@@ -33,7 +36,7 @@
         width:          120vw;
         user-select:    none;
         position:       absolute;
-        z-index:        -1;
+        z-index:        -2;
         top:            0;
     }
 

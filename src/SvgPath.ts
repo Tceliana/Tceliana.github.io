@@ -8,6 +8,8 @@ export default class SVGPath
 	private height  : number;
 	public svgPath : string;
 
+	static Cache = new Map<string,SVGPath>();
+
 	private constructor(xOffset:number, yOffset:number, width:number, height:number, svgPath: string) 
 	{
 		this.xOffset = xOffset;
@@ -22,8 +24,12 @@ export default class SVGPath
 		return " "+this.xOffset+" "+ this.yOffset + " " + this.width + " " + this.height;
 	}
 
+
 	public static LoadFromFile(filePath :string):SVGPath
 	{
+		if(SVGPath.Cache.has(filePath))
+			return SVGPath.Cache.get(filePath);
+
 		const fileContent = FileSystem.ReadFile(filePath);
 		const xmlFile = FileSystem.ConvertToXML(fileContent);
 		
@@ -34,7 +40,9 @@ export default class SVGPath
 		viewBox[0] = viewBox[0]-transform[0];
 		viewBox[1] = viewBox[1]-transform[1];
 
-		return new SVGPath(...viewBox, path);
+		let returned = new SVGPath(...viewBox, path);
+		SVGPath.Cache.set(filePath, returned);
+		return returned;
 	}
 
 	private static GetViewBox(xmlFile : Document) : [number, number, number, number]

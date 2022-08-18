@@ -4,7 +4,8 @@
     import { onMount } from "svelte";
     import { getRandomNumber } from "../maths";
 
-	import SVGPath from "./../SvgPathLoader";
+    import SVGPath from "../SvgPath";
+
 	let s = SVGPath.LoadFromFile("./Images/planes/curve1.svg")
 	console.log(s.getViewPort());
 

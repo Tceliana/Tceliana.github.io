@@ -7,6 +7,7 @@ import all from "gsap/all";
     const timestamps  : any[]     = [];
 
     export let show   : boolean   = false;
+    export let setPasswordUnlocked  : (v:boolean) => void;
 
     export let passworUnlock : boolean   = false;
     let currentKey    : string    = "T";
@@ -84,6 +85,7 @@ import all from "gsap/all";
             
             setTimeout(() => {
               passworUnlock = true;
+              setPasswordUnlocked(true);
               show = false;
             }, 200);
             return "ç";
@@ -214,14 +216,14 @@ onMount(() =>
 {/if}
 <style>
 #pwd {
-    position: absolute;
-    color: #80ff80;
-    text-align: center;
-    font-size: 3vw;
+    position:       absolute;
+    color:        #80ff80;
+    text-align:     center;
+    font-size:      3vw;
     letter-spacing: 2vw;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    filter: drop-shadow(2px 2px 2px #80ff00);
+    transform:      translate(-50%, -50%);
+    z-index:        201;
+    filter:         drop-shadow(2px 2px 2px #80ff00);
 }
 
     .keyboard 
@@ -230,6 +232,9 @@ onMount(() =>
       display:        flex;
       flex-direction: column;
       max-width:      90%;
+      filter:         drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.4));
+      z-index:        0;
+
     }
 
   .rowkb 

@@ -8,6 +8,8 @@ export default class SVGPath
 	private height  : number;
 	public svgPath : string;
 
+	static Cache = new Map<string,SVGPath>();
+
 	private constructor(xOffset:number, yOffset:number, width:number, height:number, svgPath: string) 
 	{
 		this.xOffset = xOffset;
@@ -22,15 +24,25 @@ export default class SVGPath
 		return " "+this.xOffset+" "+ this.yOffset + " " + this.width + " " + this.height;
 	}
 
+
 	public static LoadFromFile(filePath :string):SVGPath
 	{
+		if(SVGPath.Cache.has(filePath))
+			return SVGPath.Cache.get(filePath);
+
 		const fileContent = FileSystem.ReadFile(filePath);
 		const xmlFile = FileSystem.ConvertToXML(fileContent);
 		
 		const viewBox = SVGPath.GetViewBox(xmlFile);
 		const path = SVGPath.GetPath(xmlFile);
-		
-		return new SVGPath(...viewBox, path);
+		const transform = SVGPath.GetTranslation(xmlFile);
+
+		viewBox[0] = viewBox[0]-transform[0];
+		viewBox[1] = viewBox[1]-transform[1];
+
+		let returned = new SVGPath(...viewBox, path);
+		SVGPath.Cache.set(filePath, returned);
+		return returned;
 	}
 
 	private static GetViewBox(xmlFile : Document) : [number, number, number, number]
@@ -48,6 +60,17 @@ export default class SVGPath
 		return path[0].getAttribute("d");
 	}	
 	
+	private static GetTranslation(xmlFile: Document) : [number, number]
+	{
+		let g = xmlFile.getElementsByTagName("g")
+		if(g.length === 0)
+			return [0,0]
+		let transform:string = g[0].getAttribute("transform");
+		if(transform === null || transform.includes("translate(") === false)
+			return [0,0]
+		let values = transform.split("translate(")[1].split(")")[0].split(",")
+		return values.map(s => Number(s)) as [number, number];
+	}
 
 }
 

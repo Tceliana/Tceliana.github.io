@@ -26,7 +26,7 @@
             {/if}
         {/each}
     </div>
-    <img class="footer" src="/Images/TcelaDibus/beach.png" alt="Tcela looking at infinitum xD" />
+    <img class="footer" src="/images/tcela_dibus/beach.png" alt="Tcela looking at infinitum xD" />
 </div>
 
 <style>
@@ -42,6 +42,6 @@
         height: 100%;
         bottom: 0;
         background-image: linear-gradient(var(--COLOR_BACKGROUND), var(--COLOR_BACKGROUND), var(--COLOR_BEACH));
-        z-index: -2;
+        z-index: -100;
     }
 </style>

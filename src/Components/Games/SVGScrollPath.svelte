@@ -6,7 +6,7 @@
     export let percentageCompleted  : number;
 
     let svgPath     : SVGGeometryElement;
-    let currentPath : SVGPath = SVGPath.LoadFromFile("/Images/Lines/gameContainer.svg");
+    let currentPath : SVGPath = SVGPath.LoadFromFile("/images/lines/game_container.svg");
     let totalLength : number = 0;
 
     onMount(() => { totalLength = svgPath.getTotalLength(); });

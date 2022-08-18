@@ -3,7 +3,7 @@
     import {onMount} from "svelte";
     import gsap from "gsap";
 
-    const image = "/Images/leafs/leaf"+getRandomNumber(1,9)+".svg";
+    const image = "/images/leafs/leaf"+getRandomNumber(1,9)+".svg";
     var plane: HTMLElement;
 
     onMount(()=>{

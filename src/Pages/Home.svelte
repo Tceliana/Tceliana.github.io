@@ -4,7 +4,7 @@
     import Fireworks        from "../Components/Decorations/Fireworks.svelte";
     import KeyboardTeclas   from "../Components/KeyboardTeclas.svelte";
     import HomeFooter       from "../Components/HomeFooter/HomeFooter.svelte";
-    import Plane              from "../Components/Plane.svelte";
+    import Plane            from "../Components/Plane.svelte";
     import Matrix           from "../Components/Matrix.svelte";
     let title: HTMLElement = null;
     window.addEventListener("scroll", function () 

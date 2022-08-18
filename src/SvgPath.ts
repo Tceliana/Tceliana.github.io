@@ -29,7 +29,11 @@ export default class SVGPath
 		
 		const viewBox = SVGPath.GetViewBox(xmlFile);
 		const path = SVGPath.GetPath(xmlFile);
-		
+		const transform = SVGPath.GetTranslation(xmlFile);
+
+		viewBox[0] = viewBox[0]-transform[0];
+		viewBox[1] = viewBox[1]-transform[1];
+
 		return new SVGPath(...viewBox, path);
 	}
 
@@ -48,6 +52,17 @@ export default class SVGPath
 		return path[0].getAttribute("d");
 	}	
 	
+	private static GetTranslation(xmlFile: Document) : [number, number]
+	{
+		let g = xmlFile.getElementsByTagName("g")
+		if(g.length === 0)
+			return [0,0]
+		let transform:string = g[0].getAttribute("transform");
+		if(transform === null || transform.includes("translate(") === false)
+			return [0,0]
+		let values = transform.split("translate(")[1].split(")")[0].split(",")
+		return values.map(s => Number(s)) as [number, number];
+	}
 
 }
 

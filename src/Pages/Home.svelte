@@ -4,7 +4,7 @@
     import Fireworks        from "../Components/Decorations/Fireworks.svelte";
     import KeyboardTeclas   from "../Components/KeyboardTeclas.svelte";
     import HomeFooter       from "../Components/HomeFooter/HomeFooter.svelte";
-    import Svg              from "../Components/Svg.svelte";
+    import Plane              from "../Components/Plane.svelte";
     import Matrix           from "../Components/Matrix.svelte";
     let title: HTMLElement = null;
     window.addEventListener("scroll", function () 
@@ -18,7 +18,7 @@
 <div style="min-height: 1000vh; z-index=-2">
     <div class="rows">
         <h1 bind:this={title} class="title">Teclas</h1>
-        <Svg />
+        <Plane />
     <!-- 
         <p>The story begins.</p>
         <LandingStory />

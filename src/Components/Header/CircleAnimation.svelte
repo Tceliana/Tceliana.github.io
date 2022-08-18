@@ -1,5 +1,8 @@
 <script lang="ts">
     import SVGPath from "../../SvgPath";
+	import { draw } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+    import { getRandomNumber } from "../../maths";
 
     let tiltDegree      : number    = 0;
     let currentCircle   : SVGPath   = undefined;
@@ -15,7 +18,7 @@
 
     function GenerateNewCircle() : void 
     {
-        currentCircle   = circlePaths[Math.floor(Math.random() * circlePaths.length)];
+        currentCircle   = circlePaths[getRandomNumber(0, circlePaths.length-1)];
         tiltDegree      = Math.random() * 40 - 20;
     }
 </script>
@@ -26,7 +29,7 @@
     preserveAspectRatio="none"
     style="transform:rotate({tiltDegree}deg)"
 >
-    <path fill="none" d={currentCircle.svgPath} />
+    <path transition:draw="{{duration: 300}}" fill="none" d={currentCircle.svgPath} />
 </svg>
 
 
@@ -45,20 +48,7 @@
      path 
     {
         stroke:             #444;
-        stroke-width:       8px;
-        stroke-dasharray:   0 1500;
-        animation:          draw 0.6s forwards;
+        stroke-width:       8px;        
     }
 
-    @keyframes draw {
-        from 
-        {
-            stroke-dasharray: 0 1500;
-        }
-
-        to 
-        {
-            stroke-dasharray: 1500 1500;
-        }
-    }
 </style>

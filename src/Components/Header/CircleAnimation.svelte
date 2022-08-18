@@ -1,7 +1,6 @@
 <script lang="ts">
     import SVGPath from "../../SvgPath";
 	import { draw } from 'svelte/transition';
-	import { quintOut } from 'svelte/easing';
     import { getRandomNumber } from "../../maths";
 
     let tiltDegree      : number    = 0;

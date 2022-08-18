@@ -4,6 +4,8 @@
 
     import SVGPath from "../SvgPath";
 	
+    let size = (Math.random()*2) + 2;
+
     let planes: string[] = [
         "./images/planes/red_plane.png",
         "./images/planes/yellow_plane.png",
@@ -37,6 +39,7 @@
         addCurve();
      });
 
+     let correction = 0;
 </script>
 
 <svg
@@ -71,10 +74,10 @@
         <image
             class="plane"
             xlink:href={planes[getRandomNumber(0, planes.length - 1)]}
-            y="-1.5vh"
-            x="-1.5vw"
-            width="3vw"
-            height="3vh"
+            y="{-size*correction}vw"
+            x="{-size*correction}vw"
+            width="{size}vw"
+            
         >
             <animateMotion dur="{secondsDuration}s" repeatCount="2" rotate="auto" calcMode="linear">
                 <mpath href="#theMotionPath" />
@@ -90,9 +93,6 @@
         z-index: -1;
     }
 
-    /* path {
-        stroke-dasharray: 40 10 20 30;
-    } */
     .plane {
         transform: scaleY(-1);
     }

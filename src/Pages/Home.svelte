@@ -19,14 +19,12 @@
     <div class="rows">
         <h1 bind:this={title} class="title">Teclas</h1>
         <Plane />
-    <!-- 
         <p>The story begins.</p>
         <LandingStory />
         <img class="heart" src="/Images/heart.svg" alt="heart SVG <3"/>
         <Fireworks showTrigger />  
         <KeyboardTeclas show />
         <HomeFooter /> 
-    -->
     </div>
 </div>
 

@@ -1,6 +1,10 @@
 <script lang="ts">
+    import { getRandomNumber } from "../../maths";
     import type { RatingInfo } from "../../ratings";
     export let ratingInfo : RatingInfo;
+
+    const getRandomStar= () =>"/Images/Lines/star"+ getRandomNumber(1,3)+".png"
+    
 </script>
 
 <div class="frame">
@@ -8,7 +12,7 @@
         <p>{ratingInfo.name}</p>
         <div class="starsContainer">
             {#each Array(ratingInfo.stars) as _}
-                <span class="full-star" />
+                <span class="full-star" style= "background-image: url('{getRandomStar()}');"/>
             {/each}
         </div>
         <div class="review-separator" />
@@ -53,7 +57,6 @@
         background-repeat:      no-repeat;
         background-position:    center center;
         background-size:        100% 100%;
-        background-image:       url("/Images/Lines/star1.png");
         color:                  #ef5025 !important;
         width:                  1em;
         height:                 1em;

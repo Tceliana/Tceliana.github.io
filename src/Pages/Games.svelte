@@ -42,6 +42,6 @@
         height: 100%;
         bottom: 0;
         background-image: linear-gradient(var(--COLOR_BACKGROUND), var(--COLOR_BACKGROUND), var(--COLOR_BEACH));
-        z-index: -2;
+        z-index: -100;
     }
 </style>

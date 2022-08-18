@@ -54,7 +54,7 @@
 @charset "UTF-8";
 .matrix 
 {
-    z-index: -1;
+    z-index:        200;
     background:     black;
     overflow:       hidden;
     margin:         0;

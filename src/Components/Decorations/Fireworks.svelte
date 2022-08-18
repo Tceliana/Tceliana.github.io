@@ -231,6 +231,7 @@ onMount(() =>
         position:   absolute;
         top:        0;
         font-size:  19px;
+        z-index:    300;
     }
 
 </style>

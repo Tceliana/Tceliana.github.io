@@ -14,7 +14,7 @@
 </script>
 
 <ActiveByScroll {startPercentage} {endPercentage}>
-    <MovingContainer {startPercentage} {endPercentage} {mode} style="z-index:1">
+    <MovingContainer {startPercentage} {endPercentage} {mode} style="z-index:400">
         {#if mode === "L"}
             <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
                 <img class="TcelaImage" src="/images/tcela_dibus/patotata.png" alt="Tcela speaking"/>
@@ -84,7 +84,7 @@
     }
 
      .ImageContainer{
-        z-index:1;
+        z-index:399;
     } 
 
     .ImageContainer:hover {

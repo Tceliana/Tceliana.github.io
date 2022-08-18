@@ -19,7 +19,7 @@
 </script>
 
 <RatingFiller />
-<div style="min-height: 1000vh; z-index=-2">
+<div class="mainContainer">
     <div class="rows">
         <h1 bind:this={title} class="title">Teclas</h1>
         <p>The story begins.</p>
@@ -27,18 +27,23 @@
         <img class="heart" src="/images/heart.svg" alt="heart SVG <3"/>
         <Fireworks showTrigger />  
         <KeyboardTeclas show  setPasswordUnlocked={setPasswordUnlocked} />
-        <Plane show={!isPasswordUnlocked} />
+        <Plane show />
         <HomeFooter /> 
     </div>
 </div>
 
 
 <style>
+    .mainContainer
+    {
+        min-height: 1000vh; 
+        z-index:-100;
+    }
     .heart {
         width:          120vw;
         user-select:    none;
         position:       absolute;
-        z-index:        -2;
+        z-index:        -100;
         top:            0;
     }
 

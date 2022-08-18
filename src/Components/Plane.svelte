@@ -115,7 +115,7 @@
         position: absolute;
         height: 100vh;
         width: 100vw;
-        z-index: -1;
+        z-index:0;
     }
 
     .plane {
@@ -125,4 +125,5 @@
     {
         filter: drop-shadow(4px 5px 2px rgba(0, 0, 0, 0.4));
     }
+
 </style>

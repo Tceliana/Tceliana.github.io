@@ -1,10 +1,35 @@
 <script lang="ts">
     import { getRandomNumber } from "../../maths";
     import type { RatingInfo } from "../../ratings";
+    import { onMount } from "svelte";
     export let ratingInfo : RatingInfo;
 
     const getRandomStar= () =>"/images/stars/star"+ getRandomNumber(1,3)+".png"
+    
+    let textReview:HTMLElement;
+    
+    onMount(() => {
 
+        if(HasScroll(textReview))
+            StartAutoScroll(textReview);
+
+    });
+
+    function HasScroll(element:HTMLElement):boolean    { return element.clientHeight*1.01 <= element.scrollHeight; }
+
+    function StartAutoScroll(element:HTMLElement)
+    {    
+        let scrollPercentage = -0.05;
+        function AutoScroll() {           
+            element.scrollTop= Math.floor(scrollPercentage * element.scrollHeight);
+            scrollPercentage+=0.0007
+        
+            if(scrollPercentage > 1)
+                scrollPercentage=-0.05                        
+        }
+        setInterval(AutoScroll, 50);
+    }
+    
 </script>
 
 <div class="frame">
@@ -16,7 +41,9 @@
             {/each}
         </div>
         <div class="review-separator" />
-        <span class="review"><p>{ratingInfo.review}</p></span>
+        <span class="review" bind:this="{textReview}">
+            <p>{ratingInfo.review}</p>
+        </span>
     </div>
 </div>
 
@@ -68,6 +95,9 @@
 
     .review {
         max-width: 30vw;
+        max-height: 30vh;
         word-wrap: break-word;
+        overflow-y: hidden;
+        font-size:2.5vw;
     }
 </style>

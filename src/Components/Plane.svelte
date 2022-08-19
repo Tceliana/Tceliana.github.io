@@ -37,8 +37,6 @@
 		}
 	}
 
-    let animationMotion;
-
 	onMount(() => {
         totalLength= svgPath.getTotalLength();
         AutoPlay();
@@ -78,7 +76,7 @@
                 width="3vw"
                 height="3vh"            
             >
-                <animateMotion bind:this={animationMotion} dur="{secondsDuration}s" repeatCount="indefinite" restart="always" rotate="auto" calcMode="linear">
+                <animateMotion dur="{secondsDuration}s" repeatCount="indefinite" restart="always" rotate="auto" calcMode="linear">
                     <mpath href="#theMotionPath" />
                 </animateMotion>
             </image>

@@ -5,10 +5,23 @@
     import SVGPath from "../SvgPath";
 
     let showPlane = true;
-    let planes: string[] = [
-        "./images/planes/red_plane.png",
-        "./images/planes/yellow_plane.png",
-        "./images/planes/blue_plane.png",
+    let planes: [string, number][] = [
+        ["./images/planes/red_plane.png",0],
+        ["./images/planes/yellow_plane.png",0],
+        ["./images/planes/blue_plane.png",0],
+        ["./images/planes/red_plane1.png",0],
+        ["./images/planes/yellow_plane1.png",0],
+        ["./images/planes/blue_plane1.png",0],
+        ["./images/planes/green_plane1.png",0],
+        ["./images/planes/red_plane2.png",25],
+        ["./images/planes/yellow_plane2.png",25],
+        ["./images/planes/blue_plane2.png",25],
+        ["./images/planes/green_plane2.png",25],
+        ["./images/planes/red_plane3.png",25],
+        ["./images/planes/yellow_plane3.png",25],
+        ["./images/planes/blue_plane3.png",25],
+        ["./images/planes/green_plane3.png",25],
+
     ];
 
     let paths: SVGPath[] = [
@@ -43,8 +56,10 @@
      });
 
     let scrollY = 0;
+    let planeIndex = 0;
     function AutoPlay()
     {
+        planeIndex = getRandomNumber(0, planes.length - 1)
         addCurve();
         scrollY = window.scrollY;
 
@@ -57,7 +72,7 @@
 <svg
     viewBox="{currentPath.getViewPort()}"
     xmlns="http://www.w3.org/2000/svg"
-    style="top: {scrollY}px;"
+    style="top: {scrollY}px; transform:scaleX({[-1,1][getRandomNumber(0,1)]}) "
 >
         <path
             bind:this={svgPath}
@@ -65,16 +80,17 @@
             fill="none"
             stroke="var(--COLOR_SECONDARY)"
             id="theMotionPath"
-            style="stroke-dasharray: {totalLength} 4 10 5 10 10 12 10 15 10 15 10 10 1 {totalLength}; stroke-dashoffset: {currentLength}; "
+            style="stroke-dasharray: {totalLength} 0 10 4 10 5 10 10 12 10 15 10 15 10 10 1 {totalLength}; stroke-dashoffset: {currentLength}; "
         />
 
         <image
                 class="plane"
-                xlink:href={planes[getRandomNumber(0, planes.length - 1)]}
+                xlink:href={planes[planeIndex][0]}
                 y="-1.5vh"
                 x="-1.5vw"
                 width="3vw"
-                height="3vh"            
+                height="3vh"
+                style="transform: scaleY(-1) rotate({planes[planeIndex][1]}deg)"
             >
                 <animateMotion dur="{secondsDuration}s" repeatCount="indefinite" restart="always" rotate="auto" calcMode="linear">
                     <mpath href="#theMotionPath" />
@@ -91,9 +107,6 @@
         z-index:0;
     }
 
-    .plane {
-        transform: scaleY(-1);
-    }
     image
     {
         filter: drop-shadow(4px 5px 2px rgba(0, 0, 0, 0.4));

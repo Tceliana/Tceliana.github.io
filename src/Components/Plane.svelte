@@ -25,7 +25,7 @@
 	let secondsDuration = 5;
 	let currentLength = 0;
 	function addCurve() {
-		let precision = 30;
+		let precision = 50;
 		for (let i: number = 0; i < secondsDuration*1000 / precision; i++) {
 			setTimeout(() => {
                 currentLength = -totalLength - ((totalLength * i) / (secondsDuration*1000)) * precision;
@@ -67,26 +67,10 @@
             fill="none"
             stroke="var(--COLOR_SECONDARY)"
             id="theMotionPath"
-            style="stroke-dasharray: {totalLength} {totalLength}; stroke-dashoffset: {currentLength}; "
+            style="stroke-dasharray: {totalLength} 4 10 5 10 10 12 10 15 10 15 10 10 1 {totalLength}; stroke-dashoffset: {currentLength}; "
         />
 
-        <path
-            d={currentPath.svgPath}
-            fill="none"
-            stroke="var(--COLOR_BACKGROUND)"
-            stroke-width="3px"
-            style="stroke-dasharray: 4 8;"
-        />
-
-        <path
-            d={currentPath.svgPath}
-            fill="none"
-            stroke="var(--COLOR_BACKGROUND)"
-            stroke-width="3px"
-            style="stroke-dasharray: {totalLength} {totalLength}; stroke-dashoffset: {currentLength + 100}; "
-        />
-
-            <image
+        <image
                 class="plane"
                 xlink:href={planes[getRandomNumber(0, planes.length - 1)]}
                 y="-1.5vh"

@@ -4,7 +4,8 @@
     import Fireworks        from "../Components/Decorations/Fireworks.svelte";
     import KeyboardTeclas   from "../Components/KeyboardTeclas.svelte";
     import HomeFooter       from "../Components/HomeFooter/HomeFooter.svelte";
-    import Plane            from "../Components/Plane.svelte";
+    import PaperPlane       from "../Components/PaperPlane.svelte";
+import Plane from "../Components/HomeFooter/plane.svelte";
     let title: HTMLElement = null;
     window.addEventListener("scroll", function () 
     {
@@ -15,6 +16,7 @@
 </script>
 
 <RatingFiller />
+<Plane />
 <div class="mainContainer">
     <div class="rows">
         <h1 bind:this={title} class="title">Teclas</h1>
@@ -23,8 +25,8 @@
         <img class="heart" src="/images/heart.svg" alt="heart SVG <3"/>
         <Fireworks showTrigger />  
         <KeyboardTeclas show />
-        <Plane />
-        <HomeFooter /> 
+        <PaperPlane />
+        <HomeFooter />
     </div>
 </div>
 
@@ -35,6 +37,7 @@
         min-height: 1000vh; 
         z-index:-100;
     }
+    
     .heart {
         width:          120vw;
         user-select:    none;

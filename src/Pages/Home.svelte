@@ -4,7 +4,7 @@
     import Fireworks        from "../Components/Decorations/Fireworks.svelte";
     import KeyboardTeclas   from "../Components/KeyboardTeclas.svelte";
     import HomeFooter       from "../Components/HomeFooter/HomeFooter.svelte";
-    import Plane            from "../Components/Plane.svelte";
+    import PaperPlane       from "../Components/PaperPlane.svelte";
     let title: HTMLElement = null;
     window.addEventListener("scroll", function () 
     {
@@ -23,7 +23,7 @@
         <img class="heart" src="/images/heart.svg" alt="heart SVG <3"/>
         <Fireworks showTrigger />  
         <KeyboardTeclas show />
-        <Plane />
+        <PaperPlane />
         <HomeFooter /> 
     </div>
 </div>

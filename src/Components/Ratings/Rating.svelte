@@ -10,13 +10,14 @@
     export let mode             : "U" | "R" | "L" | "D";
 
     let displayLetter = false;
+    function setDisplayLetter(value:boolean) {displayLetter = value;}
 
 </script>
 
 <ActiveByScroll {startPercentage} {endPercentage}>
     <MovingContainer {startPercentage} {endPercentage} {mode} style="z-index:400">
         {#if mode === "L"}
-            <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
+            <div class="ImageContainer" on:mouseenter={()=>setDisplayLetter(true)} on:mouseleave={()=>setDisplayLetter(false)}>
                 <img class="TcelaImage" src="/images/tcela_dibus/patotata.png" alt="Tcela speaking"/>
             </div>
             <div class = "LetterContainer" style="left:100%;">
@@ -34,11 +35,11 @@
                     </div>
                 {/if}           
             </div>
-            <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
+            <div class="ImageContainer" on:mouseenter={()=>setDisplayLetter(true)} on:mouseleave={()=>setDisplayLetter(false)}>
                 <img class="TcelaImage flipX" src="/images/tcela_dibus/patotata.png" alt="Tcela speaking"/>
             </div>
         {:else if mode === "U"}
-            <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
+            <div class="ImageContainer" on:mouseenter={()=>setDisplayLetter(true)} on:mouseleave={()=>setDisplayLetter(false)}>
                 <img class="TcelaImage rotate90" src="/images/tcela_dibus/patotatav.png" alt="Tcela speaking"/>
             </div>
             <div class = "LetterContainer" style="top:100%;">
@@ -56,7 +57,7 @@
                     </div>
                 {/if}
             </div>
-            <div class="ImageContainer" on:mouseenter={()=> displayLetter = true} on:mouseleave={()=> displayLetter = false}>
+            <div class="ImageContainer" on:mouseenter={()=>setDisplayLetter(true)} on:mouseleave={()=>setDisplayLetter(false)}>
                 <img class="TcelaImage flipY" src="/images/tcela_dibus/patotatav.png" alt="Tcela speaking"/>
             </div>
         {/if}

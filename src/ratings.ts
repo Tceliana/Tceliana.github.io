@@ -17,7 +17,7 @@ export const AllRatings: RatingInfo[] = [
 	{
 		name: "WayraisBleu",
 		stars: 5,
-		review: "Felizmente me encontré con este programador y me pareció una persona muy amable y atenta, por lo que casé con él.",
+		review: "Felizmente me encontré con este programador y me pareció una persona muy amable y atenta, por lo que me casé con él.",
 	},
 	{
 		name: "CarlosMushuTV",

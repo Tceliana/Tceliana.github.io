@@ -1,42 +1,48 @@
 <script lang="ts">
-    import { getRandomNumber } from "../../maths";
     import {onMount} from "svelte";
     import gsap from "gsap";
 
-    const image = "/images/leafs/leaf"+getRandomNumber(1,9)+".svg";
+    const image = "/images/tcela_dibus/tcela_plane.svg";
     var plane: HTMLElement;
-
+    var defaultDuration :number= 2.5;
     onMount(()=>{
   		let planeWidth = plane.clientWidth;
 		let screenWidth = window.window.innerWidth;
 
         const flight = gsap.timeline();
 
-
         flight
-        	.fromTo(plane, { x: - planeWidth, rotation: 0 }, { x: screenWidth, rotation: -45, ease: "Power4.easeIn" , duration:4})
-        	.fromTo(plane, { y: 5 }, { y: -200, ease: "Power4.easeIn" , duration: 1,}, 3)
-        	.fromTo(plane, { x: -planeWidth }, { x: screenWidth, ease: "Power0.easeNone", duration:1})
-        	.to(plane, {y: -280, rotation: 0, ease: "Power1.easeOut", duration: .5}, 4)
-        	.to(plane, {y: -200, rotation: 18, ease: "Power1.easeIn", duration: .5}, 4.5)
+        	.fromTo(plane, { x: - planeWidth, rotation: 0 }, { x: screenWidth, rotation: -45, ease: "Power4.easeIn" , duration: defaultDuration+ 4})
+        	.fromTo(plane, { y: 5 }, { y: -200, ease: "Power4.easeIn" , duration: defaultDuration+1,}, defaultDuration+3)
+        	.fromTo(plane, { x: -planeWidth }, { x: screenWidth, ease: "Power0.easeNone", duration:defaultDuration+2})
+        	.to(plane, {y: -280, rotation: 0, ease: "Power1.easeOut", duration: defaultDuration+.5}, defaultDuration+4)
+        	.to(plane, {y: -200, rotation: 18, ease: "Power1.easeIn", duration: defaultDuration+.5}, defaultDuration+4.5)
         	.addLabel('landing')
-        	.fromTo(plane, { x: - planeWidth, rotation: 18 }, { x: screenWidth, rotation: 0, ease: "Power4.easeOut", duration: 5 })
-        	.to(plane, { y:5, ease: "Power4.easeOut", duration:2, }, 'landing');
+        	.fromTo(plane, { x: - planeWidth, rotation: 18 }, { x: screenWidth, rotation: -15, ease: "Power4.easeOut", duration:defaultDuration+ 5 })
+        	.to(plane, { y:5, ease: "Power4.easeOut", duration:defaultDuration+2, }, 'landing');
         flight.repeat(-1).play();
     })
 
 </script>
+<div class="bottom">
     <div bind:this={plane} class="footer" style=" background-image: url('{image}')" />
+</div>
 <style>
+    .bottom
+    {
+        width:100vw;
+        height:100vh;
+        position:fixed;
+        top: 0;
+        z-index:100;
+    }
     .footer
     {
-        position:absolute;
-        width:10vw;
-        height:10vh;
+        width:100vw;
+        height:100vh;
         background-repeat:      no-repeat;
-        background-position:    center top;
-        background-size:        100% 100%;
-        
+        background-position:    center bottom;
+        background-size:        15% 15%;
     }
 
 </style>

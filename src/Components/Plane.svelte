@@ -1,102 +1,88 @@
-<script type="ts" >
-    import { onMount } from "svelte";
+<script type="ts">
     import { getRandomNumber } from "../maths";
-
     import SVGPath from "../SvgPath";
 
-    let showPlane = true;
-    let planes: [string, number][] = [
-        ["./images/planes/red_plane.png",0],
-        ["./images/planes/yellow_plane.png",0],
-        ["./images/planes/blue_plane.png",0],
-        ["./images/planes/red_plane1.png",0],
-        ["./images/planes/yellow_plane1.png",0],
-        ["./images/planes/blue_plane1.png",0],
-        ["./images/planes/green_plane1.png",0],
-        ["./images/planes/red_plane2.png",25],
-        ["./images/planes/yellow_plane2.png",25],
-        ["./images/planes/blue_plane2.png",25],
-        ["./images/planes/green_plane2.png",25],
-        ["./images/planes/red_plane3.png",25],
-        ["./images/planes/yellow_plane3.png",25],
-        ["./images/planes/blue_plane3.png",25],
-        ["./images/planes/green_plane3.png",25],
-
+    let planes: { url: string; tilt: number }[] = [
+        { url: "./images/planes/red_plane.png",     tilt: 0 },
+        { url: "./images/planes/yellow_plane.png",  tilt: 0 },
+        { url: "./images/planes/blue_plane.png",    tilt: 0 },
+        { url: "./images/planes/red_plane1.png",    tilt: 0 },
+        { url: "./images/planes/yellow_plane1.png", tilt: 0 },
+        { url: "./images/planes/blue_plane1.png",   tilt: 0 },
+        { url: "./images/planes/green_plane1.png",  tilt: 0 },
+        { url: "./images/planes/red_plane2.png",    tilt: 25 },
+        { url: "./images/planes/yellow_plane2.png", tilt: 25 },
+        { url: "./images/planes/blue_plane2.png",   tilt: 25 },
+        { url: "./images/planes/green_plane2.png",  tilt: 25 },
+        { url: "./images/planes/red_plane3.png",    tilt: 25 },
+        { url: "./images/planes/yellow_plane3.png", tilt: 25 },
+        { url: "./images/planes/blue_plane3.png",   tilt: 25 },
+        { url: "./images/planes/green_plane3.png",  tilt: 25 },
     ];
 
     let paths: SVGPath[] = [
-        SVGPath.LoadFromFile("./images/lines/curve1.svg"), 
+        SVGPath.LoadFromFile("./images/lines/curve1.svg"),
         SVGPath.LoadFromFile("./images/lines/curve2.svg"),
         SVGPath.LoadFromFile("./images/lines/curve3.svg"),
     ];
 
-    let currentPath: SVGPath = paths[getRandomNumber(0, paths.length - 1)];
-
-    let totalLength: number = 0;
-    let svgPath: SVGGeometryElement;
-
-	let secondsDuration = 5;
-	let currentLength = 0;
-	function addCurve() {
-		let precision = 50;
-		for (let i: number = 0; i < secondsDuration*1000 / precision; i++) {
-			setTimeout(() => {
-                currentLength = -totalLength - ((totalLength * i) / (secondsDuration*1000)) * precision;
-                if(i===0)
-                    showPlane = true;
-                if((i+1) >= secondsDuration*1000 / precision)
-                    showPlane = false;
-                }, i * precision);
-		}
-	}
-
-	onMount(() => {
-        totalLength= svgPath.getTotalLength();
-        AutoPlay();
-     });
-
+    let showPlane = true;
+    let secondsDuration = 5;
     let scrollY = 0;
     let planeIndex = 0;
-    function AutoPlay()
-    {
-        planeIndex = getRandomNumber(0, planes.length - 1)
+
+    let path: SVGPath = paths[getRandomNumber(0, paths.length - 1)];
+    let currentLength = 0;
+
+    function addCurve() {
+        let precision = 150;
+        for (let i: number = 0; i < (secondsDuration * 1000) / precision; i++) {
+            setTimeout(() => {
+                currentLength = -path.length - ((path.length * i) / (secondsDuration * 1000)) * precision;
+
+                if (i === 0) showPlane = true;
+                if (i + 1 >= (secondsDuration * 1000) / precision) showPlane = false;
+            }, i * precision);
+        }
+    }
+
+    function AutoPlay() {
+        planeIndex = getRandomNumber(0, planes.length - 1);
+        path = paths[getRandomNumber(0, paths.length - 1)];
+
         addCurve();
         scrollY = window.scrollY;
 
-        setTimeout(() => {AutoPlay()}, getRandomNumber(8,9)*1000)
+        setTimeout(AutoPlay, getRandomNumber(8,9)*1000);
     }
 
+    AutoPlay();
 </script>
 
 {#if showPlane}
-<svg
-    viewBox="{currentPath.getViewPort()}"
-    xmlns="http://www.w3.org/2000/svg"
-    style="top: {scrollY}px; transform:scaleX({[-1,1][getRandomNumber(0,1)]}) "
->
+    <svg viewBox={path.viewBox} style="top: {scrollY}px; transform:scaleX({[-1, 1][getRandomNumber(0, 1)]}) ">
         <path
-            bind:this={svgPath}
-            d={currentPath.svgPath}
+            d={path.svgPath}
             fill="none"
             stroke="var(--COLOR_SECONDARY)"
             id="theMotionPath"
-            style="stroke-dasharray: {totalLength} 0 10 4 10 5 10 10 12 10 15 10 15 10 10 1 {totalLength}; stroke-dashoffset: {currentLength}; "
+            style="stroke-dasharray: {path.length} 0 10 4 10 5 10 10 12 10 15 10 15 10 10 1 {path.length}; stroke-dashoffset: {currentLength}; "
         />
 
         <image
-                class="plane"
-                xlink:href={planes[planeIndex][0]}
-                y="-1.5vh"
-                x="-1.5vw"
-                width="3vw"
-                height="3vh"
-                style="transform: scaleY(-1) rotate({planes[planeIndex][1]}deg)"
-            >
-                <animateMotion dur="{secondsDuration}s" repeatCount="indefinite" restart="always" rotate="auto" calcMode="linear">
-                    <mpath href="#theMotionPath" />
-                </animateMotion>
-            </image>
-        </svg>
+            class="plane"
+            xlink:href={planes[planeIndex].url}
+            y="-1.5vh"
+            x="-1.5vw"
+            width="3vw"
+            height="3vh"
+            style="transform: scaleY(-1) rotate({planes[planeIndex].tilt}deg)"
+        >
+            <animateMotion dur="{secondsDuration}s" repeatCount="indefinite" restart="always" rotate="auto" calcMode="linear">
+                <mpath href="#theMotionPath" />
+            </animateMotion>
+        </image>
+    </svg>
 {/if}
 
 <style>
@@ -104,12 +90,9 @@
         position: absolute;
         height: 100vh;
         width: 100vw;
-        z-index:0;
     }
 
-    image
-    {
+    image {
         filter: drop-shadow(4px 5px 2px rgba(0, 0, 0, 0.4));
     }
-
 </style>

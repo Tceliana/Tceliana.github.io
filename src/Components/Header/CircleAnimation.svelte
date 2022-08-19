@@ -24,7 +24,7 @@
 
 
 <svg
-    viewBox="{currentCircle.getViewPort()}"
+    viewBox="{currentCircle.viewBox}"
     preserveAspectRatio="none"
     style="transform:rotate({tiltDegree}deg)"
 >

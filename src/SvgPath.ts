@@ -2,47 +2,54 @@ import FileSystem from "./FileSystem";
 
 export default class SVGPath 
 {
-	private xOffset : number;
-	private yOffset : number;
-	private width   : number;
-	private height  : number;
-	public svgPath : string;
-
+	
+	private _xOffset : number;
+	private _yOffset : number;
+	private _width   : number;
+	private _height  : number;
+	
+	public svgPath : string; // The definition of the path itself inside the .svg file. Example: "M0,0 0,10 A158,10,2,1 Q12,1,2,54 bla bla bla..."
+	public length  : number;
+	
 	static Cache = new Map<string,SVGPath>();
 
 	private constructor(xOffset:number, yOffset:number, width:number, height:number, svgPath: string) 
 	{
-		this.xOffset = xOffset;
-		this.yOffset = yOffset;
-		this.width = width;
-		this.height = height;
+		
+		this._xOffset = xOffset;
+		this._yOffset = yOffset;
+		this._width = width;
+		this._height = height;
 		this.svgPath = svgPath;
+		this.length = this.getLength();
 	}
 
-	public getViewPort() :string 
+	public get viewBox() : string 
 	{
-		return " "+this.xOffset+" "+ this.yOffset + " " + this.width + " " + this.height;
+		return " "+this._xOffset+" "+ this._yOffset + " " + this._width + " " + this._height;
 	}
 
 
 	public static LoadFromFile(filePath :string):SVGPath
 	{
-		if(SVGPath.Cache.has(filePath))
-			return SVGPath.Cache.get(filePath);
+		if(SVGPath.Cache.has(filePath) === false)
+		{
+			const fileContent = FileSystem.ReadFile(filePath);
+			const xmlFile = FileSystem.ConvertToXML(fileContent);
+			
+			const viewBox = SVGPath.GetViewBox(xmlFile);
+			const path = SVGPath.GetPath(xmlFile);
+			const transform = SVGPath.GetTranslation(xmlFile);
+	
+			viewBox[0] = viewBox[0]-transform[0];
+			viewBox[1] = viewBox[1]-transform[1];
+	
+			let returned = new SVGPath(...viewBox, path);
+			SVGPath.Cache.set(filePath, returned);	
+		}
 
-		const fileContent = FileSystem.ReadFile(filePath);
-		const xmlFile = FileSystem.ConvertToXML(fileContent);
-		
-		const viewBox = SVGPath.GetViewBox(xmlFile);
-		const path = SVGPath.GetPath(xmlFile);
-		const transform = SVGPath.GetTranslation(xmlFile);
+		return SVGPath.Cache.get(filePath);
 
-		viewBox[0] = viewBox[0]-transform[0];
-		viewBox[1] = viewBox[1]-transform[1];
-
-		let returned = new SVGPath(...viewBox, path);
-		SVGPath.Cache.set(filePath, returned);
-		return returned;
 	}
 
 	private static GetViewBox(xmlFile : Document) : [number, number, number, number]
@@ -70,6 +77,18 @@ export default class SVGPath
 			return [0,0]
 		let values = transform.split("translate(")[1].split(")")[0].split(",")
 		return values.map(s => Number(s)) as [number, number];
+	}
+
+
+	private getLength():number
+	{
+		var tag = document.createElementNS("http://www.w3.org/2000/svg", "svg");	
+		tag.setAttributeNS(null, "viewBox", this.viewBox);
+
+		var path = document.createElementNS('http://www.w3.org/2000/svg',"path");  
+		path.setAttributeNS(null, "d", this.svgPath);
+
+		return path.getTotalLength();
 	}
 
 }

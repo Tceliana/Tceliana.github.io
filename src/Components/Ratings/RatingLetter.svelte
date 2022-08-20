@@ -7,23 +7,28 @@
     const getRandomStar= () =>"/images/stars/star"+ getRandomNumber(1,3)+".png"
     
     let textReview:HTMLElement;
+    let scrollPercentage = -0.05;
+    let backgroundScroll = 0;
     
     onMount(() => {
-
         if(HasScroll(textReview))
-            StartAutoScroll(textReview);
+            StartAutoScroll();
 
     });
 
     function HasScroll(element:HTMLElement):boolean    { return element.clientHeight*1.01 <= element.scrollHeight; }
 
-    function StartAutoScroll(element:HTMLElement)
+    function StartAutoScroll()
     {    
-        let scrollPercentage = -0.05;
+        let velocity = 0.0007;
+
         function AutoScroll() {           
-            element.scrollTop= Math.floor(scrollPercentage * element.scrollHeight);
-            scrollPercentage+=0.0007
-        
+
+            textReview.scrollTop= Math.floor(scrollPercentage * textReview.scrollHeight);
+            backgroundScroll = textReview.scrollTop -0.248* window.innerWidth;
+
+            scrollPercentage += velocity
+
             if(scrollPercentage > 1)
                 scrollPercentage=-0.05                        
         }
@@ -43,7 +48,7 @@
             {/each}
         </div>
         <div class="review-separator" />
-        <span class="review" bind:this="{textReview}">
+        <span class="review" bind:this="{textReview}" style="background-position: center {-backgroundScroll}px">
             {ratingInfo.review}
         </span>
     </div>
@@ -55,7 +60,7 @@
         background-repeat:      no-repeat;
         background-position:    center center;
         background-size:        100% 100%;
-        padding:                8vh 10vh;
+        padding:                0.5vh 5vw 4vh 5vw;
         width:                  fit-content;
         box-sizing:             border-box;
     }
@@ -88,6 +93,7 @@
         color:                  #ef5025 !important;
         width:                  1em;
         height:                 1em;
+        background-position:    center center;
     }
     .starsContainer {
         display:            flex;
@@ -110,8 +116,7 @@
         width:                  fit-content;
         box-sizing:             border-box;
         background-size:        100% 14.1vw;
-        background-position:    center 0.25vw;
-        line-height:            1.7vw;
+        line-height:            1.55vw;
     }
 
 </style>

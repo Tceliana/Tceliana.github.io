@@ -30,9 +30,11 @@
         setInterval(AutoScroll, 50);
     }
     
+    let bgImage = "images/frames/cartek7.png";
+
 </script>
 
-<div class="frame">
+<div class="frame" style="background-image: url('{bgImage}');">
     <div class="rating rows">
         <p>{ratingInfo.name}</p>
         <div class="starsContainer">
@@ -42,14 +44,13 @@
         </div>
         <div class="review-separator" />
         <span class="review" bind:this="{textReview}">
-            <p>{ratingInfo.review}</p>
+            {ratingInfo.review}
         </span>
     </div>
 </div>
 
 <style>
     .frame {
-        background-image:       url("/images/lines/review_frame.png");
         background-size:        cover;
         background-repeat:      no-repeat;
         background-position:    center center;
@@ -99,5 +100,18 @@
         word-wrap: break-word;
         overflow-y: hidden;
         font-size:2.5vw;
+
+        position: relative;
+        display: inline-block !important;
+        /* text-decoration:underline black 2px; */
+
+        background-image:       url("/images/frames/underlines.png");
+        background-size:        cover;
+        width:                  fit-content;
+        box-sizing:             border-box;
+        background-size:        100% 14.1vw;
+        background-position:    center 0.25vw;
+        line-height:            1.7vw;
     }
+
 </style>

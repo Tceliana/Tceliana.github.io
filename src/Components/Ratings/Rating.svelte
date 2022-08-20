@@ -11,7 +11,6 @@
 
     let displayLetter = false;
     function setDisplayLetter(value:boolean) {displayLetter = value;}
-
 </script>
 
 <ActiveByScroll {startPercentage} {endPercentage}>

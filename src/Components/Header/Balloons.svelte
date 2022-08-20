@@ -7,49 +7,49 @@
       [
         {
             link:"https://www.twitch.tv/tcela",
-            imageURL:"/Images/icons/twitch.png",    
+            imageURL:"/images/icons/twitch.png",    
             //backgroundCol:"#9147ff",
             backgroundCol:"#b27fff",
         },
         {
             link:"https://tcela.itch.io/",
-            imageURL:"/Images/icons/itchio.png",    
+            imageURL:"/images/icons/itchio.png",    
             //backgroundCol:"#fa5c5c",
             backgroundCol:"#faa3a3",
         },
         {
             link:"https://www.instagram.com/donvictort/",
-            imageURL:"/Images/icons/instagram.png",
+            imageURL:"/images/icons/instagram.png",
             //backgroundCol:"#f800a0",
             backgroundCol:"#f87ccc",
         },
         {
             link:"https://www.youtube.com/user/tenecela19?sub_confirmation=1",
-            imageURL:"/Images/icons/YouTube.png",    
+            imageURL:"/images/icons/youtube.png",    
             //backgroundCol:"#ff0000",
             backgroundCol:"#ff7f7f",
         },
         {
             link:"https://github.com/tenecela19",
-            imageURL:"/Images/icons/github.png",    
+            imageURL:"/images/icons/github.png",    
             //backgroundCol:"#4078c0",
             backgroundCol:"#80b7ff",
         },
       //   {
       //       link:"https://www.instagram.com/donvictort/",
-      //       imageURL:"/Images/icons/linkedin.png",
+      //       imageURL:"/images/icons/linkedin.png",
       //       //backgroundCol:"#0077b5",
       //       backgroundCol:"#7fd3ff",
       //   },
       {
             link:"https://www.instagram.com/donvictort/",
-            imageURL:"/Images/icons/spotify.png",
+            imageURL:"/images/icons/spotify.png",
             //backgroundCol:"#1dd05d",
             backgroundCol:"#80ffad",
       },
       {
             link:"https://twitter.com/tenecela19",
-            imageURL:"/Images/icons/twitter.png",
+            imageURL:"/images/icons/twitter.png",
             //backgroundCol:"#1d9bf0",
             backgroundCol:"#7dcbff",
       },
@@ -71,7 +71,7 @@
 
 
 <div class="container columns">
-      <img class="balloon" src="/Images/hot_air_balloons/hot_air_balloon.png" alt="Balloon"/>
+      <img class="balloon" src="/images/hot_air_balloons/hot_air_balloon.png" alt="Balloon"/>
       <div class="leftTriangle"></div>
       <div class="banner columns">
             {#each  socialNets as socialnet}
@@ -79,7 +79,7 @@
             {/each}
       </div>
       <div class="rightTriangle"></div>
-      <img class="balloon" src="/Images/hot_air_balloons/hot_air_balloon.png" alt="Balloon" style="transform: scaleX(-1);"/>  
+      <img class="balloon" src="/images/hot_air_balloons/hot_air_balloon.png" alt="Balloon" style="transform: scaleX(-1);"/>  
 </div>
 
 <style>

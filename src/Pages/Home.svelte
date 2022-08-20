@@ -17,15 +17,16 @@ import Plane from "../Components/HomeFooter/plane.svelte";
 
 <RatingFiller />
 <Plane />
+<PaperPlane />
+<Fireworks showTrigger />
+
 <div class="mainContainer">
     <div class="rows">
         <h1 bind:this={title} class="title">Teclas</h1>
         <p>The story begins.</p>
         <LandingStory />
         <img class="heart" src="/images/heart.svg" alt="heart SVG <3"/>
-        <Fireworks showTrigger />  
         <KeyboardTeclas show />
-        <PaperPlane />
         <HomeFooter />
     </div>
 </div>

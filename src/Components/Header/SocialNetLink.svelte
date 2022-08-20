@@ -8,7 +8,7 @@
 
 <div class="icon">
   <a target="_blank" href="{link}" style="background-color:{backgroundColor}; background-image:url({imageUrl})">
-    <img class="heart" src="/Images/heart.svg" alt="heart SVG <3"/> 
+    <img class="heart" src="/images/heart.svg" alt="heart SVG <3"/> 
   </a>
 </div>
 

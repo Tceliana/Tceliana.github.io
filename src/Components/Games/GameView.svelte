@@ -1,9 +1,9 @@
 <script lang="ts">
-    import GameDescription from "./GameDescription.svelte";
-    import SvgScrollPath from "./SVGScrollPath.svelte";
-    import EmbeddedLink from "./EmbeddedLink.svelte";
-    import { getPercentage } from "../../maths";
-    import type { GameInfo } from "../../gameInfo";
+    import GameDescription      from "./GameDescription.svelte";
+    import SvgScrollPath        from "./SVGScrollPath.svelte";
+    import EmbeddedLink         from "./EmbeddedLink.svelte";
+    import { getPercentage }    from "../../maths";
+    import type { GameInfo }    from "../../gameInfo";
 
     export let gameInfo         : GameInfo;
     export let flipX            : boolean = false;
@@ -20,8 +20,11 @@
     let gameDescriptionOpacity      : number = 0;
     let gameDescriptionAppearance   : number = 0;
 
-    window.addEventListener("scroll", () => {
-        if (YPosition < startAtPixelY || YPosition > endAtPixelY) 
+    window.addEventListener("scroll", () => 
+    {
+        let isCurrentPositionOverView : boolean 
+            = YPosition < startAtPixelY || YPosition > endAtPixelY;
+        if (isCurrentPositionOverView) 
         {
             pathPercentage      = 0;
             scrollUpPercentage  = 0;
@@ -95,35 +98,42 @@
 <svelte:window bind:scrollY={YPosition} />
 
 <style>
-    .gameView {
-        position: fixed;
-        top: 0;
+    
+    .gameView 
+    {
+        position:   fixed;
+        top:        0;
     }
 
-    .midScreen {
-        width: 50vw;
+    .midScreen 
+    {
+        width:  50vw;
         height: 100vh;
     }
 
-    .ImagePositionerL {
-        position: absolute;
-        width: 38.8%;
-        left: 11.25%;
-        height: 62.4%;
-        bottom: 22.45%;
+    .ImagePositionerL 
+    {
+        position:   absolute;
+        width:      38.8%;
+        left:       11.25%;
+        height:     62.4%;
+        bottom:     22.45%;
     }
-    .ImagePositionerR {
-        position: absolute;
-        width: 38.8%;
-        right: 11.05%;
-        height: 62.4%;
-        bottom: 22.45%;
+    .ImagePositionerR 
+    {
+        position:   absolute;
+        width:      38.8%;
+        right:      11.05%;
+        height:     62.4%;
+        bottom:     22.45%;
     }
 
-    .TextPositioner {
-        position: absolute;
-        height: 62.4%;
-        bottom: 22.45%;
-        width: 50%;
+    .TextPositioner 
+    {
+        position:   absolute;
+        height:     62.4%;
+        bottom:     22.45%;
+        width:      50%;
     }
+
 </style>

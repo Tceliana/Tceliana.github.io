@@ -1,29 +1,25 @@
 <script type="ts">
 
-    import { onMount }  from "svelte";
-    import gsap         from "gsap";
-    import { getRandomNumber } from "../../maths";
+    import { onMount }          from "svelte";
+    import gsap                 from "gsap";
+    import { getRandomNumber }  from "../../maths";
 
     export let showTrigger       : boolean  = false;
     export let autoPlayFireworks : boolean  = true;
     export let autoStartY        : number   = 1500;
 
-    const firePosition   : { x : number, y : number } = { x: 0, y: 0 };
-    const svgElementType : string   = 'http://www.w3.org/2000/svg';
+    type VectorPos = { x: number; y: number };
+
+    const firePosition   : VectorPos    = { x: 0, y: 0 };
+    const svgElementType : string       = 'http://www.w3.org/2000/svg';
 
     let stage : any = null;
-    
 
     window.addEventListener("scroll", () => 
     {
-        if(window.scrollY > autoStartY && !autoPlayFireworks) 
-        {
-            toggleAuto();
-        }
-        else if(window.scrollY < autoStartY && autoPlayFireworks) 
-        {
-            toggleAuto();
-        }
+        let isScrollSurpassed : boolean = window.scrollY > autoStartY;
+        if(isScrollSurpassed && !autoPlayFireworks)         toggleAuto();
+        else if(!isScrollSurpassed && autoPlayFireworks)    toggleAuto();
     });
 
     window.onpointerdown = window.onpointermove = (mouse : MouseEvent) =>
@@ -35,19 +31,19 @@
     function fire(firePositionArg : { x : number, y : number }) : void
     {
         const 
-        g       : string = 'g',
-        path    : string = 'path',
-        circle  : string = 'circle',
-        firework : Element = 
+        g           : string    = 'g',
+        path        : string    = 'path',
+        circle      : string    = 'circle',
+        firework    : Element   = 
             document.createElementNS(svgElementType, g),
 
-        trail : Element = 
+        trail       : Element   = 
             document.createElementNS(svgElementType, g),
 
-        ring : Element = 
+        ring        : Element   = 
             document.createElementNS(svgElementType, g),
 
-        hsl : string = 
+        hsl         : string    = 
             'hsl('+getRandomNumber(0,360)+',100%,50%)'
 
         stage.appendChild(firework);
@@ -109,12 +105,8 @@
             ring.appendChild(fwCircle);
         }
 
-        gsap.timeline(
-            {
-                onComplete: () => stage.removeChild(firework)
-            })
-                .to(
-                    trail.children, 
+        gsap.timeline({onComplete: () => stage.removeChild(firework)})
+                .to(trail.children, 
                     {
                         duration:   0.2, 
                         attr:       { d:'M0,0 0,0' }, 
@@ -123,8 +115,7 @@
                     }, 
                     0
                 )
-                .to(
-                    trail.children, 
+                .to(trail.children, 
                     {
                         duration:   0.4, 
                         scale:      () => getRandomNumber(40,80),
@@ -134,8 +125,7 @@
                     }, 
                     0.4
                 )
-                .to(
-                    trail.children, 
+                .to(trail.children, 
                     {
                         duration:   0.3, 
                         opacity:    0, 
@@ -144,8 +134,7 @@
                     }, 
                     0.5
                 )
-                .from(
-                    ring.children, 
+                .from(ring.children, 
                     {
                         duration:   1, 
                         scale:      0, 
@@ -154,8 +143,7 @@
                     }, 
                     0.4
                 )
-                .to(
-                    ring.children, 
+                .to(ring.children, 
                     {
                         opacity:    0, 
                         stagger:    0.1, 
@@ -163,8 +151,7 @@
                     }, 
                     0.7
                 )
-                .to(
-                    ring.children, 
+                .to(ring.children, 
                     {
                         duration:   1, 
                         y:          '+=30', 
@@ -187,7 +174,7 @@
             gsap.delayedCall(
                 i/2, 
                 fire, 
-                [{ //no consigo hacer que el auto se vea en screen :c
+                [{
                     x:getRandomNumber(99, innerWidth-99), 
                     y:getRandomNumber(window.scrollY, window.scrollY + innerHeight)
                 }]

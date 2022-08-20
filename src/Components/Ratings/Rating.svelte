@@ -1,15 +1,17 @@
 <script lang="ts">
-    import MovingContainer   from "./MovingContainer.svelte";
-    import RatingLetter from "./RatingLetter.svelte";
-    import ActiveByScroll from "../ActiveByScroll.svelte";
-    import type { RatingInfo } from "../../ratings";
+    import MovingContainer      from "./MovingContainer.svelte";
+    import RatingLetter         from "./RatingLetter.svelte";
+    import ActiveByScroll       from "../ActiveByScroll.svelte";
+    import type { RatingInfo }  from "../../ratings";
+
+    type Directions = "U" | "R" | "L" | "D";
 
     export let ratingInfo       : RatingInfo;
     export let startPercentage  : number;
     export let endPercentage    : number;
-    export let mode             : "U" | "R" | "L" | "D";
+    export let mode             : Directions;
 
-    let displayLetter = false;
+    let displayLetter   : boolean = false;
     function setDisplayLetter(value:boolean) {displayLetter = value;}
 
 </script>

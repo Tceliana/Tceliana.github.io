@@ -1,31 +1,36 @@
 <script lang="ts">
-    import { getRandomNumber } from "../../maths";
-    import {onMount} from "svelte";
-    import gsap from "gsap";
+    import { getRandomNumber }  from "../../maths";
+    import {onMount}            from "svelte";
+    import gsap                 from "gsap";
 
-    const image = "/images/leafs/leaf"+getRandomNumber(1,10)+".svg";
-    var leaf: HTMLElement;
-    const scale = Math.random() * (2 - 0.5 + 1) + 0.5;
+    const image : string = "/images/leafs/leaf"+getRandomNumber(1,10)+".svg";
+    const scale : number = Math.random() * (2 - 0.5 + 1) + 0.5;
 
-    onMount(()=>{
-  		let leafWidth = leaf.clientWidth;
-        let leafHeight = leaf.clientHeight;
+    var leaf    : HTMLElement;
 
-		let screenWidth = window.innerWidth;
+    onMount(()=>
+    {
+        let leafWidth   : number    = leaf.clientWidth;
+        let leafHeight  : number    = leaf.clientHeight;
 
-        const leafTimeline = gsap.timeline();
+		let screenWidth : number    = window.innerWidth;
+
+        const leafTimeline  : gsap.core.Timeline = gsap.timeline();
+        
         leafTimeline.delay(Math.random() * 4);
         
-        let AmplitudeX =  scale * getRandomNumber(1*leafWidth, 3*leafWidth);
-        let startX = getRandomNumber(leafWidth, screenWidth-leafWidth);
-        let duration = getRandomNumber(20,50)*scale;
+        let AmplitudeX  : number =  scale * getRandomNumber(1*leafWidth, 3*leafWidth);
+        let startX      : number = getRandomNumber(leafWidth, screenWidth-leafWidth);
+        let duration    : number = getRandomNumber(20,50)*scale;
         
-        let numOscilations = scale*getRandomNumber(2,6);        
-        let positionY:number = -leafHeight;
-        let positionYDecrease = (window.innerHeight + 2*leafHeight)/(2*numOscilations);
-        let apexTime = duration/((3*2*numOscilations))
-        let altitude: number = 50;
-        for(let i:number = 0; i < numOscilations; i++)
+        let numOscilations      : number = scale*getRandomNumber(2,6);        
+        let positionY           : number = -leafHeight;
+        let positionYDecrease   : number = 
+            (window.innerHeight + 2*leafHeight)/(2*numOscilations);
+        let apexTime    : number = duration/((3*2*numOscilations))
+        let altitude    : number = 50;
+        
+        for(let i :number = 0; i < numOscilations; i++)
         {
             leafTimeline
             .fromTo(leaf, { x: startX - AmplitudeX/2,  }, { x: startX + AmplitudeX/2, ease: "Power2.easeInOut" , duration:duration/(2*numOscilations)})

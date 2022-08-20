@@ -1,13 +1,14 @@
 <script lang="ts">
-    import SVGPath from "../../SvgPath";
-	import { draw } from 'svelte/transition';
-    import { getRandomNumber } from "../../maths";
+    import SVGPath              from "../../SvgPath";
+	import { draw }             from 'svelte/transition';
+    import { getRandomNumber }  from "../../maths";
 
     let tiltDegree      : number    = 0;
     let currentCircle   : SVGPath   = undefined;
 
 
-    const circlePaths: SVGPath[] = [
+    const circlePaths: SVGPath[] = 
+    [
         SVGPath.LoadFromFile("/images/lines/circle1.svg"), 
         SVGPath.LoadFromFile("/images/lines/circle2.svg"), 
         SVGPath.LoadFromFile("/images/lines/circle3.svg"),
@@ -24,9 +25,9 @@
 
 
 <svg
-    viewBox="{currentCircle.viewBox}"
-    preserveAspectRatio="none"
-    style="transform:rotate({tiltDegree}deg)"
+    viewBox             = "{currentCircle.viewBox}"
+    preserveAspectRatio = "none"
+    style               = "transform:rotate({tiltDegree}deg)"
 >
     <path transition:draw="{{duration: 300}}" fill="none" d={currentCircle.svgPath} />
 </svg>
@@ -44,7 +45,7 @@
         pointer-events: none;
     }
 
-     path 
+    path 
     {
         stroke:             #444;
         stroke-width:       8px;        

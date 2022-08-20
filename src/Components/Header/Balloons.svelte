@@ -1,40 +1,40 @@
 <script lang="ts">
-      import SocialNetLink from "./SocialNetLink.svelte";
-      import gsap from "gsap";
-      import {onMount} from "svelte";
+      import SocialNetLink    from "./SocialNetLink.svelte";
+      import gsap             from "gsap";
+      import {onMount}        from "svelte";
 
       let socialNets : {link:string, imageURL:string, backgroundCol:string}[]=
       [
-        {
+      {
             link:"https://www.twitch.tv/tcela",
             imageURL:"/Images/icons/twitch.png",    
             //backgroundCol:"#9147ff",
             backgroundCol:"#b27fff",
-        },
-        {
+      },
+      {
             link:"https://tcela.itch.io/",
             imageURL:"/Images/icons/itchio.png",    
             //backgroundCol:"#fa5c5c",
             backgroundCol:"#faa3a3",
-        },
-        {
+      },
+      {
             link:"https://www.instagram.com/donvictort/",
             imageURL:"/Images/icons/instagram.png",
             //backgroundCol:"#f800a0",
             backgroundCol:"#f87ccc",
-        },
-        {
+      },
+      {
             link:"https://www.youtube.com/user/tenecela19?sub_confirmation=1",
             imageURL:"/Images/icons/YouTube.png",    
             //backgroundCol:"#ff0000",
             backgroundCol:"#ff7f7f",
-        },
-        {
+      },
+      {
             link:"https://github.com/tenecela19",
             imageURL:"/Images/icons/github.png",    
             //backgroundCol:"#4078c0",
             backgroundCol:"#80b7ff",
-        },
+      },
       //   {
       //       link:"https://www.instagram.com/donvictort/",
       //       imageURL:"/Images/icons/linkedin.png",
@@ -56,14 +56,30 @@
       ]
 
 
-      onMount(() => {
-            let duration = 4;
+      onMount(() => 
+      {
+            let duration : number = 4;
             const timeline = gsap.timeline();
-            timeline.fromTo(".container", {x:"0vw", }, {x:"-100vw", duration: duration, ease: "expo.out"});
-            timeline.fromTo(".container", {x:"-100vw", }, {x:"-200vw", delay:4, duration: duration, ease: "expo.in"});
-            timeline.fromTo(".container", {x:"-200vw", }, {x:"-200vw", delay:0.2, ease: "expo.in"});
-            timeline.fromTo(".container", {x:"-200vw", }, {x:"-125vw", duration: duration, ease: "expo.out"});
-            timeline.fromTo(".container", {x:"-125vw", }, {x:"0vw", delay:4, duration: duration, ease: "expo.in"});
+            timeline.fromTo(".container", 
+                  {x:"0vw", }, 
+                  {x:"-100vw", duration: duration, ease: "expo.out"}
+                  );
+            timeline.fromTo(".container", 
+                  {x:"-100vw", }, 
+                  {x:"-200vw", delay:4, duration: duration, ease: "expo.in"}
+                  );
+            timeline.fromTo(".container", 
+                  {x:"-200vw", }, 
+                  {x:"-200vw", delay:0.2, ease: "expo.in"}
+                  );
+            timeline.fromTo(".container", 
+                  {x:"-200vw", }, 
+                  {x:"-125vw", duration: duration, ease: "expo.out"}
+                  );
+            timeline.fromTo(".container", 
+                  {x:"-125vw", }, 
+                  {x:"0vw", delay:4, duration: duration, ease: "expo.in"}
+                  );
             timeline.repeat(-1).play();
       });
 
@@ -85,11 +101,11 @@
 <style>
       .container
       {
-            position:   absolute;
-            margin-top: 1%;
-            justify-content: center;
-            width: fit-content;
-            right: -100%;
+            position:         absolute;
+            margin-top:       1%;
+            justify-content:  center;
+            width:            fit-content;
+            right:            -100%;
       }
 
       .balloon

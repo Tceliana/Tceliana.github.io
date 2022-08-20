@@ -1,8 +1,8 @@
 <script lang="ts">
 
-  export let link :string;
-  export let imageUrl :string;
-  export let backgroundColor :string;
+  export let link             : string;
+  export let imageUrl         : string;
+  export let backgroundColor  : string;
 
 </script>
 
@@ -14,18 +14,21 @@
 
 <style>
 
-.icon {
+.icon 
+{
   float:      left;
   position:   relative;
   width:      7vh;
   height:     7vh;
 }
 
-.icon:last-of-type {
+.icon:last-of-type 
+{
   margin-right: 0;
 }
 
-.icon a {
+.icon a 
+{
   display:              block;
   left:                 0;
   width:                100%;
@@ -40,13 +43,15 @@
   filter:               drop-shadow(4px 5px 2px rgba(0, 0, 0, 0.4));
 }
 
-.icon a:hover {
+.icon a:hover 
+{
   background-color: #222;
   background-size:  0%;
   transition:       all 0.2s ease-out;
 }
 
-img {
+img 
+{
   width:          70%;
   color:        #fff;
   position:       absolute;
@@ -61,7 +66,8 @@ img {
   will-change:    transform;
 }
 
-.icon:hover img {
+.icon:hover img 
+{
   transition: all 0.3s ease-out;
   opacity:    1;
   filter:     blur(0);

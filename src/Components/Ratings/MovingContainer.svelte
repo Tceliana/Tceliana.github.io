@@ -1,33 +1,40 @@
 <script lang="ts">
-    import gsap from "gsap";
-    import { onMount } from "svelte";
-    import { getRandomNumber } from "../../maths";
+    import gsap                 from "gsap";
+    import { onMount }          from "svelte";
+    import { getRandomNumber }  from "../../maths";
 
     gsap.registerPlugin(ScrollTrigger);
-    export let startPercentage: number;
-    export let endPercentage: number;
-    export let mode: "U" | "R" | "L" | "D";
-    export let movingQuantity: number = 0.7;
-    let stylish=$$props.style;
 
-    let offset:number = getRandomNumber(20,60);
+    type Directions = "U" | "R" | "L" | "D";
 
-    const DO_ANIMATIONS: boolean = true;
+    export let startPercentage  : number;
+    export let endPercentage    : number;
+    export let mode             : Directions;
+    export let movingQuantity   : number = 0.7;
+    
+    let stylish : any       = $$props.style;
 
-    let firstQuartile = startPercentage + (endPercentage-startPercentage) / 5;
-    let thirdQuartile =startPercentage + (endPercentage-startPercentage) *4/ 5;
+    let offset  : number    = getRandomNumber(20,60);
 
-    let mainDiv: HTMLElement = null;
-    let YPosition: number;
+    const DO_ANIMATIONS : boolean = true;
 
-    function addMovement() {
+    let firstQuartile   : number  = startPercentage + (endPercentage-startPercentage) / 5;
+    let thirdQuartile   : number  = startPercentage + (endPercentage-startPercentage) *4/ 5;
+
+    let mainDiv     : HTMLElement = null;
+    let YPosition   : number;
+
+    function addMovement() 
+    {
         if (DO_ANIMATIONS === false) return;
-        function getDeltaY(): number {
+        function getDeltaY()    : number 
+        {
             if (["L", "R"].includes(mode)) return 0;
             if (mode == "D") return -window.innerHeight * movingQuantity;
             return window.innerHeight * movingQuantity;
         }
-        function getDeltaX(): number {
+        function getDeltaX()    : number 
+        {
             if (["U", "D"].includes(mode)) return 0;
             if (mode == "L") return window.innerWidth * movingQuantity;
             return -window.innerWidth * movingQuantity;
@@ -98,31 +105,36 @@
 <svelte:window bind:scrollY={YPosition} />
 
 <style>
-    .Appearable {
+    .Appearable 
+    {
         position: fixed;
         align-self: flex-start;
         width: fit-content;
         height: fit-content;
     }
-    .L {
+    .L 
+    {
         left: 0;
         top: var(--offset);
         margin-left: var(--deltaSize);
     }
 
-    .R {
+    .R 
+    {
         right: 0;
         top: var(--offset);
         margin-right: var(--deltaSize);
     }
 
-    .U {
+    .U 
+    {
         top: 0;
         right: var(--offset);
         margin-top: var(--deltaSize);
     }
 
-    .D {
+    .D 
+    {
         bottom: 0;
         right: var(--offset);
         margin-bottom: var(--deltaSize);

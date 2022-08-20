@@ -1,9 +1,7 @@
 <script lang="ts">
-import ActiveByScroll from "../ActiveByScroll.svelte";
-import Leaf from "./Leaf.svelte";
+import ActiveByScroll   from "../ActiveByScroll.svelte";
+import Leaf             from "./Leaf.svelte";
 
-
-    
 </script>
 
 <div class="footer">
@@ -16,25 +14,26 @@ import Leaf from "./Leaf.svelte";
 </div>
 
 <style>
-        .footer
+    .footer
     {
-        position:absolute;
-        bottom:0;
-        margin-bottom:0;
-        width:100vw;
-        height:100vh;
-        overflow: hidden;
+        position:       absolute;
+        bottom:         0;
+        margin-bottom:  0;
+        width:          100vw;
+        height:         100vh;
+        overflow:       hidden;
     }
 
-    .footer_image{
+    .footer_image
+    {
         background-image:       url("/images/tcela_dibus/big_tcela.png");
         background-repeat:      no-repeat;
         background-position:    center top;
         background-size:        100% 100%;
-        width:100%;
-        height:100%;
-        margin-bottom: -20%;
-        bottom: 0;
-        position:absolute;
+        width:                  100%;
+        height:                 100%;
+        margin-bottom:          -20%;
+        bottom:                 0;
+        position:               absolute;
     }
 </style>

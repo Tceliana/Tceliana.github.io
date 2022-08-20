@@ -1,15 +1,18 @@
 <script lang="ts">
-    import {onMount} from "svelte";
-    import gsap from "gsap";
+    import {onMount}    from "svelte";
+    import gsap         from "gsap";
 
-    const image = "/images/tcela_dibus/tcela_plane.svg";
-    var plane: HTMLElement;
+    const image : string = "/images/tcela_dibus/tcela_plane.svg";
+    
+    var plane           : HTMLElement;
     var defaultDuration :number= 2.5;
-    onMount(()=>{
-  		let planeWidth = plane.clientWidth;
-		let screenWidth = window.window.innerWidth;
+    
+    onMount(()=>
+    {
+        let planeWidth  : number = plane.clientWidth;
+		let screenWidth : number = window.window.innerWidth;
 
-        const flight = gsap.timeline();
+        const flight    : gsap.core.Timeline = gsap.timeline();
 
         flight
         	.fromTo(plane, { x: - planeWidth, rotation: 0 }, { x: screenWidth, rotation: -45, ease: "Power4.easeIn" , duration: defaultDuration+ 4})
@@ -30,16 +33,16 @@
 <style>
     .bottom
     {
-        width:100vw;
-        height:100vh;
-        position:fixed;
-        top: 0;
-        z-index:100;
+        width:      100vw;
+        height:     100vh;
+        position:   fixed;
+        top:        0;
+        z-index:    100;
     }
     .footer
     {
-        width:100vw;
-        height:100vh;
+        width:                  100vw;
+        height:                 100vh;
         background-repeat:      no-repeat;
         background-position:    center bottom;
         background-size:        15% 15%;

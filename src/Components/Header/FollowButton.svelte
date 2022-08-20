@@ -1,8 +1,9 @@
 <script lang="ts">
-    import Balloons from "./Balloons.svelte";
-    import CircleAnimation from "./CircleAnimation.svelte";
-    let isHovering: boolean             = false;
-    let showSocialNetworks: boolean     = false;
+    import Balloons         from "./Balloons.svelte";
+    import CircleAnimation  from "./CircleAnimation.svelte";
+    
+    let isHovering          : boolean     = false;
+    let showSocialNetworks  : boolean     = false;
 
 </script>
 
@@ -41,4 +42,5 @@
         font-weight:    600;
         animation:      shake 150ms 1 linear;   
     }
+    
 </style>

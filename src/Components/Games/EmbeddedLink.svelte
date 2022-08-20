@@ -25,14 +25,14 @@
 
     function TryStartVideo() : void
     {
-        if (videoElement) videoElement.play();
-        else if (youtubeVideo) youtubeVideo.playVideo();
+        if (videoElement)       videoElement.play();
+        else if (youtubeVideo)  youtubeVideo.playVideo();
     }
 
     function PauseVideo() : void
     {
-        if (videoElement) videoElement.pause();
-        else if (youtubeVideo) youtubeVideo.pauseVideo();
+        if (videoElement)       videoElement.pause();
+        else if (youtubeVideo)  youtubeVideo.pauseVideo();
     }
 
     function isVideoFormat(embeddedType : EmbeddedType) : boolean 
@@ -61,10 +61,10 @@
             return "tiktok";
         }
 
-        if (embeddedLink.endsWith(".png")) return "png";
-        else if (embeddedLink.endsWith(".gif")) return "gif";
-        else if (embeddedLink.endsWith(".mp4")) return "mp4";
-        else if (embeddedLink.endsWith(".webm")) return "webm";
+        if      (embeddedLink.endsWith(".png"))     return "png";
+        else if (embeddedLink.endsWith(".gif"))     return "gif";
+        else if (embeddedLink.endsWith(".mp4"))     return "mp4";
+        else if (embeddedLink.endsWith(".webm"))    return "webm";
 
         console.error("TYPE " + link + " Isn't recognized.");
     }

@@ -9,15 +9,15 @@
 </script>
 
 <svg
-    class="fullScreen"
-    viewBox="{path.viewBox}"
-    preserveAspectRatio="none"
-    style="transform:scaleX({flipX ? -1 : 1}); position:fixed"
+    class               =   "fullScreen"
+    viewBox             =   "{path.viewBox}"
+    preserveAspectRatio =   "none"
+    style               =   "transform:scaleX({flipX ? -1 : 1}); position:fixed"
 >
     <path
-        fill="none"
-        d={path.svgPath}
-        style="stroke-dasharray: {path.length} {path.length};stroke-dashoffset: {-path.length - path.length * percentageCompleted}; "
+        fill    =   "none"
+        d       =   {path.svgPath}
+        style   =   "stroke-dasharray: {path.length} {path.length};stroke-dashoffset: {-path.length - path.length * percentageCompleted}; "
     />
 </svg>
 
@@ -34,4 +34,5 @@
         stroke:     #444;
         stroke-width: 0.01vw;
     }
+    
 </style>

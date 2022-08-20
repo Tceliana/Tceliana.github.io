@@ -1,5 +1,5 @@
 <script lang="ts">
-    import HeaderLink from "./HeaderLink.svelte";
+    import HeaderLink   from "./HeaderLink.svelte";
     import FollowButton from "./FollowButton.svelte";
 </script>
 
@@ -25,6 +25,7 @@
 </header>
 
 <style>
+    
     header 
     {
         position:           relative;

@@ -1,7 +1,7 @@
 <script lang="ts">
-    import SVGPath              from "../../SvgPath";
+    import SVGPath              from "../../Scripts/SvgPath";
 	import { draw }             from 'svelte/transition';
-    import { getRandomNumber }  from "../../maths";
+    import { getRandomNumber }  from "../../Scripts/maths";
 
     let tiltDegree      : number    = 0;
     let currentCircle   : SVGPath   = undefined;

@@ -1,7 +1,7 @@
 <script lang="ts">
     import gsap                 from "gsap";
     import { onMount }          from "svelte";
-    import { getRandomNumber }  from "../../maths";
+    import { getRandomNumber }  from "../../Scripts/maths";
 
     gsap.registerPlugin(ScrollTrigger);
 

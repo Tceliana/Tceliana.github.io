@@ -1,6 +1,6 @@
 <script lang="ts">
-import ActiveByScroll   from "../ActiveByScroll.svelte";
-import Leaf             from "./Leaf.svelte";
+import ActiveByScroll   from "./ActiveByScroll.svelte";
+import Leaf             from "./Decorations/Leaf.svelte";
 
 </script>
 

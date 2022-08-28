@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { getRandomNumber }  from "../../maths";
+    import { getRandomNumber }  from "../../Scripts/maths";
     import {onMount}            from "svelte";
     import gsap                 from "gsap";
 

@@ -3,9 +3,9 @@
     import RatingFiller     from "../Components/Ratings/RatingFiller.svelte";
     import Fireworks        from "../Components/Decorations/Fireworks.svelte";
     import KeyboardTeclas   from "../Components/KeyboardTeclas.svelte";
-    import HomeFooter       from "../Components/HomeFooter/HomeFooter.svelte";
-    import PaperPlane       from "../Components/PaperPlane.svelte";
-import Plane from "../Components/HomeFooter/plane.svelte";
+    import HomeFooter       from "../Components/HomeFooter.svelte";
+    import PaperPlane       from "../Components/Decorations/PaperPlane.svelte";
+import Plane from "../Components/Decorations/plane.svelte";
     let title: HTMLElement = null;
     window.addEventListener("scroll", function () 
     {

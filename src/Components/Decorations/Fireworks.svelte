@@ -2,7 +2,7 @@
 
     import { onMount }          from "svelte";
     import gsap                 from "gsap";
-    import { getRandomNumber }  from "../../maths";
+    import { getRandomNumber }  from "../../Scripts/maths";
 
     export let showTrigger       : boolean  = false;
     export let autoPlayFireworks : boolean  = true;

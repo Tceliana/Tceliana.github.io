@@ -53,6 +53,7 @@ import Plane from "../Components/HomeFooter/plane.svelte";
         color:          var(--COLOR_PRIMARY); 
         margin-top:     0%; 
         margin-bottom:  0;
+        white-space:    nowrap;
     } 
 
 </style>

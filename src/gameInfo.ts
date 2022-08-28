@@ -12,14 +12,32 @@ const Games: GameInfo[] =
 [    
 {
     title:"Horror game (WIP)",
-    description: `Under development (TODO TALK WITH MUSHU PILOT)`,
+    description: `Under development.`,
     link: ["https://www.twitch.tv/tcela"],
     embeddedLink:"https://user-images.githubusercontent.com/83143288/184445754-6798ff82-6ec8-4e25-b4a5-d7751938b0d2.mp4",
     embeddedAspect :"expand"
 }, 
 {
+    title:"Super Dungeon",
+    description: `Survival game where agility and strategy is the number one key to<br/>
+    Get the victory, fight the hordes and advance all levels to the end.`,
+    link: ["https://play.google.com/store/apps/details?id=com.TcelaGames.SuperDungeon"],
+    embeddedLink:"https://www.youtube.com/watch?v=SYMWNhR8hdg",
+    embeddedAspect :"expand"
+}, 
+{
+    title:"Free Fall",
+    description: `You will have to demonstrate your dodging skills, where the ball will have to dodge the walls until it reaches the goal. You can you can cross on the sides, or under them, all to your imagination.<br/>
+    A game of strategy and speed.<br/>
+    The higher the level, the more difficult it will be to reach the goal. Are you able to do it?`,
+    link: ["https://play.google.com/store/apps/details?id=com.Tcela.FreeFall"],
+    embeddedLink:"https://user-images.githubusercontent.com/83143288/187065006-f9c88b1f-8fc5-4bbc-8330-30f88e38712b.png",
+    embeddedAspect :"expand"
+}, 
+
+{
     title:"Procedural Dungeon",
-    description: `A basic way to develop a random and procedural 3D Dungeon with customized prefabs (models). Available on github!`,
+    description: `A basic way to develop a random and procedural 3D Dungeon with customized prefabs (models).<br/><br/> Available on github!`,
     link: ["https://github.com/tenecela19/Dungeon_Procedural"],
     embeddedLink:"https://user-images.githubusercontent.com/83143288/184445747-ec89b0ea-8503-4dff-aac9-378c0c91ebf6.mp4",
     embeddedAspect :"expand"   
@@ -40,9 +58,9 @@ const Games: GameInfo[] =
 },
 {
     title:"Tentacles Ship",
-    description: `Miche jam game made with Unity.
-    Popular game for everyone.
-    2 fays of development and a lot.
+    description: `Miche jam game made with Unity.<br/>
+    Popular game for everyone.<br/>
+    2 fays of development and a lot.<br/>
     Hope you like it. If not, give me feedback. Thanks!`,
     link: ["https://tcela.itch.io/tentacles-ship"],
     embeddedLink:"/videos/TentaclesShip.mp4",
@@ -50,11 +68,10 @@ const Games: GameInfo[] =
 },
 {
     title:"Project (Paraminia)",
-    description: `Experiment # 7 wake up.
-    The military base is being destroyed by a failure in the system. 
-    One of the most promising experiments of the new century. 
-    Travel back in time, it has corrupted and freeing all the experiments saved for years. 
-    Destroying everything in its path and destroying the building. 
+    description: `Experiment # 7 wake up.<br/>
+    The military base is being destroyed by a failure in the system. One of the most promising experiments of the new century. <br/>
+    Travel back in time, it has corrupted and freeing all the experiments saved for years. <br/>
+    Destroying everything in its path and destroying the building. <br/>
     Creating a  breakdown in space time. We become the only option to be able to reverse what it may be the end of the world.`,
     link: ["https://tcela.itch.io/paraminia"],
     embeddedLink:"https://www.youtube.com/watch?v=xoG298XpNLM",

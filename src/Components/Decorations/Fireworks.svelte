@@ -8,6 +8,8 @@
     export let autoPlayFireworks : boolean  = true;
     export let autoStartY        : number   = 1500;
 
+    let stylish : any       = $$props.style;
+
     type VectorPos = { x: number; y: number };
 
     const firePosition   : VectorPos    = { x: 0, y: 0 };
@@ -201,7 +203,7 @@ onMount(() =>
 </script>
 
 {#if showTrigger}
-    <svg stroke="#fff" stroke-linecap="round">
+    <svg stroke="#fff" stroke-linecap="round" style="{stylish};">
         <g class="stage">
             <rect width="100%" height="100%" fill="rgba(0,0,0,0)" stroke="none"/>
         </g>

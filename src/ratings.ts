@@ -40,6 +40,11 @@ export const AllRatings: RatingInfo[] = [
 		review: "Él si era",
 	},
 	{
+		name: "Solecitotecalientaunpoquito",
+		stars: 5,
+		review: "Espero que tengas un lindo día, quizás no pueda felicitarte o comunicarme contigo, pero que sepas que estaré deseándote lo mejor y espero el mejor momento que puedas pasar en tu cumpleaños.",
+	},
+	{
 		name: "Chicken",
 		stars: 5,
 		review: "Felizmente me encontré con este programador y me pareció una persona muy amable y atenta, por lo que casé con él.",

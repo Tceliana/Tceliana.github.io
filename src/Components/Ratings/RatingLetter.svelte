@@ -23,7 +23,8 @@
         let velocity = 0.0007;
 
         function AutoScroll() {           
-
+            if(textReview === null)
+                return;
             textReview.scrollTop= Math.floor(scrollPercentage * textReview.scrollHeight);
             backgroundScroll = textReview.scrollTop -0.248* window.innerWidth;
 

@@ -8,7 +8,7 @@
 
 <Fireworks showTrigger style="z-index:0;" />
 
-<div style="min-height: {(pageHeight + 1.5) * 100}vh;">
+<div style="min-height: {(pageHeight + 1.8) * 100}vh;">
     <div class="background" />
     <div class="rows">
         <h1 style="font-family: earthsmightiestbold; color: var(--COLOR_PRIMARY); ">GAMES</h1>

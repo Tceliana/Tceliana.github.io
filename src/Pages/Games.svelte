@@ -13,20 +13,12 @@
     <div class="rows">
         <h1 style="font-family: earthsmightiestbold; color: var(--COLOR_PRIMARY); ">GAMES</h1>
         {#each Games as game, index}
-            {#if index % 2 == 0}
-                <GameView
-                    startAtPixelY={index * max_scrollbar_height / Games.length}
-                    endAtPixelY={(index + 1) * max_scrollbar_height / Games.length}
-                    gameInfo={game}
-                />
-            {:else}
-                <GameView
-                    flipX
-                    startAtPixelY={index * max_scrollbar_height / Games.length}
-                    endAtPixelY={(index + 1) * max_scrollbar_height / Games.length}
-                    gameInfo={game}
-                />
-            {/if}
+            <GameView
+                flipX = {index % 2 != 0}
+                startAtPixelY={index * max_scrollbar_height / Games.length}
+                endAtPixelY={(index + 1) * max_scrollbar_height / Games.length}
+                gameInfo={game}
+            />
         {/each}
     </div>
     <img class="footer" src="/images/tcela_dibus/beach.png" alt="Tcela looking at infinitum xD" />

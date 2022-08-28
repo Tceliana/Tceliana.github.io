@@ -47,6 +47,12 @@ export const AllRatings: RatingInfo[] = [
 	{
 		name: "Chicken",
 		stars: 5,
-		review: "Felizmente me encontré con este programador y me pareció una persona muy amable y atenta, por lo que casé con él.",
+		review: "Conoci a teclas cuando un dia entre a su canal porque era acerca de programacion… estaba cantando asi que obvio me quede a ver que mas hacia xp. La verdad si me sorprendi un poco en que empazaba a decir “les cuento un chisme? Les cuando un chisme?” Pues ya no cabe mencionar que me di cuenta que su canal era mas de chisme que de programacion… y como usualmente dejo la programacion abandonada(pero el chisme no) pues por eso me quede. Le pone mas esfuerzo a los trolls, pero tmb es buen programador y aun mejor amigo.",
 	},
+	{
+		name: "Follow 4 Follow",
+		stars: 2,
+		review: "Mira éste <a target='_blank' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>video</a>",
+	},
+
 ]

@@ -79,27 +79,15 @@
 </script>
 
 
-{#if ["L", "R"].includes(mode)}
-    <div
-        bind:this={mainDiv}
-        class="Appearable columns {mode} "
-        style=" {stylish};
-    --deltaSize:{-movingQuantity * 100 + 'vw'}; 
-    --offset:{offset + '%'}"
-    >
-        <slot />
-    </div>
-{:else if ["U", "D"].includes(mode)}
-    <div
-        bind:this={mainDiv}
-        class="Appearable rows {mode} "
-        style="{stylish};
-    --deltaSize:{-movingQuantity * 100 + 'vh'}; 
-    --offset:{offset + '%'}"
-    >
-        <slot />
-    </div>
-{/if}
+<div
+    bind:this={mainDiv}
+    class="Appearable {mode} "
+    style=" {stylish};
+--deltaSize:{-movingQuantity * 100 + (["L", "R"].includes(mode) ? 'vw' : "vh")}; 
+--offset:{offset + '%'}"
+>
+    <slot />
+</div>
 
 
 <svelte:window bind:scrollY={YPosition} />

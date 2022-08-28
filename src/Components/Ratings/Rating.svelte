@@ -18,48 +18,56 @@
 <ActiveByScroll {startPercentage} {endPercentage}>
     <MovingContainer {startPercentage} {endPercentage} {mode} style="z-index:400">
         {#if mode === "L"}
-            <div class="ImageContainer" on:mouseenter={()=>setDisplayLetter(true)} on:mouseleave={()=>setDisplayLetter(false)}>
-                <img class="TcelaImage" src="/images/tcela_dibus/patotata.png" alt="Tcela speaking"/>
-            </div>
-            <div class = "LetterContainer" style="left:100%;">
-                {#if displayLetter}            
-                    <div class ="MoveLR" >
-                        <RatingLetter {ratingInfo} />
-                    </div>
-                {/if}           
+            <div class="columns" on:mouseenter={()=>setDisplayLetter(true)} on:mouseleave={()=>setDisplayLetter(false)}>
+                <div class="ImageContainer">
+                    <img class="TcelaImage" src="/images/tcela_dibus/patotata.png" alt="Tcela speaking"/>
+                </div>
+                <div class = "LetterContainer" style="left:100%;">
+                    {#if displayLetter}            
+                        <div class ="MoveLR" >
+                            <RatingLetter {ratingInfo} />
+                        </div>
+                    {/if}           
+                </div>
             </div>
         {:else if mode === "R"}
-            <div class = "LetterContainer" style="right:100%;">
-                {#if displayLetter}            
-                    <div class ="MoveRL" >
-                        <RatingLetter {ratingInfo} />
-                    </div>
-                {/if}           
-            </div>
-            <div class="ImageContainer" on:mouseenter={()=>setDisplayLetter(true)} on:mouseleave={()=>setDisplayLetter(false)}>
-                <img class="TcelaImage flipX" src="/images/tcela_dibus/patotata.png" alt="Tcela speaking"/>
+            <div class="columns" on:mouseenter={()=>setDisplayLetter(true)} on:mouseleave={()=>setDisplayLetter(false)}>
+                <div class = "LetterContainer" style="right:100%;">
+                    {#if displayLetter}            
+                        <div class ="MoveRL" >
+                            <RatingLetter {ratingInfo} />
+                        </div>
+                    {/if}           
+                </div>
+                <div class="ImageContainer">
+                    <img class="TcelaImage flipX" src="/images/tcela_dibus/patotata.png" alt="Tcela speaking"/>
+                </div>
             </div>
         {:else if mode === "U"}
-            <div class="ImageContainer" on:mouseenter={()=>setDisplayLetter(true)} on:mouseleave={()=>setDisplayLetter(false)}>
-                <img class="TcelaImage rotate90" src="/images/tcela_dibus/patotatav.png" alt="Tcela speaking"/>
-            </div>
-            <div class = "LetterContainer" style="top:100%;">
-                {#if displayLetter}
-                    <div class ="MoveUD" >
-                        <RatingLetter {ratingInfo} />
-                    </div>
-                {/if}           
+            <div class="rows" on:mouseenter={()=>setDisplayLetter(true)} on:mouseleave={()=>setDisplayLetter(false)}>
+                <div class="ImageContainer">
+                    <img class="TcelaImage rotate90" src="/images/tcela_dibus/patotatav.png" alt="Tcela speaking"/>
+                </div>
+                <div class = "LetterContainer" style="top:100%;">
+                    {#if displayLetter}
+                        <div class ="MoveUD" >
+                            <RatingLetter {ratingInfo} />
+                        </div>
+                    {/if}           
+                </div>
             </div>
         {:else if mode === "D"}
-            <div class = "LetterContainer" style="bottom:100%">
-                {#if displayLetter}
-                    <div class ="MoveDU" >
-                        <RatingLetter {ratingInfo} />
-                    </div>
-                {/if}
-            </div>
-            <div class="ImageContainer" on:mouseenter={()=>setDisplayLetter(true)} on:mouseleave={()=>setDisplayLetter(false)}>
-                <img class="TcelaImage flipY" src="/images/tcela_dibus/patotatav.png" alt="Tcela speaking"/>
+            <div class="rows" on:mouseenter={()=>setDisplayLetter(true)} on:mouseleave={()=>setDisplayLetter(false)}>
+                <div class = "LetterContainer" style="bottom:100%">
+                    {#if displayLetter}
+                        <div class ="MoveDU" >
+                            <RatingLetter {ratingInfo} />
+                        </div>
+                    {/if}
+                </div>
+                <div class="ImageContainer">
+                    <img class="TcelaImage flipY" src="/images/tcela_dibus/patotatav.png" alt="Tcela speaking"/>
+                </div>
             </div>
         {/if}
     </MovingContainer>

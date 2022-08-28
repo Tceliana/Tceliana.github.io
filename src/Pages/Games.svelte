@@ -1,9 +1,12 @@
 <script lang="ts">
+    import Fireworks from "../Components/Decorations/Fireworks.svelte";
     import GameView from "../Components/Games/GameView.svelte";
     import Games from "../gameInfo";
     const pageHeight: number = (Games.length + 1) * 1;
     let max_scrollbar_height: number = window.innerHeight * pageHeight;
 </script>
+
+<Fireworks showTrigger style="z-index:0;" />
 
 <div style="min-height: {(pageHeight + 1.5) * 100}vh;">
     <div class="background" />

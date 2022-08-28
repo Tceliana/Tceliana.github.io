@@ -10,7 +10,7 @@
     <h2>
         <a href={gameInfo.link[0]}>{gameInfo.title}</a>
     </h2>
-    <div>{gameInfo.description}</div>
+    <div>{@html gameInfo.description}</div>
 </div>
 
 <style>

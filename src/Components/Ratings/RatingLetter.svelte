@@ -50,7 +50,7 @@
         </div>
         <div class="review-separator" />
         <span class="review" bind:this="{textReview}" style="background-position: center {-backgroundScroll}px">
-            {ratingInfo.review}
+            {@html ratingInfo.review}
         </span>
     </div>
 </div>

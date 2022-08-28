@@ -20,35 +20,66 @@
     let gameDescriptionOpacity      : number = 0;
     let gameDescriptionAppearance   : number = 0;
 
+    let hasEnteredDisplay = false;
+
+    function resetVariables()
+    {
+        pathPercentage = 0;
+        scrollUpPercentage = 0;
+        imageOpacity = 0;
+        gameDescriptionOpacity = 0;
+        gameDescriptionAppearance = 0;
+    }
+
     window.addEventListener("scroll", () => 
     {
-        let isCurrentPositionOverView : boolean 
-            = YPosition < startAtPixelY || YPosition > endAtPixelY;
-        if (isCurrentPositionOverView) 
+        if(isDisplayed(YPosition) === false)
         {
-            pathPercentage      = 0;
-            scrollUpPercentage  = 0;
+            resetVariables();
             return;
         }
-        if (YPosition < startScrollUpAtPixelY) 
-        {
-            pathPercentage = getPercentage(startAtPixelY, startScrollUpAtPixelY, YPosition);
+        
+        if (YPosition < startScrollUpAtPixelY)
             scrollUpPercentage = 0;
-        } 
         else 
-        {
-            pathPercentage = 1;
             scrollUpPercentage = getPercentage(startScrollUpAtPixelY, endAtPixelY, YPosition);
-        }
-
-        imageOpacity = getPercentage(0.2, 0.5, pathPercentage);
-        gameDescriptionOpacity = getPercentage(0.7, 0.8, pathPercentage);
-        gameDescriptionAppearance = getPercentage(0.5, 0.8, pathPercentage);
     });
+
+    function Animation(miliSecondsDuration:number = 1200)
+    {
+        const frameRate = 30;
+        let animationPercentage = 0;
+        let animationID = null;
+        
+        function Update()
+        {
+            animationPercentage += frameRate/miliSecondsDuration;
+            pathPercentage = Math.min(animationPercentage, 1);
+            imageOpacity = getPercentage(0.2, 0.5, pathPercentage);
+            gameDescriptionOpacity = getPercentage(0.5, 0.8, pathPercentage);
+            gameDescriptionAppearance = getPercentage(0, 0.8, pathPercentage);
+
+            if(animationPercentage >=1 || isDisplayed(YPosition) === false)
+                clearInterval(animationID);            
+
+        }
+        animationID = setInterval(Update, frameRate)
+    }
 
     function isDisplayed(Ypos : number) : boolean 
     {
-        return Ypos > startAtPixelY && Ypos < endAtPixelY;
+        const returned = Ypos > startAtPixelY && Ypos < endAtPixelY;
+        if(returned === true && hasEnteredDisplay == false)
+        {
+            hasEnteredDisplay = true;
+            Animation();
+        }
+        else if(returned === false)
+        {
+            resetVariables();
+            hasEnteredDisplay = false;
+        }
+        return returned;
     }
 </script>
 

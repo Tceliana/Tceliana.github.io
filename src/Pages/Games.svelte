@@ -2,31 +2,23 @@
     import Fireworks from "../Components/Decorations/Fireworks.svelte";
     import GameView from "../Components/Games/GameView.svelte";
     import Games from "../gameInfo";
-    const pageHeight: number = (Games.length + 1) * 1;
-    let max_scrollbar_height: number = window.innerHeight * pageHeight;
+    const gameHeight: number = window.innerHeight * 0.5;
+    const pageHeight: number = gameHeight*(Games.length) + 1.8 *window.innerHeight;
 </script>
 
-<Fireworks showTrigger style="z-index:0;" />
+ <Fireworks showTrigger style="z-index:0;" /> 
 
-<div style="min-height: {(pageHeight + 1.8) * 100}vh;">
+<div style="min-height: {pageHeight}px;">
     <div class="background" />
     <div class="rows">
         <h1 style="font-family: earthsmightiestbold; color: var(--COLOR_PRIMARY); ">GAMES</h1>
         {#each Games as game, index}
-            {#if index % 2 == 0}
-                <GameView
-                    startAtPixelY={index * max_scrollbar_height / Games.length}
-                    endAtPixelY={(index + 1) * max_scrollbar_height / Games.length}
-                    gameInfo={game}
-                />
-            {:else}
-                <GameView
-                    flipX
-                    startAtPixelY={index * max_scrollbar_height / Games.length}
-                    endAtPixelY={(index + 1) * max_scrollbar_height / Games.length}
-                    gameInfo={game}
-                />
-            {/if}
+            <GameView
+                flipX = {index % 2 != 0}
+                startAtPixelY={index * gameHeight}
+                endAtPixelY={(index + 1) * gameHeight}
+                gameInfo={game}
+            />
         {/each}
     </div>
     <img class="footer" src="/images/tcela_dibus/beach.png" alt="Tcela looking at infinitum xD" />

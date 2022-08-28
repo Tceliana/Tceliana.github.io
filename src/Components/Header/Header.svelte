@@ -12,12 +12,12 @@
         <li class="menu_tab">
             <HeaderLink linkName="Games" path="/games" icon="gamepad" />
         </li>
-        <li class="menu_tab">
+        <!-- <li class="menu_tab">
             <HeaderLink linkName="Work" path=".." icon="briefcase" />
         </li>
         <li class="menu_tab">
             <HeaderLink linkName="Contact" path=".." icon="envelopes-bulk" />
-        </li>
+        </li> -->
         <li class="menu_tab">
             <FollowButton/>
         </li> 

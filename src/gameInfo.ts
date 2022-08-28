@@ -18,6 +18,24 @@ const Games: GameInfo[] =
     embeddedAspect :"expand"
 }, 
 {
+    title:"Super Dungeon",
+    description: `Survival game where agility and strategy is the number one key to
+    Get the victory, fight the hordes and advance all levels to the end.`,
+    link: ["https://play.google.com/store/apps/details?id=com.TcelaGames.SuperDungeon"],
+    embeddedLink:"https://www.youtube.com/watch?v=SYMWNhR8hdg",
+    embeddedAspect :"expand"
+}, 
+{
+    title:"Free Fall",
+    description: `You will have to demonstrate your dodging skills, where the ball will have to dodge the walls until it reaches the goal. You can you can cross on the sides, or under them, all to your imagination.
+    A game of strategy and speed.
+    The higher the level, the more difficult it will be to reach the goal. Are you able to do it?`,
+    link: ["https://play.google.com/store/apps/details?id=com.Tcela.FreeFall"],
+    embeddedLink:"https://user-images.githubusercontent.com/83143288/187065006-f9c88b1f-8fc5-4bbc-8330-30f88e38712b.png",
+    embeddedAspect :"expand"
+}, 
+
+{
     title:"Procedural Dungeon",
     description: `A basic way to develop a random and procedural 3D Dungeon with customized prefabs (models). Available on github!`,
     link: ["https://github.com/tenecela19/Dungeon_Procedural"],

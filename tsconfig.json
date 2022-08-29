@@ -9,6 +9,9 @@
     "public/*"
   ],
   "compilerOptions": {
-    "isolatedModules": true
-  },
+    "isolatedModules": true,
+    "paths": {
+      "@/*": ["./src/*"],
+    },
+  }
 }

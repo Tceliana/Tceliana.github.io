@@ -1,8 +1,8 @@
 <script lang="ts">
     import MovingContainer      from "./MovingContainer.svelte";
     import RatingLetter         from "./RatingLetter.svelte";
-    import ActiveByScroll       from "../ActiveByScroll.svelte";
-    import type { RatingInfo }  from "../../Database/ratings";
+    import ActiveByScroll       from "@/Components/ActiveByScroll.svelte";
+    import type { RatingInfo }  from "@/Database/ratings";
 
     type Directions = "U" | "R" | "L" | "D";
 

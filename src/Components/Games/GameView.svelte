@@ -2,8 +2,8 @@
     import GameDescription      from "./GameDescription.svelte";
     import SvgScrollPath        from "./SVGScrollPath.svelte";
     import EmbeddedLink         from "./EmbeddedLink.svelte";
-    import { getPercentage }    from "../../Scripts/maths";
-    import type { GameInfo }    from "../../Database/gameInfo";
+    import { getPercentage }    from "@/Scripts/maths";
+    import type { GameInfo }    from "@/Database/gameInfo";
 
     export let gameInfo         : GameInfo;
     export let flipX            : boolean = false;

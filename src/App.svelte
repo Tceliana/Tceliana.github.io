@@ -1,9 +1,9 @@
 <script lang="ts">
     import { Router, Route } from "svelte-routing";
 
-    import Home from "./Pages/Home.svelte";
-    import Header from "./Components/Header/Header.svelte";
-    import Games from "./Pages/Games.svelte";
+    import Home     from "@/Pages/Home.svelte";
+    import Header   from "@/Components/Header/Header.svelte";
+    import Games    from "@/Pages/Games.svelte";
     
 </script>
 

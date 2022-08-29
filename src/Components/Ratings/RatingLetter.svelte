@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { getRandomNumber } from "../../Scripts/maths";
-    import type { RatingInfo } from "../../Database/ratings";
+    import { getRandomNumber } from "@/Scripts/maths";
+    import type { RatingInfo } from "@/Database/ratings";
     import { onMount } from "svelte";
     export let ratingInfo : RatingInfo;
 

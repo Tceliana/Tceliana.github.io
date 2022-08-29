@@ -1,5 +1,5 @@
 <script lang="ts">
-    import SVGPath from "../../Scripts/SvgPath";
+    import SVGPath from "@/Scripts/SvgPath";
 
     export let flipX                : boolean = false;
     export let percentageCompleted  : number;

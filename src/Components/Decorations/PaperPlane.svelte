@@ -1,6 +1,6 @@
 <script type="ts">
-    import { getRandomNumber } from "../../Scripts/maths";
-    import SVGPath from "../../Scripts/SvgPath";
+    import { getRandomNumber } from "@/Scripts/maths";
+    import SVGPath from "@/Scripts/SvgPath";
 
     let planes: { url: string; tilt: number }[] = [
         { url: "./images/planes/red_plane.png",     tilt: 0 },

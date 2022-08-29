@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { GameInfo } from "../../Database/gameInfo";
+    import type { GameInfo } from "@/Database/gameInfo";
 
     export let gameInfo : GameInfo;
     

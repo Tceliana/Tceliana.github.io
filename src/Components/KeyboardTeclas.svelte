@@ -1,8 +1,6 @@
 <script type="ts">
-import all from "gsap/all";
-
-    import { onMount } from "svelte";
-    import Matrix from "./Matrix.svelte";
+    import { onMount }  from "svelte";
+    import Matrix       from "./Matrix.svelte";
 
     const timestamps  : any[]     = [];
 
@@ -96,9 +94,7 @@ import all from "gsap/all";
     function targetRandomKey() : void
     {
         const key : HTMLElement = document.getElementById(getRandomKey());
-        console.log(key);
         key.classList.add("selected");
-        let start : number = Date.now()
     }
 
 function getTimestamp() : number
@@ -109,7 +105,7 @@ function getTimestamp() : number
 document.addEventListener("keyup", event => 
 {
     const 
-    keyPressed      : string        = String.fromCharCode(event.keyCode),
+    keyPressed      : string        = event.key.toUpperCase(),
     keyElement      : HTMLElement   = document.getElementById(keyPressed),
     highlightedKey  : Element       = document.querySelector(".selected");
     console.log(keyPressed);

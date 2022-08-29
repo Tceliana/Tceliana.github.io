@@ -190,7 +190,7 @@ onMount(() =>
 {
     stage = document.querySelector(".stage");
 
-    stage.onpointerup = (mouse : MouseEvent) =>
+    stage.onpointerup = (_ : MouseEvent) =>
     {
         gsap.killTweensOf(autoPlay);
         gsap.killTweensOf(fire);

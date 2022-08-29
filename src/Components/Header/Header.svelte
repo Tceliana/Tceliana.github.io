@@ -7,16 +7,16 @@
     <a href=".." class="logo">La leyenda</a>
     <ul id="nav_menu">
         <li class="menu_tab">
-            <HeaderLink linkName="Home" path=".." icon="home" />
+            <HeaderLink linkName="Inicio" path=".." icon="home" />
         </li>
         <li class="menu_tab">
-            <HeaderLink linkName="Games" path="/games" icon="gamepad" />
+            <HeaderLink linkName="Juegos" path="/games" icon="gamepad" />
         </li>
         <!-- <li class="menu_tab">
             <HeaderLink linkName="Work" path=".." icon="briefcase" />
         </li>
         <li class="menu_tab">
-            <HeaderLink linkName="Contact" path=".." icon="envelopes-bulk" />
+            <HeaderLink linkName="Contacto" path=".." icon="envelopes-bulk" />
         </li> -->
         <li class="menu_tab">
             <FollowButton/>

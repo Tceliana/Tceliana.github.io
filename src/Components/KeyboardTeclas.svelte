@@ -204,7 +204,7 @@ onMount(() =>
 {/if}
 {#if passworUnlock}
 <Matrix />
-<div><h2 id="pwd">Password Unlocked</h2>
+<div><h2 id="pwd">Contraseña desbloqueada</h2>
 </div>
 <Matrix />
 {/if}
@@ -218,6 +218,7 @@ onMount(() =>
     transform:      translate(-50%, -50%);
     z-index:        201;
     filter:         drop-shadow(2px 2px 2px #80ff00);
+    white-space:    nowrap;
 }
 
     .keyboard 

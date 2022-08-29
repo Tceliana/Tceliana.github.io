@@ -12,7 +12,7 @@
 <div style="min-height: {pageHeight}px;">
     <div class="background" />
     <div class="rows">
-        <h1 style="font-family: earthsmightiestbold; color: var(--COLOR_PRIMARY); ">GAMES</h1>
+        <h1 style="font-family: earthsmightiestbold; color: var(--COLOR_PRIMARY); ">JUEGOS</h1>
         {#each Games as game, index}
             <GameView
                 flipX = {index % 2 != 0}

@@ -9,7 +9,7 @@
 
 <div class="button" on:mousedown={() => showSocialNetworks = !showSocialNetworks} >
     <span on:mouseenter={()=>isHovering=true} on:mouseleave={()=>isHovering=false}>
-        <i class="fa-solid fa-heart header-fa-icon"></i> Follow me
+        <i class="fa-solid fa-heart header-fa-icon"></i> Sígueme
     </span>
     {#if isHovering}
         <CircleAnimation />

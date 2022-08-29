@@ -6,6 +6,17 @@ import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
+import alias from '@rollup/plugin-alias';
+import path from 'path'
+
+const projectRootDir = path.resolve(__dirname);
+
+const aliases = alias({
+	entries: [
+		{ find: '@', replacement: path.resolve(projectRootDir, 'src')}
+	]
+  });
+  
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -75,7 +86,13 @@ export default {
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
-		production && terser()
+		production && terser(),
+
+		//To make absolute paths working:
+		//https://stackoverflow.com/questions/63427935/setup-tsconfig-path-in-svelte
+		aliases,
+
+
 	],
 	watch: {
 		clearScreen: false

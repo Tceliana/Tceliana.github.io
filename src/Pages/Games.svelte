@@ -1,7 +1,7 @@
 <script lang="ts">
-    import Fireworks from "../Components/Decorations/Fireworks.svelte";
-    import GameView from "../Components/Games/GameView.svelte";
-    import Games from "../Database/gameInfo";
+    import Fireworks from "@/Components/Decorations/Fireworks.svelte";
+    import GameView from "@/Components/Games/GameView.svelte";
+    import Games from "@/Database/gameInfo";
     const pageHeight: number = (Games.length + 1) * 1;
     let max_scrollbar_height: number = window.innerHeight * pageHeight;
 </script>

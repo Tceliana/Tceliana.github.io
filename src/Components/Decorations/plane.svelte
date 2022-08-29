@@ -1,9 +1,7 @@
 <script lang="ts">
     import {onMount}    from "svelte";
     import gsap         from "gsap";
-
-    const image : string = "/images/tcela_dibus/tcela_plane.svg";
-    
+   
     var plane           : HTMLElement;
     var defaultDuration :number= 2.5;
     
@@ -28,7 +26,7 @@
 
 </script>
 <div class="bottom">
-    <div bind:this={plane} class="footer" style=" background-image: url('{image}')" />
+    <div bind:this={plane} class="footer plane" />
 </div>
 <style>
     .bottom
@@ -46,6 +44,12 @@
         background-repeat:      no-repeat;
         background-position:    center bottom;
         background-size:        15% 15%;
+    }
+
+    .plane
+    {
+        background-image: url('/images/tcela_dibus/tcela_plane.svg');
+        filter:  drop-shadow(-20px 70px 15px rgba(0, 0, 0, 0.4));
     }
 
 </style>

@@ -111,6 +111,7 @@
       .balloon
       {
             width: 15vw;
+            filter: drop-shadow(4px 5px 10px rgba(0, 0, 0, 0.4));
       }
 
       .banner

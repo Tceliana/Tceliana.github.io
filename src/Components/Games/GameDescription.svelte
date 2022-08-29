@@ -8,7 +8,7 @@
 
 <div class="gameView" style={stylish}>
     <h2>
-        <a href={gameInfo.link[0]}>{gameInfo.title}</a>
+        <a href={gameInfo.link}>{gameInfo.title}</a>
     </h2>
     <div>{@html gameInfo.description}</div>
 </div>

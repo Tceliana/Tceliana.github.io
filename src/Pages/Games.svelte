@@ -6,7 +6,7 @@
     let max_scrollbar_height: number = window.innerHeight * pageHeight;
 </script>
 
-<Fireworks showTrigger style="z-index:0;" />
+<Fireworks showTrigger autoStartY={0} style="z-index:0;" />
 
 <div style="min-height: {(pageHeight + 1.8) * 100}vh;">
     <div class="background" />

@@ -3,9 +3,6 @@
     import SVGPath from "@/Scripts/SvgPath";
 
     let planes: { url: string; tilt: number }[] = [
-        { url: "./images/planes/red_plane.png",     tilt: 0 },
-        { url: "./images/planes/yellow_plane.png",  tilt: 0 },
-        { url: "./images/planes/blue_plane.png",    tilt: 0 },
         { url: "./images/planes/red_plane1.png",    tilt: 0 },
         { url: "./images/planes/yellow_plane1.png", tilt: 0 },
         { url: "./images/planes/blue_plane1.png",   tilt: 0 },

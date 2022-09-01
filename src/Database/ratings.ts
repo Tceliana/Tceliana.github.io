@@ -26,7 +26,7 @@ export const AllRatings: RatingInfo[] = [
 	{
 		name: "WilmiRosa",
 		stars: 5,
-		review: "¡Mejor programador de UwU!",
+		review: "Tcela es el mejor programador de UwU!",
 	},
 	{
 		name: "PodcastMataró",
@@ -60,5 +60,10 @@ export const AllRatings: RatingInfo[] = [
 		Vos y la masturbanda de programadores son unas de las personas que; si volviera al pasado, me gustaría volver a conocer una y otra vez. <br></br>
 		<br></br>
 		PD: Aguante Boca,`
+	},
+	{
+		name: "Maria ElzapoRico <3",
+		stars: 3,
+		review: `Por días de más programación y menos chisme :) `
 	},
 ]

@@ -10,7 +10,7 @@ jobs:
 
     steps:
        - uses: actions/checkout@v3
-       
+
        - name: Switch to gh-pages
          run: |
            git checkout -B gh-pages
@@ -21,15 +21,25 @@ jobs:
            node-version: 14.x
            cache: 'npm'
 
-       - name: Install node dependencies
-         run: npm ci
-
-       - name: Build website
-         run: npm run build
+       - name: Install dependencies and building the project
+         run: | 
+          npm ci
+          npm run build         
 
        - name: Commit
          run: |
-           git filter-branch -f --subdirectory-filter public -- gh-pages
-           git add .
-           git commit -m ":robot: Add changes"
-           git push --force-with-lease --set-upstream origin gh-pages
+          echo "Credentials..."
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          echo "Adding the public folder as the main folder in gh-pages branch..."
+          git filter-branch -f --subdirectory-filter public -- gh-pages
+          
+          echo "Committing new changes..."
+          git add .
+          git commit -m ":robot: Add changes"
+          
+          echo "Forcing gh-pages new HEAD..."
+          git push --force-with-lease --set-upstream origin gh-pages
+
+          echo "All done."

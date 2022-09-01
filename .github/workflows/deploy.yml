@@ -40,6 +40,6 @@ jobs:
           git commit -m ":robot: Add changes"
           
           echo "Forcing gh-pages new HEAD..."
-          git push --force-with-lease
+          git push --set-upstream origin gh-pages
 
           echo "All done."

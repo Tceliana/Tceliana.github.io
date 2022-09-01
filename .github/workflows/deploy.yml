@@ -34,6 +34,9 @@ jobs:
           echo "Adding the public folder as the main folder in gh-pages branch..."
           git filter-branch -f --subdirectory-filter public -- gh-pages
 
+          echo "Move bundles to root folder"
+          mv ./public/build ./build
+
           echo "Committing new changes..."
           git add .
           git commit -m ":robot: Deploy action, adding bundles... Beep Beep"

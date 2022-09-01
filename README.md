@@ -33,20 +33,20 @@ git pull
 ```
 
 # Interactuar con la web
-1) Lanzar la web en local (localhost):
+
+-   **Lanzar la web en local (localhost)**:
+
 ```
 npm run dev
 ```
-2) Build de la web
-```
-npm run build
-```
-3) Actualizar tceliana.github.com:
-Disclaimer: ¡Es necesario que haya algún cambio en la carpeta `public`!
-```
-git subtree push --prefix public origin gh-pages
-```
 
+-   **Desplegar la web**:
+
+Action -> 0.Deploy Website -> Run Workflow -> Branch:main -> Run workflow.
+
+![Img](https://user-images.githubusercontent.com/83143288/187862226-75088a88-1267-47be-b66e-47ca80e69bfb.png)
+
+Si la Github action falla, subir la carpeta `public` con todos los **bundles** en la rama gh-pages.
 
 # Links
 

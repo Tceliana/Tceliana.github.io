@@ -22,7 +22,7 @@
 <div class="mainContainer">
     <div class="rows">
         <h1 bind:this={title} class="title">Teclas Me Hornea Mushu</h1>
-        <p>El leyenda comienza.</p>
+        <p>El leyenda comienza...</p>
         <LandingStory />
         <img class="heart" src="/images/heart.svg" alt="heart SVG <3" />
         <KeyboardTeclas show />

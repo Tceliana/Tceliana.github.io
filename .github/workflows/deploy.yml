@@ -24,7 +24,7 @@ jobs:
        - name: Install dependencies and building the project
          run: | 
           npm ci
-          npm run build         
+          npm run build
 
        - name: Commit
          run: |
@@ -40,6 +40,6 @@ jobs:
           git commit -m ":robot: Add changes"
           
           echo "Forcing gh-pages new HEAD..."
-          git push --force-with-lease --set-upstream origin gh-pages
+          git push --force-with-lease
 
           echo "All done."

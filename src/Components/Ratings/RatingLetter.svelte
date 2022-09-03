@@ -2,122 +2,108 @@
     import { getRandomNumber } from "@/Scripts/maths";
     import type { RatingInfo } from "@/Database/ratings";
     import { onMount } from "svelte";
-    export let ratingInfo : RatingInfo;
+    export let ratingInfo: RatingInfo;
+    const starsPath = [
+        "/images/tickectsvg/estrellitas/patitoROUGE.svg",
+        "/images/tickectsvg/estrellitas/patoNOIR.svg",
+        "/images/tickectsvg/estrellitas/patapatoROUGE.svg",
+        "/images/tickectsvg/estrellitas/patoROUGE.svg",
+        "/images/tickectsvg/estrellitas/patitoNOIR.svg",
+        "/images/tickectsvg/estrellitas/patapatoNOIR.svg",
+    ];
+    const getRandomStar = () => starsPath[getRandomNumber(0, starsPath.length - 1)];
 
-    const getRandomStar= () =>"/images/stars/star"+ getRandomNumber(1,3)+".png"
-    
-    let textReview:HTMLElement;
-    let scrollPercentage = -0.05;
+    let textReview: HTMLElement;
+    let scrollPercentage = -0.1;
     let backgroundScroll = 0;
-    
-    onMount(() => {
-        if(HasScroll(textReview))
-            StartAutoScroll();
 
+    onMount(() => {
+        if (HasScroll(textReview)) StartAutoScroll();
     });
 
-    function HasScroll(element:HTMLElement):boolean    { return element.clientHeight*1.01 <= element.scrollHeight; }
+    let HasScroll = (element: HTMLElement) => element.clientHeight * 1.1 <= element.scrollHeight;
 
-    function StartAutoScroll()
-    {    
+    function StartAutoScroll() {
         let velocity = 0.0007;
 
-        function AutoScroll() {           
-            if(textReview === null)
-                return;
-            textReview.scrollTop= Math.floor(scrollPercentage * textReview.scrollHeight);
-            backgroundScroll = textReview.scrollTop -0.248* window.innerWidth;
+        function AutoScroll() {
+            if (textReview === null) return;
+            textReview.scrollTop = Math.floor(scrollPercentage * textReview.scrollHeight);
+            backgroundScroll = textReview.scrollTop - 0.248 * window.innerWidth;
 
-            scrollPercentage += velocity
+            scrollPercentage += velocity;
 
-            if(scrollPercentage > 1)
-                scrollPercentage=-0.05                        
+            if (scrollPercentage > 1) scrollPercentage = -0.05;
         }
         setInterval(AutoScroll, 50);
     }
-    
-    let bgImage = "images/frames/cartek7.png";
-
 </script>
 
-<div class="frame" style="background-image: url('{bgImage}');">
+<div class="frame" style="background-image: url('images/pnggolden/goldenticketred.png');">
     <div class="rating rows">
-        <p>{ratingInfo.name}</p>
         <div class="starsContainer">
             {#each Array(ratingInfo.stars) as _}
-                <span class="full-star" style= "background-image: url('{getRandomStar()}');"/>
+                <span class="full-star" style="background-image: url('{getRandomStar()}');" />
             {/each}
         </div>
-        <div class="review-separator" />
-        <span class="review" bind:this="{textReview}" style="background-position: center {-backgroundScroll}px">
+
+        <div class="review-text" bind:this={textReview} style="background-position: center {-backgroundScroll}px">
+            <b>{ratingInfo.name}</b>
+            <br />
             {@html ratingInfo.review}
-        </span>
+        </div>
     </div>
 </div>
 
 <style>
     .frame {
-        background-size:        cover;
-        background-repeat:      no-repeat;
-        background-position:    center center;
-        background-size:        100% 100%;
-        padding:                0.5vh 5vw 4vh 5vw;
-        width:                  fit-content;
-        box-sizing:             border-box;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100% 100%;
+        padding: 1vh 4.1vw 0vh 4.8vw;
+        height: 35vh;
+        box-sizing: border-box;
     }
 
     .rating {
-        display:            flex;
-        justify-content:    flex-start;
-        align-items:        flex-start;
-        border:             10vw 10px;
-    }
-    .rating p {
-        margin: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        border: 100vw 100px;
     }
 
-    .review-separator {
-        margin-bottom:          0px;
-        height:                 6vh;
-        width:                  100%;
-        background-image:       url("/images/lines/hr.png");
-        background-repeat:      no-repeat;
-        background-position:    center center;
-        background-size:        100% 100%;
-    }
     .full-star {
-        display:                inline-block;
-        position:               relative;
-        background-repeat:      no-repeat;
-        background-position:    center center;
-        background-size:        100% 100%;
-        color:                  #ef5025 !important;
-        width:                  1em;
-        height:                 1em;
-        background-position:    center center;
+        display: inline-block;
+        position: relative;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100% 100%;
+        color: #ef5025 !important;
+        width: 4vh;
+        height: 4vh;
+        background-position: center center;
     }
     .starsContainer {
-        display:            flex;
-        justify-content:    flex-start;
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 5vw;
+        gap: 10px;
     }
 
-    .review {
-        max-width: 30vw;
-        max-height: 30vh;
+    .review-text {
+        background-image: url("/images/tickectsvg/9lineasrougeCentered.svg");
+
+        text-align: center;
+
+        width: 30vw;
+        height: 24.5vh;
+
         word-wrap: break-word;
         overflow-y: hidden;
-        font-size:2.5vw;
+        font-size: 2.5vw;
 
-        position: relative;
-        display: inline-block !important;
-        /* text-decoration:underline black 2px; */
-
-        background-image:       url("/images/frames/underlines.png");
-        background-size:        cover;
-        width:                  fit-content;
-        box-sizing:             border-box;
-        background-size:        100% 14.1vw;
-        line-height:            1.55vw;
+        line-height: 1.55vw;
+        line-height: 1.7vw;
     }
-
 </style>

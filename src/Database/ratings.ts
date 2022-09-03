@@ -1,10 +1,11 @@
-export interface RatingInfo {
+export interface RatingInfo
+{
 	name: string;
 	review: string;
 	stars: number;
 }
 
-export const AllRatings: RatingInfo[] = [
+export let AllRatings: RatingInfo[] = [
 	{
 		name: "Un amigo muy extraño",
 		stars: 5,

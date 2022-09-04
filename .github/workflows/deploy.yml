@@ -1,47 +1,57 @@
 name: 0. DEPLOY WEBSITE
 
 on:
-  workflow_dispatch:
+    workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
+        steps:
+            - uses: actions/checkout@v3
 
-      - name: Switch to gh-pages
-        run: |
-          git checkout -B gh-pages
+            - name: Switch to gh-pages
+              run: |
+                  git checkout -B gh-pages
 
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14.x
-          cache: "npm"
+            - name: Use Node.js 14.x
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 14.x
+                  cache: "npm"
 
-      - name: Install dependencies and building the project
-        run: |
-          npm ci
-          npm run build
+            - name: Get latest commit
+              id: get-latest-commit
+              run: |
+                  echo ::set-output name=latest_commit::$(git rev-parse HEAD)
 
-      - name: Commit
-        run: |
-          echo "Credentials..."
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
+            - name: Install dependencies and building the project
+              run: |
+                  npm ci
+                  npm run build
 
-          echo "Adding the public folder as the main folder in gh-pages branch..."
-          git filter-branch -f --subdirectory-filter public -- gh-pages
+            - name: Commit
+              run: |
+                  echo "Credentials..."
+                  git config --local user.email "github-actions[bot]@users.noreply.github.com"
+                  git config --local user.name "github-actions[bot]"
 
-          echo "Move bundles to root folder"
-          mv ./public/build ./build
+                  echo "Adding the public folder as the main folder in gh-pages branch..."
+                  git filter-branch -f --subdirectory-filter public -- gh-pages
 
-          echo "Committing new changes..."
-          git add .
-          git commit -m ":robot: Deploy action, adding bundles... Beep Beep"
+                  echo "Move bundles to root folder"
+                  mv ./public/build ./build
 
-          echo "Forcing gh-pages new HEAD..."
-          git push --force --set-upstream origin gh-pages
+                  echo "Committing new changes..."
+                  git add .
+                  git commit -m ":robot: Deploy action, adding bundles... Beep Beep"
 
-          echo "All done."
+                  echo "Forcing gh-pages new HEAD..."
+                  git push --force --set-upstream origin gh-pages
+
+                  echo "All done."
+
+            - name: "[Deploy information] Deployed from commit:  ${{steps.get-latest-commit.outputs.latest_commit}}"
+              run: |
+                  echo "Commit can be found at:"
+                  echo "https://github.com/Tceliana/Tceliana.github.io/tree/${{steps.get-latest-commit.outputs.latest_commit}}"

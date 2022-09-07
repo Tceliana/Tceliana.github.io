@@ -1,10 +1,9 @@
 <script lang="ts">
     import { Router, Route } from "svelte-routing";
 
-    import Home     from "@/Pages/Home.svelte";
-    import Header   from "@/Components/Header/Header.svelte";
-    import Games    from "@/Pages/Games.svelte";
-    
+    import Home from "@/Pages/Home.svelte";
+    import Header from "@/Components/Header/Header.svelte";
+    import Games from "@/Pages/Games.svelte";
 </script>
 
 <main
@@ -13,7 +12,7 @@
 --COLOR_SECONDARY:          #0064c8;
 --COLOR_TERTIARY:           #FFBC20;
 --COLOR_BEACH:              #008aff;
---COLOR_BACKGROUND:         #f6f8ed;
+--COLOR_BACKGROUND:         #ffffff;
 --COLOR_BUBBLE_BACKGROUND:  #4f4f4f;
 "
 >

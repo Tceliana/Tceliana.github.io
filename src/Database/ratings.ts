@@ -17,7 +17,9 @@ export let AllRatings: RatingInfo[] = [
 	{
 		name: "WayraisBleu",
 		stars: 5,
-		review: "Felizmente me encontré con este programador y me pareció una persona muy amable y atenta, por lo que me casé con él.",
+		review: `Felizmente me encontré con este programador y me pareció una persona muy amable y atenta, por lo que me casé con él.
+		<br> </br>
+		tata te quiero`,
 	},
 	{
 		name: "CarlosMushuTV",
@@ -57,10 +59,10 @@ export let AllRatings: RatingInfo[] = [
 	{
 		name: "Gustave Jev",
 		stars: 5,
-		review: `Tcela pedazo de desgraciao, te quiero decir que me descolocás porque sos un man que con hablar conmigo mientras hacías lo que yo creo es tu pasíón, hiciste que te admire a lo desgraciao, sos para mi un modelo a seguir y te admiro como programador, como streamer y como persona con lo que hasta ahora conozco de vos. Me parecés un tipazo y estoy contento con el momento en que entre a las categorías de Twich y elegí tu stream, donde me diste animos desde la primera aplicación que desarrollé y me dijiste que era recién el comienzo de lo que podía hacer... o algo así me dijiste xd... Efectivamente tenías razón.
+		review: `Tcela pedazo de desgraciao, te quiero decir que me descolocás porque sos un man que con hablar conmigo mientras hacías lo que yo creo es tu pasíón, hiciste que te admire a lo desgraciao, sos para mí un modelo a seguir y te admiro como programador, como streamer y como persona con lo que hasta ahora conozco de vos. Me parecés un tipazo y estoy contento con el momento en que entré a las categorías de Twich y elegí tu stream, donde me diste ánimos desde la primera aplicación que desarrollé y me dijiste que era recién el comienzo de lo que podía hacer... o algo así me dijiste xd... Efectivamente tenías razón.
 		Vos y la masturbanda de programadores son unas de las personas que; si volviera al pasado, me gustaría volver a conocer una y otra vez. <br></br>
 		<br></br>
-		PD: Aguante Boca,`
+		PD: Aguante Boca!`
 	},
 	{
 		name: "Maria ElzapoRico <3",

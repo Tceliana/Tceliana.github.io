@@ -31,11 +31,11 @@ export let socialNetworks: { link: string, imageURL: string, backgroundCol: stri
 		//	//backgroundCol:"#0077b5",
 		//	backgroundCol:"#7fd3ff",
 		//},
-		//{
-		//	link: "https://www.instagram.com/mr.tcela/",
-		//	imageURL: "/images/icons/spotify.png",
-		//	backgroundCol: "#80ffad",
-		//},
+		{
+			link: "https://open.spotify.com/user/31q2xflkwpbfh6echkkvynnyzyxy",
+			imageURL: "/images/icons/spotify.png",
+			backgroundCol: "#80ffad",
+		},
 		{
 			link: "https://twitter.com/tenecela19",
 			imageURL: "/images/icons/twitter.png",

@@ -3,10 +3,9 @@
 
     export let gameInfo : GameInfo;
     
-    let stylish : any = $$props.style;
 </script>
 
-<div class="gameView" style={stylish}>
+<div class="gameView" style={$$props.style}>
     <h2>
         <a href={gameInfo.link}>{gameInfo.title}</a>
     </h2>

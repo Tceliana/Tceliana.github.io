@@ -27,7 +27,7 @@
     </div>
     <img
         class="footer"
-        src="/images/tcela_dibus/beach.png"
+        src="/images/tcela_dibus/footergames2.png"
         alt="Tcela looking at infinitum xD"
     />
 </div>
@@ -40,17 +40,19 @@
         filter: drop-shadow(6px 5px 1px #fc6342);
     }
     .footer {
+        background-size: 1000px;
         position: absolute;
         bottom: 0;
-        width: 100vw;
-        margin-left: 0px;
+        width: 110vw;
+        margin-left: -84px;
+        z-index: auto;
     }
     .background {
         position: absolute;
         width: 100%;
         height: 100%;
         bottom: 0;
-        background-image: linear-gradient(
+        background-image: (
             var(--COLOR_BACKGROUND),
             var(--COLOR_BACKGROUND),
             var(--COLOR_BEACH)

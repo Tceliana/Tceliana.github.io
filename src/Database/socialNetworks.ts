@@ -1,7 +1,7 @@
 export let socialNetworks: { link: string, imageURL: string, backgroundCol: string }[] =
 	[
 		{
-			link: "https://www.twitch.tv/tcela",
+			link: "https://www.twitch.tv/mister_tcelas",
 			imageURL: "/images/icons/twitch.png",
 			backgroundCol: "#b27fff",
 		},
@@ -25,12 +25,6 @@ export let socialNetworks: { link: string, imageURL: string, backgroundCol: stri
 			imageURL: "/images/icons/github.png",
 			backgroundCol: "#80b7ff",
 		},
-		//{
-		//	link:"https://www.instagram.com/donvictort/",
-		//	imageURL:"/images/icons/linkedin.png",
-		//	//backgroundCol:"#0077b5",
-		//	backgroundCol:"#7fd3ff",
-		//},
 		{
 			link: "https://open.spotify.com/user/31q2xflkwpbfh6echkkvynnyzyxy",
 			imageURL: "/images/icons/spotify.png",
@@ -41,4 +35,10 @@ export let socialNetworks: { link: string, imageURL: string, backgroundCol: stri
 			imageURL: "/images/icons/twitter.png",
 			backgroundCol: "#7dcbff",
 		},
+		//{
+		//	link:"https://www.instagram.com/donvictort/",
+		//	imageURL:"/images/icons/linkedin.png",
+		//	//backgroundCol:"#0077b5",
+		//	backgroundCol:"#7fd3ff",
+		//},
 	]

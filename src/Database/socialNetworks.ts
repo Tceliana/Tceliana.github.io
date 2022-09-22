@@ -31,7 +31,7 @@ export let socialNetworks: { link: string, imageURL: string, backgroundCol: stri
 			backgroundCol: "#80ffad",
 		},
 		{
-			link: "https://twitter.com/tenecela19",
+			link: "https://twitter.com/MR_TCELA",
 			imageURL: "/images/icons/twitter.png",
 			backgroundCol: "#7dcbff",
 		},

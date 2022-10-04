@@ -35,9 +35,7 @@ export let socialNetworks: { link: string, imageURL: string, backgroundCol: stri
 			imageURL: "/images/icons/twitter.png",
 			backgroundCol: "#7dcbff",
 		},
-		//{
-		//	link:"https://www.instagram.com/donvictort/",
-		//	imageURL:"/images/icons/linkedin.png",
+
 		//	//backgroundCol:"#0077b5",
 		//	backgroundCol:"#7fd3ff",
 		//},

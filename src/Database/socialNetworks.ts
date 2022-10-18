@@ -36,7 +36,5 @@ export let socialNetworks: { link: string, imageURL: string, backgroundCol: stri
 			backgroundCol: "#7dcbff",
 		},
 
-		//	//backgroundCol:"#0077b5",
-		//	backgroundCol:"#7fd3ff",
-		//},
+
 	]
